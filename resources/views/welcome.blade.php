@@ -35,8 +35,8 @@
                     @else
                         <a style="color:#fff; font-weight:500; font-size:20px !important" href="{{ route('login') }}" class=" underline">Log in</a>
 
-                        <!-- @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> -->
+                        @if (Route::has('register'))
+                            <a style="color:#fff; font-weight:500; font-size:18px !important" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
                     @endauth
                 </div>
