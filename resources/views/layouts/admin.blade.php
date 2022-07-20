@@ -40,7 +40,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-
+  <style>
+    .col-md-6 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 30px !important;
+    padding-left: 0px !important;
+}
+  </style>
   </head>
 <body class="hold-transition skin-blue sidebar-mini">
 

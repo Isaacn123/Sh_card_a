@@ -11,8 +11,8 @@
               <a href="#">
                   <img src="{{asset('dist/img/avator_profile.png')}}" alt="">
               </a>
-              <h1>Nsamba Isaac</h1>
-              <p>nsambai72@gmail.com</p>
+              <h1>{{ Auth::user()->name }}</h1>
+              <p>{{ Auth::user()->email }}</p>
           </div>
 
           <ul class="nav nav-pills nav-stacked">
@@ -41,13 +41,13 @@
                       <p><span>Country </span>: Uganda</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Birthday</span>: 13 July 1986</p>
+                      <p><span>Birthday</span>: 13 july 2022</p>
                   </div>
                   <div class="bio-row">
                       <p><span>Occupation </span>: UI Designer</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: nsambai72@gmail.com</p>
+                      <p><span>Email </span>: {{ Auth::user()->email }}</p>
                   </div>
                   <div class="bio-row">
                       <p><span>Mobile </span>: (256) 775 186921</p>

@@ -18,6 +18,7 @@
         <form>
                 <hr class="my-4" />
                 <div class="form-row">
+                    <div class="form-group"> 
                     <div class="form-group col-md-6">
                         <label for="firstname">Firstname</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Brown" />
@@ -25,6 +26,7 @@
                     <div class="form-group col-md-6">
                         <label for="lastname">Lastname</label>
                         <input type="text" id="lastname" class="form-control" placeholder="Asher" />
+                    </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -80,7 +82,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save Change</button>
-            </form>
+            </form> 
        
         </div>
     </div>
