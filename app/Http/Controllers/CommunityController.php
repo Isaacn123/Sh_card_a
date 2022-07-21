@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\AgentRequestController;
+use App\Models\Agent;
 class CommunityController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class CommunityController extends Controller
     public function index()
     {
         //
-        return view('community.index');
+        $limit =25;
+        return view('community.index')->with('agents', Agent::orderBy('id', 'desc')->paginate($limit));
     }
 
     /**
@@ -25,6 +27,7 @@ class CommunityController extends Controller
     public function create()
     {
         //
+        return view('community.create');
     }
 
     /**
@@ -33,9 +36,29 @@ class CommunityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AgentRequestController $request)
     {
         //
+        @session()->flash('success', 'Success! You have successfully created Agent.');
+
+        $agent = new Agent();
+        $agent->fullName = $request->fullName;
+        $agent->age = $request->age;
+        $agent->gender = $request->gender;
+        $agent->phoneNumber = $request->phoneNumber;
+        $agent->address =$request->address;
+        $agent->nationality= $request->nationality;
+        $agent->village = $request->village;
+        $agent->assigned_assets = $request->assigned_assets;
+        $agent->assigned_farmer = $request->assigned_farmer;
+        $agent->certifications = $request->certifications;
+
+        $agent->save();
+
+        return redirect()->route('community');
+      
+
+
     }
 
     /**

@@ -38,6 +38,15 @@ Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 
+
+// RESOUCE ROUTES 
+
+Route::resource('agent', CommunityController::class);
+Route::resource('beneficial', BeneficiaryController::class);
+
+
+
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
