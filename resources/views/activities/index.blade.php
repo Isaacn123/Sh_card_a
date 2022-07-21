@@ -13,7 +13,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">List of Activities</h4>
+                                <div class="row">
+                                <div class ="col-lg-12 text-right" style=" padding:5px 0;">
                                 <a class="btn btn-primary float-right" href="create_activity.php">+ Create Activity</a>
+                                </div>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0">
                                         <thead>

@@ -44,8 +44,8 @@
     .col-md-6 {
     position: relative;
     min-height: 1px;
-    padding-right: 30px !important;
-    padding-left: 0px !important;
+    /* padding-right: 30px !important;
+    padding-left: 0px !important; */
 }
   </style>
   </head>
@@ -85,7 +85,7 @@
   </a>
   
    <div class="col-md-4">
-    <h3 style="margin-top: 10px !important;margin-bottom: 5px;">Activity sumup </h3>
+    <h3 style="margin-top: 10px !important;margin-bottom: 5px;">Activity Summary </h3>
     <p>Get summary of your most recent activities</p>
    </div>
   
