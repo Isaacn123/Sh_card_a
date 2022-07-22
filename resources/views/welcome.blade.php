@@ -41,13 +41,20 @@
                     /* color: */
                    
                  }
-                 h1{
-                        font-size: 1.8rem !important;
-                        margin:0 80px;
-                    }
+       h1{
+                        font-size: 2.1rem !important;
+                        /* margin:0 80px; */
+          }
                  .space{
-                    margin:0 120px;
+                    /* margin:0 120px; */
+                    margin-right:5px;
                  }
+     .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #d9edb9 !important;
+    border-color: #d9edb9 !important;
+    color: #aa3 !important;
+    border:0px;
+}
 
             .logo{
     height:120px;
@@ -64,17 +71,18 @@
             <div class="wrapper justify-center text-center text-sm">
             <img class="logo" src="{{asset('dist/img/shareCardLogo.png')}}">
         
-            <div class="text-gray-500">
+            <div class="text-gray-500 text-center">
             <h1>WELCOME TO <strong>SHARECARD</strong></h1>
-            <div class="text-center">
             <div class="row space">
-               <div class="col-md-6 text-center"> 
-               <a style="color:#fff; font-weight:400;" href="{{ route('login') }}">LOGIN</a>
+               <div class="col-md-6 text-right">
+                <div class="btn btn-primary">
+                <a style=" font-weight:400;" href="{{ route('login') }}">LOGIN</a>
                </div>
-               <div class="col-md-6 text-center"> 
-               <a style="color:#fff; font-weight:400;" href="{{ route('register') }}" >REGISTER</a>
                </div>
-            </div>
+               <div class="col-md-6 text-left"> 
+               <div class="btn btn-primary">
+               <a style=" font-weight:400;" href="{{ route('register') }}" >REGISTER</a>
+               </div></div>
             </div>
            
             </div>
