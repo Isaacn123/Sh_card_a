@@ -7,7 +7,8 @@
         <title>ShareCard</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <!-- Styles -->
         <style>
@@ -16,9 +17,19 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
-                background:#682dab !important;  
-            }
+                /* font-family: 'Nunito', sans-serif; */
+                background:#682dab !important; 
+            
+    margin: 0;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /* color: #212529; */
+    /* text-align: left; */
+    /* background-color: #fff; */
+} 
+            
             .container{
                display:flex;
                justify-content:center;
@@ -42,7 +53,9 @@
                    
                  }
        h1{
-                        font-size: 2.1rem !important;
+                        font-size: 2.5rem !important;
+                        color: #edead5;
+
                         /* margin:0 80px; */
           }
                  .space{
@@ -70,8 +83,8 @@
        
             <div class="wrapper justify-center text-center text-sm">
             <img class="logo" src="{{asset('dist/img/shareCardLogo.png')}}">
-        
-            <div class="text-gray-500 text-center">
+            <!-- text-gray-500  -->
+            <div class="text-center"> 
             <h1>WELCOME TO <strong>SHARECARD</strong></h1>
             <div class="row space">
                <div class="col-md-6 text-right">

@@ -364,6 +364,20 @@
         </span>
       </a>
     </li>
+    <!-- {{ (request()->is('packages')) ? 'active' : '' }} -->
+    <li   class="treeview ">
+      <a href="{{route('packages')}}">
+        <i class="fa fa-id-card"></i> <span>Cards</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+    <ul class="treeview-menu">
+    <li class="{{ (request()->is('usercard')) ? 'active' : '' }}"><a href="{{route('usercard')}}"><i class="fa fa-circle-o"></i>Card Managment</a></li>
+    <li class="{{ (request()->is('attached')) ? 'active' : '' }}"><a href="{{route('attached')}}"><i class="fa fa-circle-o"></i>Attached Cards</a></li>
+    <li class="{{ (request()->is('distribution')) ? 'active' : '' }}"><a href="{{route('distribution')}}"><i class="fa fa-circle-o"></i>Packages Distributed</a></li>
+    </ul>
+    </li>
   
     <li class="{{ (request()->is('activities')) ? 'active' : '' }}">
       <a href="{{route('activities')}}">
@@ -436,7 +450,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
 
-@yield('script')
+@yield('scripts')
 <script>
   window.addEventListener('load', ()=>{
     document.querySelector(".centered").classList.add("loader--hidden")

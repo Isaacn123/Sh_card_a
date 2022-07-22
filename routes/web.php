@@ -9,6 +9,9 @@ use App\Http\Controllers\DistributionController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\controllers\CardController;
+use App\Http\controllers\AttachedCards;
+use App\Http\controllers\DistributedCards;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +39,9 @@ Route::get('/packages', [DistributionController::class, 'index'])->name('package
 Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities');
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/usercard', [CardController::class, 'index'])->name('usercard');
+Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
+Route::get('/distribution', [DistributedCards::class, 'index'])->name('distribution');
 
 
 
@@ -43,6 +49,7 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::resource('agent', CommunityController::class);
 Route::resource('beneficial', BeneficiaryController::class);
+Route::resource('card', BeneficiaryController::class);
 
 
 

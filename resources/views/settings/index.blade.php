@@ -10,7 +10,7 @@
     <!-- <h2>Account Settings</h2> -->
 
 <div class="row">
-
+    
     <div class="col-12">
         <h2 class="h3 mb-4 page-title">Settings</h2>
         <div class="card">

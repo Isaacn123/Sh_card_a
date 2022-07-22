@@ -83,7 +83,7 @@
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #d2d6de;
 }
 .skin-blue .sidebar a {
   color: #b8c7ce;
@@ -248,7 +248,7 @@
 }
 .skin-blue-light .sidebar-menu .treeview-menu > li.active > a,
 .skin-blue-light .sidebar-menu .treeview-menu > li > a:hover {
-  color: #000000;
+  color: #282a2c;
 }
 .skin-blue-light .sidebar-menu .treeview-menu > li.active > a {
   font-weight: 600;
@@ -632,7 +632,7 @@
 }
 @media (min-width: 768px) {
   .skin-black-light.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
-    border-left: 1px solid #d2d6de;
+    border-left: 1px solid #27292b;
   }
 }
 /*
@@ -720,7 +720,7 @@
 }
 .skin-green .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #e1e7ef !important;
 }
 .skin-green .sidebar a {
   color: #b8c7ce;
