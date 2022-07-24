@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Cardsdistributed;
 class DistributionController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class DistributionController extends Controller
     public function index()
     {
         //
-        return view('pkg_Distributed.index');
+        $limit = 25;
+        return view('pkg_Distributed.index')->with('distribution',Cardsdistributed::orderBy('distribution_id','desc')->paginate($limit));
     }
 
     /**

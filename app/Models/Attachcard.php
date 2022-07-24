@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Card extends Model
+class Attachcard extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-         'card_sequence',
-         'card_is_assigned',
-    ];
-
-    protected $casts = [
-        // 'card_is_assigned' => 'boolean',
+        'agent_id',
+        'card_sequence',
+        'beneficiary_name'
     ];
 }

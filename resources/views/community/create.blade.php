@@ -47,6 +47,33 @@
          <input type="text" value="{{isset($agent) ? $agent->fullName : ''}}" placeholder="Agents Names" id="name" name="fullName" class="form-control">
 
      </div>
+
+
+     <div class="form-row">
+        <div class="form-group">
+
+        <div class="form-group col-md-6">
+        <label for="agent_id">Agent ID</label>
+         <!-- {{isset($category) ? $category->slug : ''}} -->
+         <input type="text" id="agent_id" value="{{substr(uniqid(rand(), true), 4, 4)}}" {{ 'agent_id' ? '' : 'disabled' }} name="agent_id" class="form-control">
+    
+        </div>
+        <div class="form-group col-md-6">
+        <label for="agent_pin">Agent PIN</label>
+       
+       <input type="text" id="agent_pin" value="{{substr(uniqid(rand(), true), 4, 4)}}" {{ 'agent_pin' ? '' : 'disabled' }} name="agent_pin" class="form-control">
+ 
+        </div>
+              </div>delivery
+            </div>
+   
+        <div class="form-group">
+         <label for="village">Village</label>
+         <!-- {{isset($category) ? $category->slug : ''}} -->
+         <input type="text" id="village" value="" placeholder="Agent Village" name="village" class="form-control">
+     </div>
+
+
      <div class="form-row">
         <div class="form-group">
             <div class="form-group col-md-6">
@@ -68,6 +95,7 @@
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="phone" value=""  placeholder="Phone Number" name="phoneNumber" class="form-control">
      </div>
+     
 
      <div class="form-row">
         <div class="form-group">

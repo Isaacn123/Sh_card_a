@@ -59,13 +59,15 @@
                                                         <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <thead>
                                      <tr role="row">
+                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 101.344px;">AgentID</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 101.344px;">AgentPIN</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">Full Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent Age: activate to sort column ascending" style="width: 101.344px;">Agent Age</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 101.344px;">Gender</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 101.344px;">Mobile</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 332.078px;">Address</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nationality: activate to sort column ascending" style="width: 332.078px;">Nationality</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 332.078px;">Village</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 132.078px;">Address</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nationality: activate to sort column ascending" style="width: 132.078px;">Nationality</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 142.078px;">Village</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Assets: activate to sort column ascending" style="width: 332.078px;">Assigned Assets</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Farmer: activate to sort column ascending" style="width: 97.3828px;">Assigned Farmer</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 97.3828px;">Certifications</th>
@@ -77,6 +79,8 @@
 
                                         @foreach($agents as $agent) 
                                         <tr role="row" class="odd">
+                                        <td class="sorting_1">{{$agent->agent_id}}</td>
+                                        <td class="sorting_1">{{$agent->agent_pin}}</td>
                                         <td class="sorting_1">{{$agent->fullName}}</td>
                                         <td>{{$agent->age}}</td>
                                         <td>{{$agent->gender}}</td>
@@ -110,34 +114,7 @@
                                                 <td>Central Region</td>
                                                 <td>2011/04/25</td>
                                                 <td>011/04/25</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">Kamanzi Julius</td>
-                                                <td>+25677323112</td>
-                                                <td>Training on GBV </td>
-                                                <td>Eastern Region</td>
-                                                <td>2011/04/25</td>
-                                                <td>011/04/25</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">Sandra Awili</td>
-                                                <td>+25677323112</td>
-                                                <td>Training</td>
-                                                <td>Eastern Region</td>
-                                                <td>2011/04/25</td>
-                                                <td>011/04/25</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">Sandra Awili</td>
-                                                <td>+25677323112</td>
-                                                <td>Training on GBV</td>
-                                                <td>Eastern Region</td>
-                                                <td>2011/04/25</td>
-                                                <td>011/04/25</td>
-                                            </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Sandra Awili</td>
-                                                <td>+25677323112</td>
-                                                <td>Equiping girls with tools to support in education</td>
-                                                <td>Eastern Region</td>
-                                                <td>2011/04/25</td>
-                                                <td>011/04/25</td>
+                                            </tr>
                                             </tr> -->
                                         
                                         </tbody>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AgentRequestController;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Agent;
+
 class CommunityController extends Controller
 {
     /**
@@ -52,8 +54,13 @@ class CommunityController extends Controller
         $agent->assigned_assets = $request->assigned_assets;
         $agent->assigned_farmer = $request->assigned_farmer;
         $agent->certifications = $request->certifications;
+        $agent->password = Hash::make($request->agent_pin);
+        $agent->agent_pin = $request->agent_pin;
+        $agent->agent_id = $request->agent_id;
 
         $agent->save();
+
+        $token = $agent->createToken('agent_token')->plainTextToken;
 
         return redirect()->route('community');
       

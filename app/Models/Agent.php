@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 
 class Agent extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory , Notifiable;
 
     protected $fillable = [
+        'agent_id',
         'fullName',
         'age',
         'gender',
@@ -19,7 +22,16 @@ class Agent extends Model
         'village',
         'assigned_assets', 
         'assigned_farmer',
-        'certifications'
+        'certifications',
+        'agent_pin',
+        'password'
 
     ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+
 }

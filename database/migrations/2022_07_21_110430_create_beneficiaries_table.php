@@ -15,6 +15,7 @@ class CreateBeneficiariesTable extends Migration
     {
         Schema::create('beneficiaries', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('beneficiary_uid')->defaults(0);
             $table->string('fullName');
             $table->integer('age');
             $table->string('gender');
@@ -26,8 +27,10 @@ class CreateBeneficiariesTable extends Migration
             $table->string('ownership');
             $table->string('memberships');
             $table->string('family_size');
+            $table->string('is_assigned_card')->default(False);
             $table->string( 'assigned_Inspectors');
             $table->string('certifications');
+
             $table->timestamps();
         });
     }

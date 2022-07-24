@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCardRequest extends FormRequest
+class StoreTrainingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,11 @@ class StoreCardRequest extends FormRequest
     {
         return [
             //
-            'csv_file' => 'required|file'
+    //  "agent_id" => 'required|integer',
+     "training_name" => 'required|string|unique:trainings',
+     "training_description" => 'required|string',
+     "training_start_date" => 'required|string',
+     "training_end_date" => 'required|string'
         ];
     }
 }

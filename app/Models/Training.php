@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Card extends Model
+class Training extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-         'card_sequence',
-         'card_is_assigned',
-    ];
-
-    protected $casts = [
-        // 'card_is_assigned' => 'boolean',
+    "agent_id",
+    "training_id",
+    "training_name",
+    "training_description",
+    "training_start_date",
+    "training_end_date"
     ];
 }

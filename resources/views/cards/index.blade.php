@@ -33,7 +33,7 @@
                                                     <div class="row">
                                                         <div class=" col-sm-8 col-sm-6 text-right" style="padding-top:13px;">
                                                         <!-- <a class="btn btn-primary float-right" href="create_activity.php">+ Create Card</a> -->
-                                                        <button class="btn btn-danger btn-small" onclick="uploadCards(1)">+ Create Card</button>
+                                                        <button class="btn btn-danger btn-small" onclick="uploadCards('store')">+ Create Card</button>
                                                         </div>
                                                         <div class="col-sm-8 col-sm-6">
                                                         <div id="DataTables_Table_0_filter" class="dataTables_filter" style=" padding-bottom:8px;">
@@ -46,8 +46,6 @@
                                                 </div>
                                             
                                             </div>
-                                               
-                                               
                                                
                                                 <div class="row">
                                                <div class="col-sm-12">
@@ -62,14 +60,15 @@
                                         </thead>
                                         <tbody>
                                                                                         
-                         
-                                                                                       
-                                        <tr role="row" class="odd">
-                                                <td class="sorting_1">1</td>
-                                                <td>46888242867429597262</td>
-                                                <td>False</td>
-                                                <td>July 5,2001</td>
+                                      @foreach($card  as $cards)
+                                             <tr role="row" class="odd">
+                                                <td class="sorting_1">{{$cards->id}}</td>
+                                                <td>{{$cards->card_sequence}}</td>
+                                                <td>{{$cards->card_is_assigned}}</td>
+                                                <td>{{$cards->created_at}}</td>
                                             </tr>
+
+                                            @endforeach
                                             
                                             <!-- <tr role="row" class="even"> -->
                                                 <!-- <td class="sorting_1">1051</td>
@@ -79,62 +78,6 @@
                                                 <td>Delivered
                                                     </td>
                                                 <td>2021-11-17</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1073</td>
-                                                <td>2560</td>
-                                                <td>NABWIRE MORAN</td>
-                                                <td>84624798299692359342</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1097</td>
-                                                <td>1507</td>
-                                                <td>NAMULINDWA SERINA</td>
-                                                <td>34572392383275372237</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1196</td>
-                                                <td>2423</td>
-                                                <td>AMUGE MARY</td>
-                                                <td>27284296979997857949</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-09-08</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1239</td>
-                                                <td>1507</td>
-                                                <td>NAKINTU ZAINABU</td>
-                                                <td>22338384954878947833</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1245</td>
-                                                <td>2423</td>
-                                                <td>Victoria Kagere</td>
-                                                <td>66343325788554688546</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-02-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1249</td>
-                                                <td>2423</td>
-                                                <td>Mary Ndagire</td>
-                                                <td>67247349497646546488</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-03-27</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1303</td>
-                                                <td>2423</td>
-                                                <td>Edith Ninsima</td>
-                                                <td>69869727537375778243</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-11-04</td>
                                             </tr><tr role="row" class="even">
                                                 <td class="sorting_1">1311</td>
                                                 <td>2423</td>
@@ -160,11 +103,11 @@
 </div>
 </div>
 
-<form action="" id="UploadCardform" method="post" >
+<form action="" id="UploadCardform" method="post" enctype="multipart/form-data" >
 
   @csrf
 
-  @method('DELETE')
+  <!-- @method('DELETE') -->
 
 <div class="modal fade" id="uploadCardModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -176,30 +119,25 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- Are you sure you want to delete this Category? -->
+        <!-- Are you sure you want to delete this Category?  {{route('card.store')}} -->
     
-        <form role="form" action="{{ route('card.store')}}" method="post" enctype="multipart/form-data"> <input type="hidden" name="csrfmiddlewaretoken" value="QwGZmz0M5Ceh659OnU3jmgkhz2NKy0B8WsMN5nrOJ3XFcJeHXSLsZkVGCa35STga">
-                <div class="card-body">
-                    <!-- <label for="id_data_file">Data file:</label>
-                    <input type="file" name="data_file" required="" id="id_data_file"> -->
+        <!-- @csrf    -->
+     
 
+        <div class="card-body">
+    
     <div class="input-group">
-    <label class="input-group-addon"  for="customFile">Choose file</label>
-  <input type="file" name="upload_sq" class="form-control" id="customFile">
+    <label class="input-group-addon"  for="csv_file">CARDS </label>
+  <input type="file" name="csv_file" class="form-control" id="csv_file">
     </div>
                   
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              
-            </div></form>
+            </div>
+        <!-- </form> -->
 
       </div>
       <div class="modal-footer">
         <button type="button"  class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-        <button type="button" data-dismiss="modal"  class="btn btn-primary">Done</button>
+        <button type="submit" class="btn btn-primary">Done</button>
       </div>
     </div>
   </div>
@@ -216,7 +154,7 @@
     function uploadCards(id){
     $('#uploadCardModal').modal('show');
     var form = document.getElementById('UploadCardform');
-    form.action = '/' + id;
+    form.action = '/addTraining'; // + id; addcard
      console.log(form);
     }
 </script>

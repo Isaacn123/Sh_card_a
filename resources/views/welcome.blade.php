@@ -44,7 +44,7 @@
 
                  }
             .wrapper{
-                    width:400px;
+                    width:600px;
                     height:250px;
                     font-size:0.687rem;
 
@@ -65,13 +65,13 @@
      .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #d9edb9 !important;
     border-color: #d9edb9 !important;
-    color: #aa3 !important;
+    color: #aa3 ; /** #aa3 !important */
     border:0px;
 }
 
             .logo{
-    height:120px;
-    width:120px;}
+    height:10rem;
+    width:10rem;}
 
         </style>
     </head>
@@ -88,12 +88,12 @@
             <h1>WELCOME TO <strong>SHARECARD</strong></h1>
             <div class="row space">
                <div class="col-md-6 text-right">
-                <div class="btn btn-primary">
+                <div class="btn btn-primary btn-block">
                 <a style=" font-weight:400;" href="{{ route('login') }}">LOGIN</a>
                </div>
                </div>
                <div class="col-md-6 text-left"> 
-               <div class="btn btn-primary">
+               <div class="btn btn-primary btn-block">
                <a style=" font-weight:400;" href="{{ route('register') }}" >REGISTER</a>
                </div></div>
             </div>

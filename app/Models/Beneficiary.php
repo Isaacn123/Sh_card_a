@@ -23,7 +23,8 @@ class Beneficiary extends Model
         'memberships',
         'family_size',
         'assigned_Inspectors',
-        'certifications'
+        'certifications',
+        'is_assigned_card'
         
     ];
 }

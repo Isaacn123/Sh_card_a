@@ -1,11 +1,9 @@
 @extends('layouts.admin')
 @section('content')
     
-<!-- <div id='loader'></div>  -->
 
     <div class="content-wrapper">
     <div class="container">
-
     <!-- <h1>Beneficiary</h1> -->
     <div class="row">
                     <div class="col-12">
@@ -55,6 +53,7 @@
                                         <thead>
                                             <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 27.7344px;">ID</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">UUID</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">Full Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent Age: activate to sort column ascending" style="width: 101.344px;">Agent Age</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 101.344px;">Gender</th>
@@ -68,7 +67,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Family Size: activate to sort column ascending" style="width: 252.328px;">Family Size</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Inspectors: activate to sort column ascending" style="width: 42.9375px;">Assigned Inspectors</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 140.602px;">Certifications</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created at: activate to sort column ascending" style="width: 94.6328px;">Created at</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created at: activate to sort column ascending" style="width: 94.6328px;">Created at</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 67.9922px;">Action</th>
                                         </tr>
                                         </thead>
@@ -78,6 +77,7 @@
 
                                              <tr role="row" class="odd">
                                         <td class="sorting_1">{{$beneficiaries->id}}</td>
+                                        <td class="sorting_1">{{$beneficiaries->beneficiary_uid}}</td>
                                         <td class="sorting_1">{{$beneficiaries->fullName}}</td>
                                         <td>{{$beneficiaries->age}}</td>
                                         <td>{{$beneficiaries->gender}}</td>

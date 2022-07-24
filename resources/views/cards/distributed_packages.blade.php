@@ -56,9 +56,9 @@
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 74.7891px;">Distribution ID</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 38.8672px;">Agent ID</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 81.8672px;">Beneficiary</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 100.8672px;">Beneficiary</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 133.625px;">Card Scaned</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 133.625px;">Delivery Status</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 100.625px;">Delivery Status</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 133.625px;">Delivery Date</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 80.625px;">Action</th>
                                                 <!--<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Delivery Status: activate to sort column ascending" style="width: 54.3828px;">Delivery Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="When Delivered: activate to sort column ascending" style="width: 62.1719px;">When Delivered</th></tr> -->
@@ -66,84 +66,21 @@
                                         <tbody>
                                                                                         
                          
-                                                                                       
+                                        @foreach($distribution as $distributions)                                               
                                         <tr role="row" class="odd">
-                                                <td class="sorting_1">100</td>
-                                                <td>3310</td>
-                                                <td>SSADIA HUSSEIN</td>
-                                                <td>85686859863744527267</td>
-                                                <td>True</td>
-                                                <td>Nov. 8, 2021</td>
+                                                <td class="sorting_1">{{$distributions->distribution_id}}</td>
+                                                <td>{{$distributions->agent_id}}</td>
+                                                <td>{{$distributions->beneficiary}}</td>
+                                                <td>{{$distributions->card_scanned}}</td>
+                                                <td>{{$distributions->delivery_status}}</td>
+                                                <td>{{$distributions->created_at}}</td>
                                                 <td> 
                                             <a class="btn btn-warning" href="impactmap.html">View</a>
                                                </td>
                                             </tr>
-                                            
-                                            <!-- <tr role="row" class="even"> -->
-                                                <!-- <td class="sorting_1">1051</td>
-                                                <td>4624</td>
-                                                <td>Ayee Marcy</td>
-                                                <td>49752427498797875999</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-11-17</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1073</td>
-                                                <td>2560</td>
-                                                <td>NABWIRE MORAN</td>
-                                                <td>84624798299692359342</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1097</td>
-                                                <td>1507</td>
-                                                <td>NAMULINDWA SERINA</td>
-                                                <td>34572392383275372237</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1196</td>
-                                                <td>2423</td>
-                                                <td>AMUGE MARY</td>
-                                                <td>27284296979997857949</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-09-08</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1239</td>
-                                                <td>1507</td>
-                                                <td>NAKINTU ZAINABU</td>
-                                                <td>22338384954878947833</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1245</td>
-                                                <td>2423</td>
-                                                <td>Victoria Kagere</td>
-                                                <td>66343325788554688546</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-02-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1249</td>
-                                                <td>2423</td>
-                                                <td>Mary Ndagire</td>
-                                                <td>67247349497646546488</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-03-27</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1303</td>
-                                                <td>2423</td>
-                                                <td>Edith Ninsima</td>
-                                                <td>69869727537375778243</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-11-04</td>
-                                            </tr><tr role="row" class="even">
+                                            @endforeach
+                                            <!-- 
+                                           <tr role="row" class="even">
                                                 <td class="sorting_1">1311</td>
                                                 <td>2423</td>
                                                 <td>NABANJA BRIDGET</td>

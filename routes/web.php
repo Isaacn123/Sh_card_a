@@ -12,6 +12,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\controllers\CardController;
 use App\Http\controllers\AttachedCards;
 use App\Http\controllers\DistributedCards;
+use App\Http\controllers\AgentAuthController;
+use App\Http\controllers\TrainingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,14 +44,22 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/usercard', [CardController::class, 'index'])->name('usercard');
 Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
 Route::get('/distribution', [DistributedCards::class, 'index'])->name('distribution');
+Route::post('/addcard', [CardController::class, 'store'])->name('addcard');
 
-
+Route::get('/agentLogin', [AgentAuthController::class, 'login'])->name('agentLogin');
+Route::get('/registerAgent', [AgentAuthController::class, 'register'])->name('registerAgent');
+Route::post('/create', [AgentAuthController::class, 'create'])->name('auth.create');
+Route::post('/checkagent', [AgentAuthController::class, 'checkagent'])->name('auth.checkagent');
+Route::get('/training', [TrainingController::class, 'index'])->name('training');
+Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtraining');
 
 // RESOUCE ROUTES 
 
 Route::resource('agent', CommunityController::class);
 Route::resource('beneficial', BeneficiaryController::class);
 Route::resource('card', BeneficiaryController::class);
+Route::resource('trainings',TrainingController::class);
+Route::resource('agent_login',AgentAuthController::class);
 
 
 
@@ -61,3 +71,13 @@ Route::resource('card', BeneficiaryController::class);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+
+Route::get('/agent/search/{name}', [App\Http\Controllers\AgentAuthController::class, 'search'])->name('search');
+
+///adding authentication //
+// composer require laravel/sanctum 
+///adding migrations to our authentication
+//php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+//php artisan migrate
+
+

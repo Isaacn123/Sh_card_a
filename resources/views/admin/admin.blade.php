@@ -10,24 +10,24 @@
        
         <div class="content-wrapper">
         <div class="container">
-        <section class="content-header">
-    
-    <div height="100px" style="float: right; background-color:transparent;">
- 
+  <section class="content-header">
+   <!-- <div height="100px" style="float: right; background-color:transparent;">
   <ol class="breadcrumb" style="background-color: #fff !important;
   border-radius: 4px;">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>     
     <li class="active">Dashboard</li>
   </ol>
-</div>
-</section>
+</div> -->
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+   
+    </section>
 
 <!-- Main content -->
 <section class="content">
   <!-- Info boxes -->
-  
-  <!-- /.row -->
-
   <div class="row">
     <div class="col-md-12">
       <div class="box">
@@ -234,9 +234,6 @@
   <!-- Main row -->
   <div class="row">
     <!-- Left col -->
-
-    <!-- /.col -->
-
     <div class="col-lg-12">
       <div class="card">
           <div class="card-body">
@@ -281,7 +278,7 @@
               </div>
           </div>
       </div>
-  </div>
+      </div>
     <!-- /.col -->
   </div>
   <!-- /.row -->

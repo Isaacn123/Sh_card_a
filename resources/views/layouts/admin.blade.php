@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
   <link rel="stylesheet" href="{{asset('dist/css/sample/modification.min.css')}}">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
     <!-- Fonts -->
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
@@ -47,9 +49,14 @@
     /* padding-right: 30px !important;
     padding-left: 0px !important; */
 }
+.container-alert{
+  width: 60%;
+  margin:0 auto;
+
+}
   </style>
   </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" oncontextmenu="return false">
 
 <!-- <div id='loader'></div> -->
 <!-- <div style="color: #f68f6f; background:#000" class="la-cog la-3x">
@@ -324,6 +331,16 @@
     <li class="{{ (request()->is('/')) ? 'active' : '' }}">
       <a href="/admin"><i class="fa fa-line-chart"></i> <span>Overview</span></a>
     </li>
+    
+    <!-- <li class="{{ (request()->is('beneficiary')) ? 'active' : '' }}">
+      <a href="{{route('agentLogin')}}">
+        <i class="fa fa-users"></i>
+        <span>Agent LOGIN</span>
+        <span class="pull-right-container">
+        </span>
+      </a>
+    </li> -->
+    
     <li class="{{ (request()->is('beneficiary')) ? 'active' : '' }}">
       <a href="{{route('beneficiary')}}">
         <i class="fa fa-users"></i>
@@ -339,6 +356,18 @@
           <small class="label pull-right bg-green">new</small>
         </span>
       </a>
+    </li>
+    <li   class="treeview ">
+      <a href="{{route('packages')}}">
+        <i class="fa fa-id-card"></i> <span>Training</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+    <ul class="treeview-menu">
+    <li class="{{ (request()->is('training')) ? 'active' : '' }}"><a href="{{route('training')}}"><i class="fa fa-circle-o"></i>Training Managment</a></li>
+    <li class="{{ (request()->is('attached')) ? 'active' : '' }}"><a href="{{route('attached')}}"><i class="fa fa-circle-o"></i>Attandance Management</a></li>
+    </ul>
     </li>
     <li class="{{ (request()->is('community')) ? 'active' : '' }}">
       <a href="{{route('community')}}">
@@ -403,9 +432,19 @@
 <!-- /.sidebar -->
 </aside>
      
-
+         
 
         <main class="py-4">
+        @if(session()->has('success'))
+     <div class="container-alert">
+     <div class="alert alert-success" role="alert">
+       {{session()->get('success')}}
+     </div>
+     </div>
+    
+ 
+        @endif
+     
             @yield('content')
         </main>
 
@@ -450,11 +489,22 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
 @yield('scripts')
 <script>
   window.addEventListener('load', ()=>{
     document.querySelector(".centered").classList.add("loader--hidden")
   });
+
+var message = "function disabled";
+
+function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){  return false; }
+
+if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) {  return false; } }
+
+document.onmousedown = rtclickcheck;
 </script>
 </body>
 

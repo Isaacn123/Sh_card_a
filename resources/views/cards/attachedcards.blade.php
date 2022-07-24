@@ -61,14 +61,16 @@
                                         </thead>
                                         <tbody>
                                                                                         
-                         
+                                       @foreach($attached as $attachedcards)
                                                                                        
-                                        <tr role="row" class="odd">
-                                                <td class="sorting_1">1</td>
-                                                <td>3310</td>
-                                                <td>47384948598438226624</td>
-                                                <td>Feza Molisho</td>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">{{$attachedcards->id}}</td>
+                                                <td>{{$attachedcards->agent_id}}</td>
+                                                <td>{{$attachedcards->card_sequence}}</td>
+                                                <td>{{$attachedcards->beneficiary_name}}</td>
                                             </tr>
+
+                                            @endforeach
                                             
                                             <!-- <tr role="row" class="even"> -->
                                                 <!-- <td class="sorting_1">1051</td>
