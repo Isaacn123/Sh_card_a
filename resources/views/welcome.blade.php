@@ -68,6 +68,7 @@
     border-color: #d9edb9 !important;
     color: #aa3 ; /** #aa3 !important */
     border:0px;
+    margin: 5px 0px;
 }
 
             .logo{
