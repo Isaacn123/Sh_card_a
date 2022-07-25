@@ -14,6 +14,8 @@ use App\Http\controllers\AttachedCards;
 use App\Http\controllers\DistributedCards;
 use App\Http\controllers\AgentAuthController;
 use App\Http\controllers\TrainingController;
+use App\Http\controllers\RoleController;
+use App\Http\controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,9 @@ use App\Http\controllers\TrainingController;
 */
 
 Route::get('/', function () {
+    if(auth()->user()){
+        auth()->user()->assignRole('writer', 'admin');
+    }
     return view('welcome');
 });
 
@@ -52,6 +57,9 @@ Route::post('/create', [AgentAuthController::class, 'create'])->name('auth.creat
 Route::post('/checkagent', [AgentAuthController::class, 'checkagent'])->name('auth.checkagent');
 Route::get('/training', [TrainingController::class, 'index'])->name('training');
 Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtraining');
+Route::post('/roles', [RoleController::class, 'store'])->name('roles');
+
+Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
 
 // RESOUCE ROUTES 
 

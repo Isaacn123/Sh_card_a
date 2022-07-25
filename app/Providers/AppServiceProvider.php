@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,10 +28,22 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         // Force SSL in production
-if ($this->app->environment() == 'production') {
-    URL::forceScheme('https');
+        view()->composer('settings.edit.index', function($view){
+            $limit=4;
+            $view->with('roles',Role::all());
+        });
+    
+        view()->composer('settings.users.index', function($view){
+            $limit=10;
+            $view->with('users',User::all());
+        });
+
+        view()->composer('settings.users.edit', function($view){
+            $limit=10;
+            $view->with('singleuser',User::find(auth()->user()->id));
+        });
+    
 }
-    }
 
 
 
