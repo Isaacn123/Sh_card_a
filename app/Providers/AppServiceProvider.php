@@ -42,6 +42,11 @@ class AppServiceProvider extends ServiceProvider
             $limit=10;
             $view->with('singleuser',User::find(auth()->user()->id));
         });
+
+        if ($this->app->environment() == 'production') {
+            URL::forceScheme('https');
+        }
+            
     
 }
 
