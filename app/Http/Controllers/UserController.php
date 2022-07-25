@@ -74,6 +74,10 @@ class UserController extends Controller
 
         $user->name = $request->firstname . ' ' . $request->lastname;
         $user->email = $request->email;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->gender = $request->gender;
+        $user->date_of_birth = $request->date_of_birth;
         $user->update();
         return redirect('settings')->with('success',"User has been updated successfully.");
     }

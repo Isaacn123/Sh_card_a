@@ -49,6 +49,9 @@
     /* padding-right: 30px !important;
     padding-left: 0px !important; */
 }
+.extra_padding{
+  margin:10px 15px;
+}
 .container-alert{
   width: 60%;
   margin:0 auto;

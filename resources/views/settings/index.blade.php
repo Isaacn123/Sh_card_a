@@ -179,7 +179,7 @@
         <div id="collapseThree5" class="collapse" aria-labelledby="headingThree5" data-parent="#accordion">
             <div class="card-body">
            <form>
-           <div class="form-group">
+           <div class="form-group extra_padding">
                     <label for="inputAddress5">Address</label>
                     <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue" />
                 </div>
