@@ -56,7 +56,8 @@
 }
   </style>
   </head>
-<body class="hold-transition skin-blue sidebar-mini" oncontextmenu="return false">
+  <!-- oncontextmenu="return false" -->
+<body class="hold-transition skin-blue sidebar-mini" >
 
 <!-- <div id='loader'></div> -->
 <!-- <div style="color: #f68f6f; background:#000" class="la-cog la-3x">

@@ -60,7 +60,8 @@
           }
                  .space{
                     /* margin:0 120px; */
-                    margin-right:5px;
+                    /* margin-right:5px; */
+                    margin: 0 80px
                  }
      .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #d9edb9 !important;

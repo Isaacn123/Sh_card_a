@@ -15,6 +15,7 @@ class CreateTrainingsTable extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('agent_id')->default('Admin');
             $table->string('training_id');
             $table->string('training_name');
             $table->string('training_description');
