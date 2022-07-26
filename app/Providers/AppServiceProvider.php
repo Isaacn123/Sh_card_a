@@ -46,6 +46,15 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() == 'production') {
             URL::forceScheme('https');
         }
+
+        view()->composer('settings.users.create-user', function($view){
+            $limit=4;
+            $view->with('roles',Role::all());
+        });
+
+        view()->composer('settings.users.update-password', function($view){
+            $view->with('passwordsUpdate',User::find(auth()->user()->id));
+        });
             
     
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -36,6 +37,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->user_role;
+
+        if($request->password == $request->password_confirmation){
+          $user->save();
+          $user->assignRole($request->user_role);
+
+        }else{
+            
+            return back()->with('error', 'Passwords do not match');
+        }
+
+
+        return redirect('settings')->with('success','User created successfully.');
+
     }
 
     /**
@@ -91,5 +110,46 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+      /**
+     * Update Password the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateuserPassword(Request $request, $id)
+    {
+        //
+        $user = User::find($id);
+
+        // dd(Hash::make($request->old_password));
+
+        if(Hash::check($request->old_password,$user->password)){
+
+
+            // if($request->password == )
+       
+             if($request->password == $request->password_confirmation){
+
+                 $user->password = Hash::make($request->password);
+                 $user->update();
+                 
+            
+             }else{
+
+                return back()->with('error', 'New passwords do not match. please try again.');
+             }
+
+
+        }else{
+
+            return back()->with('error','Old password mismatch..please try again.');
+        }
+
+        return redirect('settings')->with('success',"Password has been updated successfully.");
     }
 }

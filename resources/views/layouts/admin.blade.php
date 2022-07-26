@@ -445,9 +445,14 @@
        {{session()->get('success')}}
      </div>
      </div>
-    
- 
-        @endif
+     @endif
+     @if(session()->has('error'))
+     <div class="container-alert">
+     <div class="alert alert-danger" role="alert">
+       {{session()->get('error')}}
+     </div>
+     </div>
+     @endif
      
             @yield('content')
         </main>

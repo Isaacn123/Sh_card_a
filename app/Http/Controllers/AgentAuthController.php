@@ -40,8 +40,7 @@ class AgentAuthController extends Controller
     public function login(Request $request)
     {
         //
-
-        return view('auth.agentAuth.login');
+     return view('auth.agentAuth.login');
     }
 
     /**
@@ -160,7 +159,7 @@ class AgentAuthController extends Controller
     {
         //
         // return Argent::where('agentName','like',$name)->get();
-        return Argent::where('agentName','like','%'.$name.'%')->get(); //searching foro the name with starting  letters 
+        return Agent::where('agentName','like','%'.$name.'%')->get(); //searching foro the name with starting  letters 
     }
 
 

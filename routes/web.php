@@ -58,9 +58,9 @@ Route::post('/checkagent', [AgentAuthController::class, 'checkagent'])->name('au
 Route::get('/training', [TrainingController::class, 'index'])->name('training');
 Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtraining');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles');
-
+Route::post('/register', [UserController::class, 'store'])->name('register');
 Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
-
+Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
 // RESOUCE ROUTES 
 
 Route::resource('agent', CommunityController::class);

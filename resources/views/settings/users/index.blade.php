@@ -45,6 +45,7 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 30.7891px;">User ID</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 148.8672px;">Name</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 128.8672px;">Email</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 128.8672px;">Role</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 91.8672px;">Action</th>
 
                                             </thead>
@@ -58,6 +59,7 @@
                                                 <td class="sorting_1"><span  id="role_id" >{{$user->id}}</span></td>
                                                 <td id="role_name"><span  id="role_name" >{{$user->name}}</span></td>
                                                 <td id="role_name"><span  id="role_name" >{{$user->email}}</span></td>
+                                                <td id="role_name"><span  id="role_name" >{{$user->role}}</span></td>
                                                 <td>
                                                 <!-- <a class="btn btn-success float-right" href="#">Show</a> -- -->
                                                 <button value="{{$user}}" class="btn btn-success btn-small edit" onclick="show()">Show</button>
