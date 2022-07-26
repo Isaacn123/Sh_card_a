@@ -9,13 +9,13 @@ use App\Http\Controllers\DistributionController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ProfileController;
-use App\Http\controllers\CardController;
-use App\Http\controllers\AttachedCards;
-use App\Http\controllers\DistributedCards;
-use App\Http\controllers\AgentAuthController;
-use App\Http\controllers\TrainingController;
-use App\Http\controllers\RoleController;
-use App\Http\controllers\UserController;
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\AttachedCards;
+use App\Http\Controllers\DistributedCards;
+use App\Http\Controllers\AgentAuthController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
