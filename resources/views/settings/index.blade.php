@@ -44,10 +44,7 @@
                 <hr class="my-4" />
                 
                 @include('settings.users.update-password')
-                
-                        
-                        
-                
+             
                 </div>
             </div>
         </div>
@@ -141,6 +138,8 @@
          </div>
         </div>
     </div>
+   
+    
 
  
 </ul>
@@ -164,14 +163,26 @@
 
 
 @section('scripts')
+<button onclick="myfunction()">Edit</button>
+<script>
+    function myfunction(){
 
-<script type="text/javascript">
+    }
+    function getuser(){
+        console.log('user')
+    }
+</script>
+
+@endsection
+<!-- @section('scripts') -->
+
+<!-- <script type="text/javascript">
 function show(){
     $('#uploadCardModal').modal('show');
     var form = document.getElementById('UploadCardform');
     form.action = '/addTraining'; // + id; addcard
      console.log(form);
     }
-</script>
+</script> -->
 
-@endsection
+<!-- @endsection -->

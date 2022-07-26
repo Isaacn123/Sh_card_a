@@ -1,12 +1,15 @@
 
+
 <div class="row">
                     <div class="col-12">
                        
                                 <h3 class="card-title">Role Management</h3>
                                 <!--<a class="btn btn-primary float-right" href="#">+ Create Agent</a>-->
                                 <div class="table-responsive">
-                                
+
+                               
                                     <div id="DataTables_Table_0_wrapper datatable" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
                                         <div class="row">
                                             <div class="col-sm-12 col-md-6">
                                                 <div class="dataTables_length" id="DataTables_Table_0_length">
@@ -29,7 +32,7 @@
                                                         </div>
                                                         <div class="col-sm-8 col-sm-6">
                                                         <div id="DataTables_Table_0_filter" class="dataTables_filter" style=" padding-bottom:8px;">
-                                                        <button class="btn btn-danger btn-small" onclick="">+ Create New Role</button>
+                                                        <button  id="createRoles"class="btn btn-danger btn-small" onclick="createModel()">+ Create New Role</button>
                                                         </div>
                                                         </div>
                                                     </div>
@@ -45,22 +48,21 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 30.7891px;">ID</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 148.8672px;">Name</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 41.8672px;">Action</th>
-                                                <!--<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Delivery Status: activate to sort column ascending" style="width: 54.3828px;">Delivery Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="When Delivered: activate to sort column ascending" style="width: 62.1719px;">When Delivered</th></tr> -->
+                                            <!--<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Delivery Status: activate to sort column ascending" style="width: 54.3828px;">Delivery Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="When Delivered: activate to sort column ascending" style="width: 62.1719px;">When Delivered</th></tr> -->
                                         </thead>
                                         <tbody>
 
                                         @foreach($roles as $role)
 
-                                     
-                                       
                                         <tr role="row" class="even">
                                                 <td class="sorting_1"><span  id="role_id" >{{$role->id}}</span></td>
                                                 <td id="role_name"><span  id="role_name" >{{$role->name}}</span></td>
                                                 <td>
-                                                <!-- <a class="btn btn-success float-right" href="#">Show</a> -->
-                                                <button value="{{$role}}" class="btn btn-success btn-small edit" onclick="show()">Show</button>
-                                                <a class="btn btn-primary float-right" href="#">Edit</a>
-                                                <a class="btn btn-danger float-right" href="#">Delete</a>
+        
+                                                <button id="editCompany" class="btn btn-success btn-small" value="{{ $role->id }}" data-id="{{ $role->id }}" onclick="showroles({{$role->id}})">Show</button>
+                                                <button id="editrole" class="btn btn-primary btn-small" value="{{ $role->id }}"  onclick="editroles({{$role->id}})">Edit</button>
+                                                <button id="deleterole" class="btn btn-danger btn-small" value="{{ $role->id }}"  onclick="deleteModel({{$role->id}})">Delete</button>
+
                                                 </td>
                                             </tr>
                                                     
@@ -79,80 +81,98 @@
 
 
 
-<form action="" id="UploadCardform" method="post" enctype="multipart/form-data" >
+<!-- <div class="modal fade" id="practice_modal">
+                        <div class="modal-dialog">
+                           <form id="companydata">
 
-@csrf
+                           <input type="hidden=" name="role_id" id="role_id" value="">
+                    
+                                <div class="modal-content">
+                                <input type="hidden" id="color_id" name="color_id" value="">
+                                <div class="modal-body">
+                                    <input type="text" name="name" id="name" value="" class="form-control">
+                                </div>
+                                <input type="submit" value="Submit" id="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;">
+                            </div>
+                         
+                           </form>
+                        </div>
+                    </div> -->
 
-<!-- @method('PUT') -->
 
-<div class="modal fade" id="uploadCardModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="deleteModalLabel">Upload Cards</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
 
-      <div class="card-body">
-  
-  <div class="form-group">
-  <label class=""  for="role_id">Role ID</label>
-<input type="text" id="role_id" name="role_id"  disabled class="form-control">
-  </div>
-
-  <div class="form-group">
-  <label class=""  for="role_name">Role Name</label>
-<input type="text" name="role_name" class="form-control" id="role_name">
-  </div>
-                
-          </div>
-
-    </div>
-    <div class="modal-footer">
-      <button type="button"  class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-      <button type="submit" class="btn btn-primary">Done</button>
-    </div>
-  </div>
-</div>
-</div>
-
-</form>
-
+      @include('settings.edit.roles')
+      @include('settings.edit.edit-role')
+      @include('settings.edit.delete-role')
+      @include('settings.edit.create-role')
 
 
 
 @section('scripts')
+<script>
+// practice_modal
+  function showroles(id){
+    $('body').on('click','#editCompany',function(){
+     $('#showRolesModal').modal('show');
+      var dataid = $(this).val();
+     $.ajax({
+      type:'GET',
+      url: "/edit-role/" + dataid, 
+      success:function(data){
+          console.log(data.result);
+          $('#id').val(data.result.id);
+          $('#name').val(data.result.name);
+      }
+     });
+    });
+    
+   }
 
-<script type="text/javascript">
-function show(){
-         
-    $(document).ready(function(){
 
-     $(document).on('click','.edit',function(){
-         var data = $(this).val();
-         const obj = JSON.parse(data);
-         var role_id = obj.id;
-        var role_name = obj.name;
-
-     $('#role_name').val(role_name);
-
-     $('#uploadCardModal').modal('show');
-    console.log(`DATA :: ${role_name}`);
-    var form = document.getElementById('UploadCardform');
-    form.action = '/roles'; // + id; addcard
-     console.log(form);
-        });
-
-   
-    })
-
-   
+   function editroles(id){
+  
+  $('body').on('click','#editrole',function(){
+   $('#editRolesModal').modal('show');
+    var dataid = $(this).val();
+   $.ajax({
+    type:'GET',
+    url: "/edit-role/" + id, 
+    success:function(data){
+        console.log("MODEL EDIT" + data.result.id);
+        $('#roleid').val(data.result.id);
+        $('#rolename').val(data.result.name);
     }
+   });
+  });
+  
+ }
+
+ function deleteModel(id){
+
+$('#deleteModal').modal('show');
+var form =  document.getElementById('deleteRoleform');
+form.action = '/deleterole/' + id;
+
+console.log(form);
+
+}
+
+
+
+function createModel(id){
+
+$('#createModal').modal('show');
+var form =  document.getElementById('deleteRoleform');
+form.action = '/deleterole/' + id;
+
+console.log(form);
+
+}
+
+
+  
 </script>
 
-@endsection
+@endsection 
 
 

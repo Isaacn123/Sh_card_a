@@ -29,7 +29,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     if(auth()->user()){
-        auth()->user()->assignRole('writer', 'admin');
+        auth()->user()->assignRole('admin');
     }
     return view('welcome');
 });
@@ -60,7 +60,16 @@ Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtrai
 Route::post('/roles', [RoleController::class, 'store'])->name('roles');
 Route::post('/register', [UserController::class, 'store'])->name('register');
 Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
-Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
+
+    //PROTECTED ROUTES
+Route::group(['middleware' => ['auth']], function() {
+    Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
+    Route::get('/edit-role/{id}', [RoleController::class, 'edit'])->name('edit-role');
+    Route::put('/updaterole', [RoleController::class, 'update'])->name('updaterole');
+    Route::delete('/deleterole/{id}', [RoleController::class, 'destroy'])->name('deleterole');
+    Route::post('/createrole', [RoleController::class, 'store'])->name('createrole');
+    });
+
 // RESOUCE ROUTES 
 
 Route::resource('agent', CommunityController::class);

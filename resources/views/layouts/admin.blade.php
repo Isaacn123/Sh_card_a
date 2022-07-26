@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="{{asset('bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- jvectormap -->
   <link rel="stylesheet" href="{{asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
-  <link rel="stylesheet" href="{{asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" ></link>
+
   <link rel="stylesheet" href="{{asset('dist/css/ShareCard.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -477,7 +477,8 @@
     <!-- jQuery 3 -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
    
-<script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->
@@ -494,12 +495,9 @@
 <!-- ChartJS -->
 <script src="{{asset('bower_components/chart.js/Chart.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
+<!-- <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
-<script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<!-- <script src="{{asset('dist/js/demo.js')}}"></script> -->
 
 @yield('scripts')
 <script>

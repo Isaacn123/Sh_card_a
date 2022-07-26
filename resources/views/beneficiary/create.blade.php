@@ -15,11 +15,12 @@
      
 
 <div class="card-header">
-{{isset($agent) ? 'Agents' : 'Create Agent'}}
+
     <!-- {{isset($category) ? 'Edit E-Shop Category' : 'Create E-Shop Category'}} -->
 </div>
 
 <div class="card-body">
+{{isset($agent) ? 'Agents' : 'Create Agent'}}
 
 @if($errors->any())
 
@@ -41,7 +42,7 @@
    <!-- @csrf -->
    @csrf
 
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="name">Beneficairy Names</label>
          <!-- {{isset($category) ? $category->name : ''}}" -->
          <input type="text" value="{{isset($beneficial) ? $beneficial->fullName : ''}}" placeholder="Agents Names" id="name" name="fullName" class="form-control">
@@ -63,7 +64,7 @@
             </div>
         </div>
      </div>
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="phone">Phone Number</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="phone" value=""  placeholder="Phone Number" name="phoneNumber" class="form-control">
@@ -84,10 +85,10 @@
        <input type="text" id="address" value="address"  placeholder="Address" name="address" class="form-control">
  
         </div>
-              </div>delivery
+              </div>
             </div>
    
-        <div class="form-group">
+        <div class="form-group extra_padding">
          <label for="village">Village</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="village" value="" placeholder="Agent Village" name="village" class="form-control">
@@ -113,7 +114,7 @@
         </div></div>
 
 
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="memberships">Memberships</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="farmer" value="" placeholder="memberships" name="memberships" class="form-control">
@@ -136,7 +137,7 @@
         </div></div>
 
         
-        <div class="form-group">
+        <div class="form-group extra_padding">
          <label for="family">Family Size</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="family" value="" placeholder="Family Size" name="family_size" class="form-control">

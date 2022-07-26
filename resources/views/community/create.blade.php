@@ -41,7 +41,7 @@
    <!-- @csrf -->
    @csrf
 
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="name">Agent Names</label>
          <!-- {{isset($category) ? $category->name : ''}}" -->
          <input type="text" value="{{isset($agent) ? $agent->fullName : ''}}" placeholder="Agents Names" id="name" name="fullName" class="form-control">
@@ -64,10 +64,10 @@
        <input type="text" id="agent_pin" value="{{substr(uniqid(rand(), true), 4, 4)}}" {{ 'agent_pin' ? '' : 'disabled' }} name="agent_pin" class="form-control">
  
         </div>
-              </div>delivery
+              </div>
             </div>
    
-        <div class="form-group">
+        <div class="form-group extra_padding">
          <label for="village">Village</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="village" value="" placeholder="Agent Village" name="village" class="form-control">
@@ -90,7 +90,7 @@
             </div>
         </div>
      </div>
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="phone">Phone Number</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="phone" value=""  placeholder="Phone Number" name="phoneNumber" class="form-control">
@@ -112,10 +112,10 @@
        <input type="text" id="address" value="address"  placeholder="Address" name="address" class="form-control">
  
         </div>
-              </div>delivery
+              </div>
             </div>
    
-        <div class="form-group">
+        <div class="form-group extra_padding">
          <label for="village">Village</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="village" value="" placeholder="Agent Village" name="village" class="form-control">
@@ -141,13 +141,13 @@
         </div></div>
 
 
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="farmer">Assigned Farmer</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="farmer" value="" placeholder="Assigned Farmer" name="assigned_farmer" class="form-control">
      </div>
 
-     <div class="form-group">
+     <div class="form-group extra_padding">
          <label for="">Agent Profile (Optinal)</label>
         <input type="file" name="image" class="form-control"/>
      </div>

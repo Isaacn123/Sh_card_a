@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,7 +56,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('settings.users.update-password', function($view){
             $view->with('passwordsUpdate',User::find(auth()->user()->id));
         });
-            
+       
+        view()->composer('settings.edit.roles', function($view){
+            $view->with('roles_team',Role::all());
+        });   
+        
+        view()->composer('settings.edit.create-role', function($view){
+            $view->with('permission',Permission::all());
+        }); 
     
 }
 

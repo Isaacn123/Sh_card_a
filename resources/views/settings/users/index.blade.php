@@ -43,10 +43,10 @@
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 30.7891px;">User ID</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 148.8672px;">Name</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 128.8672px;">Email</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 128.8672px;">Role</th>
-                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 91.8672px;">Action</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 118.8672px;">Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 108.8672px;">Email</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 80.8672px;">Role</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 100.8672px;">Action</th>
 
                                             </thead>
                                         <tbody>
@@ -62,7 +62,8 @@
                                                 <td id="role_name"><span  id="role_name" >{{$user->role}}</span></td>
                                                 <td>
                                                 <!-- <a class="btn btn-success float-right" href="#">Show</a> -- -->
-                                                <button value="{{$user}}" class="btn btn-success btn-small edit" onclick="show()">Show</button>
+                                                <!-- <button  id="showUserdata"  value="{{$user->id}}" onclick="showUser()" class="btn btn-success btn-small edit" >Show</button> oncli="showusers({{$user->id}})" -->
+                                                <button id="showUserdata" class="btn btn-success btn-small" value="{{ $user->id }}"  data-id="{{ $user->id }}" >Show</button>
                                                 <a class="btn btn-primary float-right" href="#">Edit</a>
                                                 <a class="btn btn-danger float-right" href="#">Delete</a>
                                               </td>
@@ -81,82 +82,29 @@
                 
            </div>
 
-
-
-<form action="" id="UploadCardform" method="post" enctype="multipart/form-data" >
-
-@csrf
-
-<!-- @method('DELETE') -->
-
-<div class="modal fade" id="uploadCardModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="deleteModalLabel">Upload Cards</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-
-      <div class="card-body">
-  
-  <div class="form-group">
-  <label class=""  for="role_id">Role ID</label>
-<input type="text" id="role_id" name="role_id"  disabled class="form-control">
-  </div>
-
-  <div class="form-group">
-  <label class=""  for="role_name">Role Name</label>
-<input type="text" name="role_name" class="form-control" id="role_name">
-  </div>
-                
-          </div>
-
-    </div>
-    <div class="modal-footer">
-      <button type="button"  class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-      <button type="submit" class="btn btn-primary">Done</button>
-    </div>
-  </div>
-</div>
-</div>
-
-</form>
+   @include('settings.users.single-user')
 
 
 
 
 @section('scripts')
+ 
+    <script>
 
-<script type="text/javascript">
-function show(){
-         
-    $(document).ready(function(){
+    // function showusers(id){
+    $('body').on('click','#showUserdata',function(){
+     $('#showUserModal').modal('show');
+      var dataid = $(this).val();
 
-     $(document).on('click','.edit',function(){
-         var data = $(this).val();
-         const obj = JSON.parse(data);
-         var role_id = obj.id;
-        var role_name = obj.name;
+    });
 
-     $('#role_name').val(role_name);
-
-     $('#uploadCardModal').modal('show');
-    console.log(`DATA :: ${role_name}`);
-    var form = document.getElementById('UploadCardform');
-    form.action = '/roles'; // + id; addcard
-     console.log(form);
-        });
-
-   
-    })
-
-   
+     function infousers (){
+        console.log('Data');
     }
-</script>
+//    }
 
-@endsection
+     </script>
+
+@endsection 
 
 
