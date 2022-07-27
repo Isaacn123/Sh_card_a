@@ -48,7 +48,7 @@ class BeneficiaryController extends Controller
         //
         $uuid =  substr(uniqid(rand(), true), 4, 4);//str_random(10);//hexdec(random_bytes(60));
         // dd($uuid);
-        @session()->flash('success', 'Success! You have successfully created Agent.');
+        @session()->flash('success', 'Success! You have successfully created  a Beneficiary.');
       
         $beneficiary = new Beneficiary();
         
@@ -67,8 +67,6 @@ class BeneficiaryController extends Controller
         $beneficiary ->assigned_Inspectors = $request -> assigned_Inspectors;
         $beneficiary ->certifications = $request -> certifications;
         $beneficiary ->beneficiary_uid = $uuid;
-
-
         $beneficiary -> save();
 
         return redirect() -> route('beneficiary');

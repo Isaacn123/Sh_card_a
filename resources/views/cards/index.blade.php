@@ -136,8 +136,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-        <button type="submit" class="btn btn-primary">Done</button>
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Upload Cards</button>
       </div>
     </div>
   </div>
@@ -154,7 +154,7 @@
     function uploadCards(id){
     $('#uploadCardModal').modal('show');
     var form = document.getElementById('UploadCardform');
-    form.action = '/addTraining'; // + id; addcard
+    form.action = '/addcard'; // + id; addcard
      console.log(form);
     }
 </script>
