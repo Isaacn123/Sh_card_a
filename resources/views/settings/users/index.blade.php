@@ -59,12 +59,20 @@
                                                 <td class="sorting_1"><span  id="role_id" >{{$user->id}}</span></td>
                                                 <td id="role_name"><span  id="role_name" >{{$user->name}}</span></td>
                                                 <td id="role_name"><span  id="role_name" >{{$user->email}}</span></td>
-                                                <td id="role_name"><span  id="role_name" >{{$user->role}}</span></td>
+                                                <td id="role_name"><span  id="role_name" >
+                                                    <!-- {{$user->role}}</span> -->
+                                                    @if(!empty($user->getRoleNames()))
+                                                    @foreach($user->getRoleNames() as $v)
+                                                    <label class="badge badge-success">{{ $v }}</label>
+                                                    @endforeach
+                                                    @endif
+                                                
+                                                </td>
                                                 <td>
                                                 <!-- <a class="btn btn-success float-right" href="#">Show</a> -- -->
                                                 <!-- <button  id="showUserdata"  value="{{$user->id}}" onclick="showUser()" class="btn btn-success btn-small edit" >Show</button> oncli="showusers({{$user->id}})" -->
                                                 <button id="showUserdata" class="btn btn-success btn-small" value="{{ $user->id }}"  data-id="{{ $user->id }}" >Show</button>
-                                                <a class="btn btn-primary float-right" href="#">Edit</a>
+                                                <a class="btn btn-primary float-right" href="{{ route('users.edit',$user->id) }}">Edit</a>
                                                 <a class="btn btn-danger float-right" href="#">Delete</a>
                                               </td>
                                             </tr>

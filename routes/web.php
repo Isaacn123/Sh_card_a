@@ -36,15 +36,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/mm', function () {
+    return view('settings.users.edit', ['articleName' => 'Article 1']);
+});
+Route::get('/dd', [UserController::class,'edit']);
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+    //PROTECTED ROUTES
+Route::group(['middleware' => ['auth']], function() {
 
+Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/beneficiary', [BeneficiaryController::class, 'index'])->name('beneficiary');
 Route::get('/impact', [ImpactController::class, 'index'])->name('impact');
 Route::get('/community', [CommunityController::class, 'index'])->name('community');
 Route::get('/attendance', [AttendaceController::class, 'index'])->name('attendance');
 Route::get('/packages', [DistributionController::class, 'index'])->name('packages');
 Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities');
-Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/usercard', [CardController::class, 'index'])->name('usercard');
 Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
@@ -61,16 +70,19 @@ Route::post('/roles', [RoleController::class, 'store'])->name('roles');
 Route::post('/register', [UserController::class, 'store'])->name('register');
 Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
 
-    //PROTECTED ROUTES
-Route::group(['middleware' => ['auth']], function() {
+   
     Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
     Route::get('/edit-role/{id}', [RoleController::class, 'edit'])->name('edit-role');
     Route::put('/updaterole', [RoleController::class, 'update'])->name('updaterole');
     Route::delete('/deleterole/{id}', [RoleController::class, 'destroy'])->name('deleterole');
     Route::post('/createrole', [RoleController::class, 'store'])->name('createrole');
-    });
+    
+    
+});
+
 
 // RESOUCE ROUTES 
+//"
 
 Route::resource('agent', CommunityController::class);
 Route::resource('beneficial', BeneficiaryController::class);

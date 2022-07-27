@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
 
 class UserController extends Controller
@@ -16,6 +17,10 @@ class UserController extends Controller
     public function index()
     {
         //
+
+        // $data = User::orderBy('id','DESC')->paginate(5);
+        // return view('users.index',compact('data'))
+        //     ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -26,6 +31,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        $roles = Role::pluck('name','name')->all();
+        return view('users.create-user',compact('roles'));
     }
 
     /**
@@ -77,6 +84,13 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+
+        $user = User::find($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+        $article ='Passing Data to View';
+        // compact('user','roles','userRole')
+        // return view('ad',compact('user','roles','userRole'));
     }
 
     /**
@@ -152,4 +166,12 @@ class UserController extends Controller
 
         return redirect('settings')->with('success',"Password has been updated successfully.");
     }
+
+
+
+    // public function article() {
+    //     $user = User::find(1);
+    //     $article ='Passing Data to View';
+    //     return view('settings.users.edit',compact('user','article'));
+    // }
 }
