@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use App\Models\Profile;
 use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
@@ -63,6 +64,14 @@ class AppServiceProvider extends ServiceProvider
         
         view()->composer('settings.edit.create-role', function($view){
             $view->with('permission',Permission::all());
+        });
+
+
+        view()->composer('profile.edit', function($view){
+            $view->with('profile',Profile::find(Auth()->user()->id));
+        }); 
+        view()->composer('profile.index', function($view){
+            $view->with('profile',Profile::find(Auth()->user()->id));
         }); 
     
 }

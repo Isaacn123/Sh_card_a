@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use App\Models\Profile;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
 
         // $data = User::orderBy('id','DESC')->paginate(5);
         // return view('users.index',compact('data'))
-        //     ->with('i', ($request->input('page', 1) - 1) * 5);
+        //  ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -45,20 +46,26 @@ class UserController extends Controller
     {
         //
         $user = new User();
+        $profile = new Profile();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = $request->user_role;
+        $profile->full_name = $request->name;
+        $profile->email = $request->email;
+        $profile->user_id = $user->id;
+
 
         if($request->password == $request->password_confirmation){
           $user->save();
+          $profile->save();
           $user->assignRole($request->user_role);
 
         }else{
             
-            return back()->with('error', 'Passwords do not match');
-        }
-
+        return back()->with('error', 'Passwords do not match');
+       
+            }
 
         return redirect('settings')->with('success','User created successfully.');
 

@@ -42,10 +42,19 @@ Route::get('/mm', function () {
 Route::get('/dd', [UserController::class,'edit']);
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
     //PROTECTED ROUTES
+
+
+
+
+
+    Route::resource('profiles', ProfileController::class);
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/userprofile/{id}', [ProfileControlle::class, 'getprofile'])->name('userprofile');
+
 
 Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
+
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/beneficiary', [BeneficiaryController::class, 'index'])->name('beneficiary');
 Route::get('/impact', [ImpactController::class, 'index'])->name('impact');
@@ -67,7 +76,7 @@ Route::post('/checkagent', [AgentAuthController::class, 'checkagent'])->name('au
 Route::get('/training', [TrainingController::class, 'index'])->name('training');
 Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtraining');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles');
-Route::post('/register', [UserController::class, 'store'])->name('register');
+// Route::post('/register', [UserController::class, 'store'])->name('register');
 Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
 
    
@@ -76,8 +85,7 @@ Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser'
     Route::put('/updaterole', [RoleController::class, 'update'])->name('updaterole');
     Route::delete('/deleterole/{id}', [RoleController::class, 'destroy'])->name('deleterole');
     Route::post('/createrole', [RoleController::class, 'store'])->name('createrole');
-    
-    
+  
 });
 
 

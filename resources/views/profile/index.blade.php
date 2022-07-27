@@ -18,7 +18,7 @@
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
               <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a></li>
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+              <li><a onclick="getprofile({{Auth::user()->id}})" href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
           </ul>
       </div>
   </div>
@@ -32,28 +32,28 @@
               <h1>Bio Graph</h1>
               <div class="row">
                   <div class="bio-row">
-                      <p><span>First Name </span>: Isaac F</p>
+                      <p><span>First Name </span>: {{$profile->firstname ==null ? '' : $profile->firstname}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Last Name </span>: Nsamba</p>
+                      <p><span>Last Name </span>: {{$profile->lastname ==null ? '' : $profile->lastname}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Country </span>: Uganda</p>
+                      <p><span>Country </span>: {{$profile->country ==null ? '' : $profile->country}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Birthday</span>: 13 july 2022</p>
+                      <p><span>Birthday</span>: {{$profile->date_of_birth ==null ? '' : $profile->date_of_birth}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Occupation </span>: UI Designer</p>
+                      <p><span>Occupation </span>: {{$profile->occupation ==null ? '' : $profile->occupation}}</p>
                   </div>
                   <div class="bio-row">
                       <p><span>Email </span>: {{ Auth::user()->email }}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Mobile </span>: (256) 775 186921</p>
+                      <p><span>Mobile </span>: {{$profile->mobile ==null ? '' : $profile->mobile}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Phone </span>: (256) 775 186921</p>
+                      <p><span>Phone </span>:{{$profile->mobile ==null ? '' : $profile->mobile}}</p>
                   </div>
               </div>
           </div>
@@ -95,5 +95,29 @@
 </div>
 </div>
 
+@include('profile.edit');
 
+@endsection
+
+
+
+@section('scripts')
+<script>
+function getprofile(id){
+$('#editProfileModal').modal('show');
+console.log("Profile");
+console.log('id: ' + id);
+
+$.ajax({ 
+    type:'GET',
+    url:'/userprofile/'+ id,
+    success:function(data){
+        console.log("MODEL EDIT" + data);
+        // $('#roleid').val(data.result.id);
+        // $('#rolename').val(data.result.name);
+    }
+})
+
+}
+</script>
 @endsection
