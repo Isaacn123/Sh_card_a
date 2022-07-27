@@ -26,7 +26,7 @@ class CreateAgentsTable extends Migration
             $table->string('nationality');
             $table->string('village');
             $table->string('assigned_assets');
-            $table->string('assigned_farmer');
+            $table->string('assigned_farmer')->nullable();
             $table->string('certifications');
             $table->timestamps();
         });

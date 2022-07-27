@@ -78,7 +78,7 @@ Route::post('/addtraining', [TrainingController::class, 'store'])->name('addtrai
 Route::post('/roles', [RoleController::class, 'store'])->name('roles');
 // Route::post('/register-user', [UserController::class, 'store'])->name('register');
 Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser');
-
+Route::resource('beneficial', BeneficiaryController::class);
    
     Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
     Route::get('/edit-role/{id}', [RoleController::class, 'edit'])->name('edit-role');
@@ -93,7 +93,7 @@ Route::put('/edituser/{id}', [UserController::class, 'update'])->name('edituser'
 //"
 
 Route::resource('agent', CommunityController::class);
-Route::resource('beneficial', BeneficiaryController::class);
+
 Route::resource('card', BeneficiaryController::class);
 Route::resource('trainings',TrainingController::class);
 Route::resource('agent_login',AgentAuthController::class);

@@ -28,7 +28,7 @@ class CreateBeneficiariesTable extends Migration
             $table->string('memberships');
             $table->string('family_size');
             $table->string('is_assigned_card')->default(False);
-            $table->string( 'assigned_Inspectors');
+            $table->string('assigned_Inspectors')->nullable();
             $table->string('certifications');
 
             $table->timestamps();
