@@ -54,6 +54,9 @@ class UserController extends Controller
         $profile->full_name = $request->name;
         $profile->email = $request->email;
         $profile->user_id = $user->id;
+        $profile->user_id = $user->id; 
+        $profile->id = $user->id; 
+     
 
 
         if($request->password == $request->password_confirmation){
