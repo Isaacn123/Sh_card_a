@@ -25,7 +25,7 @@ class BeneficiaryRequestController extends FormRequest
     {
         return [
             //
-        'fullName' =>'required|unique:Beneficiaries|string',
+        'fullName' =>'required|unique:beneficiaries|string',
         'age' => 'required',
         'gender' => 'required|string',
         // 'phoneNumber' =>'required',
