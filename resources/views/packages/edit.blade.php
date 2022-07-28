@@ -1,8 +1,10 @@
-<form action="{{url('package.update')}}" id="editPackageform" method="post" enctype="multipart/form-data" >
+<form action="{{url('packageupdate')}}" id="editPackageform" method="post" enctype="multipart/form-data" >
 
   @csrf
 
-  @method('POST')
+  @method('PUT')
+
+  <input type="hidden" name="packageid" class="form-control" id="packageid">
 
 <div class="modal fade" id="editPackageModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -93,9 +93,22 @@ class PackageController extends Controller
      * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePackageRequest $request, Package $package)
+    public function update(UpdatePackageRequest $request)
     {
         //
+        // packageid
+        $id = $request->packageid;
+        $package  = Package::find($id);
+
+        $package ->name = $request->packagename1;
+        $package ->description = $request->packagedesc1;
+
+        if($package->update()){
+            return redirect('package')->with('success', 'Package has been updated successfully.'); 
+           }else{
+              return redirect('package')->with('error',' Package already exists.');
+          }
+
     }
 
     /**

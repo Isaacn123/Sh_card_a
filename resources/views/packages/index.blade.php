@@ -157,6 +157,7 @@ console.log('create category..' + id);
        $('#packageqty1').val(data.packages.quantity);
        $('#startdate1').val(data.packages.start_date);
        $('#enddate1').val(data.packages.end_date);
+       $('#packageid').val(data.packages.id);
         
         
     console.log("MODEL:" + data.data.id);

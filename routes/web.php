@@ -61,6 +61,8 @@ Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('agent', CommunityController::class);
 Route::resource('company', CompanyController::class);
+// package.update
+Route::put('/packageupdate', [PackageController::class, 'update'])->name('packageupdate');
 Route::get('/companyupdate/{id}', [CompanyController::class, 'show'])->name('show');
 Route::get('/showcat/{id}', [CategoryController::class, 'show'])->name('show');
 Route::get('/showpackage/{id}', [PackageController::class, 'show'])->name('showpackage');
