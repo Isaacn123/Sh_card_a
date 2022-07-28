@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -42,8 +43,9 @@ class CategoryController extends Controller
         //
         $category = new Category();
         $category->name = $request->name;
+        $slug = Str::slug($request->name);
         $category->featured_image = $request->featured_image;
-        $category->slug = $request->slug;
+        $category->slug = $slug;
         
          if($category->save()){
             return  redirect('category')->with('success', 'Successfully added category.');

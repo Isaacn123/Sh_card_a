@@ -25,11 +25,11 @@
   <input type="text" name="name" class="form-control" id="name">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
     <label class=""  for="slug">Slug</label>
   <input type="text" name="slug" class="form-control" id="slug">
     </div>
-    
+     -->
     <div class="input-group">
     <label class="input-group-addon"  for="featured_image">Featured Image</label>
   <input type="file" name="featured_image" class="form-control" id="featured_image">

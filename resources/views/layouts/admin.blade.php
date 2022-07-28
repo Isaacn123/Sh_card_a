@@ -399,8 +399,9 @@
         </span>
       </a>
     <ul class="treeview-menu">
-    <li class=""><a href="{{route('package.index')}}"><i class="fa fa-circle-o"></i>Package Managment</a></li>
     <li class=""><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
+    <li class=""><a href="{{route('package.index')}}"><i class="fa fa-circle-o"></i>Package Managment</a></li>
+    
     </ul>
     </li>
     <li  class="{{ (request()->is('packages')) ? 'active' : '' }}">
