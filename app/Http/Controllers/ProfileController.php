@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -75,8 +76,21 @@ class ProfileController extends Controller
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
         //
+        // $slug = Str::slug($request->fullname)
+        if(isset($request->profile_file)){
+            // dd($request->file('profile_file'));
+            $path = $request->file('profile_file');
+            $nameF = "user_" . time();
+            
+            $result = $path->storeOnCloudinaryAs('Profile', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            $paths = $result->getSecurePath();
+            // dd($paths);
+            $profile->photoUrl = $paths;
+        }
    
-        $profile->update($request->all());
+         $profile->update($request->all());
 
         return back()->with('success','Profile updated successfully.');
        

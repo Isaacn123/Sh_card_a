@@ -137,7 +137,7 @@ class RoleController extends Controller
         
         // $user->roles()->detach();
         // $user->removeRole($user->roles->first());
-         @session()->flash('success', 'Category has been Deleted successfully!');
+         @session()->flash('success', 'Role has been Deleted successfully!');
 
          return redirect('settings');
   

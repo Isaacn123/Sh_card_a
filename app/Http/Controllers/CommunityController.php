@@ -58,6 +58,14 @@ class CommunityController extends Controller
         $agent->agent_pin = $request->agent_pin;
         $agent->agent_id = $request->agent_id;
 
+        if(isset($request->profile_file)){
+         $path = $request->file('profile_file');
+         $nameF = "agent_" . time();
+         $result = $path->storeOnCloudinaryAs('Agents',$nameF);
+         $url = $result->getSecurePath();
+         $agent->agent_profileUrl = $url;
+        }
+
         $agent->save();
 
         $token = $agent->createToken('agent_token')->plainTextToken;

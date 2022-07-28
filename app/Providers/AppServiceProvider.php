@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use App\Models\Category;
 use App\Models\Profile;
+use App\Models\Company;
 use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
@@ -73,6 +75,17 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('profile.index', function($view){
             $view->with('profile',Profile::find(Auth()->user()->id));
         }); 
+        view()->composer('packages.create', function($view){
+            $view->with('categories',Category::all());
+        }); 
+
+        view()->composer('settings.company.edit-company', function($view){
+            $view->with('companies',Company::find(Auth()->user()->id));
+        });
+
+
+        // @include('settings.company.edit-company')
+    
     
 }
 

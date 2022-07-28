@@ -29,9 +29,7 @@
          </div>
         <div class="form-group col-md-6">
           <label for="lastname">LastName</label>
-        
           <input type="text" id="lastname" value="{{$profile->lastname ==null ? '' : $profile->lastname}}" placeholder="{{$profile->lastname ==null ? 'Enter your last name' : ''}}" name="lastname" class="form-control">
-  
           </div>
         </div>
     </div>
@@ -69,6 +67,12 @@
          <label for="mobile">Mobile</label>
          <input type="text" id="mobile" value="{{$profile->mobile ==null ? '' : $profile->mobile}}" placeholder="{{$profile->mobile ==null ? 'Mobile Number' : ''}}" name="mobile" class="form-control">
      </div>
+
+  
+     <div class="input-group extra_padding">
+    <label class="input-group-addon"  for="profile_file">CHANGE PROFILE PICTURE</label>
+     <input type="file" name="profile_file" class="form-control" id="profile_file">
+    </div>
 
                                 
     </div>

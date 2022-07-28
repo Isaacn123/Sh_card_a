@@ -77,30 +77,8 @@
         </div>
         <div id="collapseThree5" class="collapse" aria-labelledby="headingThree5" data-parent="#accordion">
             <div class="card-body">
-           <form>
-           <div class="form-group extra_padding">
-                    <label for="inputAddress5">Address</label>
-                    <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue" />
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCompany5">Company</label>
-                        <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd" />
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState5">State</label>
-                        <select id="inputState5" class="form-control">
-                            <option selected="">Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputZip5">Zip</label>
-                        <input type="text" class="form-control" id="inputZip5" placeholder="98232" />
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Save Change</button>
-           </form>
+           @include('settings.company.edit-company')
+
        
         </div>
         </div>

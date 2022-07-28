@@ -149,8 +149,11 @@
 
      <div class="form-group extra_padding">
          <label for="">Agent Profile (Optinal)</label>
-        <input type="file" name="image" class="form-control"/>
+      <label class="input-group-addon"  for="profile_file">PROFILE PICTURE</label>
+     <input type="file" name="profile_file" class="form-control" id="profile_file">
      </div>
+    
+
     <div class="form-group mt-2">
      <!-- <button  class="btn btn-success" >
        

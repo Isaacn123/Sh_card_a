@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Company;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +75,7 @@ class RegisterController extends Controller
 
         // $user = new User();
         $profile = new Profile();
+        $campany = new Company();
         // $user->name = $data['name'];
         // $user->email = $data['email'];
         // $user->password = Hash::make($data['password']);
@@ -82,7 +84,9 @@ class RegisterController extends Controller
         $profile->email = $data['email']; 
         $profile->user_id = $user->id; 
         $profile->id = $user->id; 
+        $campany->user_id = $user->id;
         $profile->save();
+        $campany->save();
 
         return $user;
 

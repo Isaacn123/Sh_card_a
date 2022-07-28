@@ -145,6 +145,12 @@
           </div>
 
           <div class="form-group">
+            <label for="benficiary" class="">Beneficiaries</label>
+            <input type="number"  aria-describedby="sizing-addon1" id="beneficiary" value="{{old('beneficiary')}}" name="beneficiary" placeholder="no of Beneficiaries" class="form-control input-lg">
+            <span class="text-danger">@error('training_description') {{$message}} @enderror</span>
+          </div>
+
+          <div class="form-group">
             <label for="training_start" class="">Start Date</label>
             <input type="text" id="training_start" name="training_start_date" value="{{old('training_start_date')}}" placeholder=" Start Date" class="form-control">
             <span class="text-danger">@error('training_start_date') {{$message}} @enderror</span>
@@ -163,7 +169,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-primary" >Add Training</button>
       </div>
     </div>

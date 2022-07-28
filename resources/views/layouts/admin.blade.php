@@ -382,12 +382,26 @@
         </span>
       </a>
     </li>
+   
     <li class="{{ (request()->is('attendance')) ? 'active' : '' }}">
       <a href="{{route('attendance')}}">
         <i class="fa fa-clock-o"></i>
         <span>Attendance</span>      
       </a>
   
+    </li>
+    
+     <li   class="treeview ">
+      <a href="{{route('packages')}}">
+        <i class="fa fa-id-card"></i> <span>Packages</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+    <ul class="treeview-menu">
+    <li class=""><a href="{{route('package.index')}}"><i class="fa fa-circle-o"></i>Package Managment</a></li>
+    <li class=""><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i>Categories</a></li>
+    </ul>
     </li>
     <li  class="{{ (request()->is('packages')) ? 'active' : '' }}">
       <a href="{{route('packages')}}">
@@ -477,8 +491,8 @@
     <!-- jQuery 3 -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
    
-<!-- <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->

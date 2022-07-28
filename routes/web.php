@@ -16,6 +16,8 @@ use App\Http\Controllers\AgentAuthController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,13 +50,21 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->nam
 
 
     Route::resource('profiles', ProfileController::class);
-Route::group(['middleware' => ['auth']], function() {
+
+    Route::group(['middleware' => ['auth']], function() {
     Route::get('/userprofile/{id}', [ProfileControlle::class, 'getprofile'])->name('userprofile');
 
-
+Route::resource('category', CategoryController::class);
+Route::resource('package', PackageController::class);
 Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
-
+Route::resource('agent', CommunityController::class);
+Route::resource('company', CompanyController::class);
+Route::get('/companyupdate/{id}', [CompanyController::class, 'show'])->name('show');
+Route::get('/showcat/{id}', [CategoryController::class, 'show'])->name('show');
+Route::get('/showpackage/{id}', [PackageController::class, 'show'])->name('showpackage');
+Route::put('/categoryupdate', [CategoryController::class, 'update'])->name('show');
+Route::delete('/deletecategory/{id}', [CategoryController::class, 'destroy'])->name('deletecategory');
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/beneficiary', [BeneficiaryController::class, 'index'])->name('beneficiary');
 Route::get('/impact', [ImpactController::class, 'index'])->name('impact');
@@ -92,7 +102,7 @@ Route::resource('beneficial', BeneficiaryController::class);
 // RESOUCE ROUTES 
 //"
 
-Route::resource('agent', CommunityController::class);
+
 
 Route::resource('card', BeneficiaryController::class);
 Route::resource('trainings',TrainingController::class);

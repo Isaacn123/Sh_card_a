@@ -49,6 +49,7 @@ class TrainingController extends Controller
         $training->training_id = $str;
         $training->training_name =  $request->training_name;
         $training->training_description = $request->training_description;
+        $training->no_of_beneficiaries = $request->beneficiary;
         $training->training_start_date = $request->training_start_date;
         $training->training_end_date  = $request->training_end_date;
 
