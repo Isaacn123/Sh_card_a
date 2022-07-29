@@ -114,7 +114,7 @@ class AgentAuthController extends Controller
                 $token = $user->createToken('agent_token')->plainTextToken;
 
 
-                return response()->json(data, 200, [], JSON_UNESCAPED_UNICODE);
+                return response()->json("Success", 200, [], JSON_UNESCAPED_UNICODE);
                     // return response([
                     //     "message" => "successful logged in",
                     //     'id' => $user->agent_id,
