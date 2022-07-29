@@ -16,6 +16,7 @@ class AgentAuthController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -30,6 +31,31 @@ class AgentAuthController extends Controller
         return view('auth.agentAuth.register');
 
     }
+
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+        $resp = Agent::where('agent_id','=',$id)->find(1);
+        // return response(
+        //     [
+        //         'aget' => $resp
+        //     ]
+        // );
+        return response(
+           $resp,200,[],JSON_UNESCAPED_UNICODE
+            
+        );
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -114,9 +140,10 @@ class AgentAuthController extends Controller
                 $token = $user->createToken('agent_token')->plainTextToken;
 
                 $data = [
+                    "message" => "successful logged in",
+                    'id' => $user->id,
                     'agent_id' => $user->agent_id,
-                    'id' => $user->agent_id,
-                    "message" => "successful logged in"
+                    'token' => $token,
                 ];
                 return response()->json($data, 200, [], JSON_UNESCAPED_UNICODE);
                     // return response([
@@ -126,11 +153,7 @@ class AgentAuthController extends Controller
                     //     'agent_name' => $user->fullName,
                     //     'token' => $token,
                     // ],200,JSON_UNESCAPED_UNICODE);
-                // Hash::check($request->agent_pin,$user->agent_pin)
-
-                // $request->session()->put('LoggedUser',$user->id);
-
-                // return redirect('usercard')->middleware('isLogged');
+          
 
             }else{
                 return response([

@@ -24,18 +24,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 //Public API routes
-Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid'])->name('fetchid');
+
 
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent'])->name('agent_login');
 
 ///Prodcted API AUTH
-
+Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']);
 Route::resource('usercard', BeneficiaryController::class);
 
 Route::group(['middleware' =>['auth:sanctum']], function () {
     Route::post('/card/attach', [BeneficiaryController::class, 'attach'])->name('attach');
-    Route::post('/card/scan/agent_login', [AgentAuthController::class, 'checkagent'])->name('agent_login'); 
+    Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid'])->name('fetchid');
+    Route::post('/card/scan/agent_login', [AgentAuthController::class, 'checkagent'])->name('agent_login');
+    // Route::get('card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
+    // cards/agent_details/ 
     // $token = $request->user()->createToken($request->token_name);
  
     // return ['token' => $token->plainTextToken];
