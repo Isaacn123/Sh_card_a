@@ -115,6 +115,8 @@ class AgentAuthController extends Controller
 
                 $data = [
                     'agent_id' => $user->agent_id,
+                    'id' => $user->agent_id,
+                    "message" => "successful logged in"
                 ];
                 return response()->json($data, 200, [], JSON_UNESCAPED_UNICODE);
                     // return response([
