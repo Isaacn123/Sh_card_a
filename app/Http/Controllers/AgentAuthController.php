@@ -43,7 +43,7 @@ class AgentAuthController extends Controller
     public function show($id)
     {
         //->get(['agent_id', 'fullName','phoneNumber','address'])
-        $resp = Agent::where('agent_id','=',$id)->first();
+        $resp = Agent::where('agent_id','=',$id)->find(1);
         // return response(
         //     [
         //         'aget' => $resp
