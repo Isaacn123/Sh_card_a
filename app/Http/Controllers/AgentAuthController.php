@@ -78,6 +78,7 @@ class AgentAuthController extends Controller
   if($query){
     // return back()->with('success','user has been successfully Added.');
     return response($response,201);
+    
   }else{
 
     return back()->with('error', 'Could not create user.');
