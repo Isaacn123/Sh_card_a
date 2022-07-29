@@ -118,7 +118,7 @@ class AgentAuthController extends Controller
                         'agent_id' => $user->agent_id,
                         'agent_name' => $user->fullName,
                         'token' => $token,
-                    ]);
+                    ],200);
                 // Hash::check($request->agent_pin,$user->agent_pin)
 
                 // $request->session()->put('LoggedUser',$user->id);
