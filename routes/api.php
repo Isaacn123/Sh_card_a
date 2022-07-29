@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\BeneficiaryController;
-use App\Http\controllers\CardController;
+use App\Http\Controllers\BeneficiaryController;
+use App\Http\Controllers\CardController;
 
 /*
 |--------------------------------------------------------------------------
