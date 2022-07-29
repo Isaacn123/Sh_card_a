@@ -51,12 +51,12 @@ class AgentAuthController extends Controller
         // );
           $json = $resp;
             $data = [
-                $resp->agent_id,
-            // "agent_id" => $resp->agent_id,
-            // "agent_name" => $resp->fullName,
-            // "agent_contact" => $resp->phoneNumber,
-            // "agent_address" => $resp->address,
-            // "profile_pic" => '',
+            "id" => $resp->id,
+            "agent_id" => $resp->agent_id,
+            "agent_name" => $resp->fullName,
+            "agent_contact" => $resp->phoneNumber,
+            "agent_address" => $resp->address,
+            "profile_pic" => '',
             
             ];
             // [],JSON_UNESCAPED_UNICODE
