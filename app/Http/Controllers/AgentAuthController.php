@@ -52,7 +52,7 @@ class AgentAuthController extends Controller
 
             $data = [
                 $resp,
-            "agent_id" => $resp->agent_id,
+            // "agent_id" => $resp->agent_id,
             "agent_name" => $resp->fullName,
             "agent_contact" => $resp->phoneNumber,
             "agent_address" => $resp->address,
