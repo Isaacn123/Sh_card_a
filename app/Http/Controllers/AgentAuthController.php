@@ -49,10 +49,11 @@ class AgentAuthController extends Controller
         //         'aget' => $resp
         //     ]
         // );
-
+          $json = $resp;
             $data = [
                 // $resp->agent_id,
-            "agent_id" => $resp->agent_id,
+              "da" =>  $json,
+            // "agent_id" => $resp->agent_id,
             // "agent_name" => $resp->fullName,
             // "agent_contact" => $resp->phoneNumber,
             // "agent_address" => $resp->address,
@@ -62,7 +63,8 @@ class AgentAuthController extends Controller
             // [],JSON_UNESCAPED_UNICODE
         return response(
             [
-             "agent_name" => $resp->fullName   
+                $json['id'],
+            //  "agent_name" => $resp->fullName   
             ],200
             
         );
