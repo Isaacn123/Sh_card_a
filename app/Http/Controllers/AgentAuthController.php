@@ -60,7 +60,7 @@ class AgentAuthController extends Controller
             
             ];
             // [],JSON_UNESCAPED_UNICODE
-        return $data;
+        return response()->json($data);
             //  "agent_name" => $resp->fullName   
             
     }
