@@ -102,9 +102,6 @@ class AgentAuthController extends Controller
             'agent_pin' =>  'required|min:4:max:12'
         ]);
 
-        // return 
-
-       
 
         $user = Agent::where('agent_id', '=',$request->agent_id)->first();
         
