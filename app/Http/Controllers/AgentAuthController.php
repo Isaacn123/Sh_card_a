@@ -42,8 +42,8 @@ class AgentAuthController extends Controller
      */
     public function show($id)
     {
-        //
-        $resp = Agent::where('agent_id','=',$id)->find(1);
+        //->get(['agent_id', 'fullName','phoneNumber','address'])
+        $resp = Agent::where('agent_id','=',$id)->first();
         // return response(
         //     [
         //         'aget' => $resp
@@ -51,8 +51,7 @@ class AgentAuthController extends Controller
         // );
           $json = $resp;
             $data = [
-                // $resp->agent_id,
-              "da" =>  $json,
+                $resp->agent_id,
             // "agent_id" => $resp->agent_id,
             // "agent_name" => $resp->fullName,
             // "agent_contact" => $resp->phoneNumber,
@@ -61,13 +60,9 @@ class AgentAuthController extends Controller
             
             ];
             // [],JSON_UNESCAPED_UNICODE
-        return response(
-            [
-                $json['id'],
+        return $data;
             //  "agent_name" => $resp->fullName   
-            ],200
             
-        );
     }
 
 
