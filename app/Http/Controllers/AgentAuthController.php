@@ -99,40 +99,42 @@ class AgentAuthController extends Controller
         // return $request->input();
         $request->validate([
             'agent_id' => 'required|numeric',
-            'agent_pin' =>  'required|min:4:max:12'
+            // 'agent_pin' =>  'required|min:4:max:12'
         ]);
 
+           return $request;
 
-        $user = Agent::where('agent_id', '=',$request->agent_id)->first();
+
+        // $user = Agent::where('agent_id', '=',$request->agent_id)->first();
         
-        if($user){
+        // if($user){
 
             // if($request->agent_pin == $user->agent_pin){
-                if(Hash::check($request->agent_pin,$user->password)){
-                $token = $user->createToken('agent_token')->plainTextToken;
-                    return response([
-                        "message" => "successful logged in",
-                        'id' => $user->agent_id,
-                        'agent_id' => $user->agent_id,
-                        'agent_name' => $user->fullName,
-                        'token' => $token,
-                    ]);
+                // if(Hash::check($request->agent_pin,$user->password)){
+                // $token = $user->createToken('agent_token')->plainTextToken;
+                //     return response([
+                //         "message" => "successful logged in",
+                //         'id' => $user->agent_id,
+                //         'agent_id' => $user->agent_id,
+                //         'agent_name' => $user->fullName,
+                //         'token' => $token,
+                //     ]);
                 // Hash::check($request->agent_pin,$user->agent_pin)
 
                 // $request->session()->put('LoggedUser',$user->id);
 
                 // return redirect('usercard')->middleware('isLogged');
 
-            }else{
-                return response([
-                    'error' =>'Wrong Agent pin.try again',
-                    'status'=> 401
-                ]);
-            }
+            // }else{
+            //     return response([
+            //         'error' =>'Wrong Agent pin.try again',
+            //         'status'=> 401
+            //     ]);
+            // }
             
-        }else{
-            return back()->with('error', 'No account found for this agent.');
-        }
+        // }else{
+        //     return back()->with('error', 'No account found for this agent.');
+        // }
     }
 
     /**
