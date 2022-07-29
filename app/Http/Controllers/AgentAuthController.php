@@ -49,8 +49,17 @@ class AgentAuthController extends Controller
         //         'aget' => $resp
         //     ]
         // );
+
+            $data = [
+            "agent_id" => $resp->agent_id,
+            "agent_name" => $resp->fullName,
+            "agent_contact" => $resp->phoneNumber,
+            "agent_address" => $resp->address,
+            "profile_pic" => '',
+            
+            ];
         return response(
-           $resp,200,[],JSON_UNESCAPED_UNICODE
+            $data,200,[],JSON_UNESCAPED_UNICODE
             
         );
     }
