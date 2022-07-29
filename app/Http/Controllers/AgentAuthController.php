@@ -99,7 +99,7 @@ class AgentAuthController extends Controller
         // return $request->input();
         $request->validate([
             "agent_id"  =>  "required|numeric",
-            "agent_pin" =>  "required|min:4:max:12"
+            "agent_pin" =>  "required|numeric"//"required|min:4:max:12"
         ]);
 
            return $request;
