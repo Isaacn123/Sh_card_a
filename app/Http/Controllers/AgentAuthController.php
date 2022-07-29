@@ -58,8 +58,9 @@ class AgentAuthController extends Controller
             "profile_pic" => '',
             
             ];
+            // [],JSON_UNESCAPED_UNICODE
         return response(
-            $data,200,[],JSON_UNESCAPED_UNICODE
+            $data,200
             
         );
     }
