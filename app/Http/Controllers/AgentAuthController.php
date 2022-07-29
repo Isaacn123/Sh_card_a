@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use  App\Models\Agent;
+use App\Http\Resources\AgentResource;
 
 class AgentAuthController extends Controller
 {
@@ -57,10 +58,7 @@ class AgentAuthController extends Controller
             // "agent_contact" => $resp->phoneNumber,
             // "agent_address" => $resp->address,
             // "profile_pic" => '',
-            
-            // ];
-            // [],JSON_UNESCAPED_UNICODE
-        return response($resp->fullName,200,[],JSON_UNESCAPED_UNICODE);
+        return new AgentResource($resp);
             //  "agent_name" => $resp->fullName   
             
     }
