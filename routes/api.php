@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid'])->name('fetchid');
 
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
-Route::post('/card/agent_login/', [CardController::class, 'scan'])->name('scan');
+Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent'])->name('agent_login');
 
 ///Prodcted API AUTH
 

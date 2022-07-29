@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use  App\Models\Argent;
+use  App\Models\Agent;
 
 class AgentAuthController extends Controller
 {
@@ -78,7 +78,7 @@ class AgentAuthController extends Controller
   if($query){
     // return back()->with('success','user has been successfully Added.');
     return response($response,201);
-    
+
   }else{
 
     return back()->with('error', 'Could not create user.');
@@ -104,19 +104,33 @@ class AgentAuthController extends Controller
 
         // return 
 
-        $user = Argent::where('agent_id', '=',$request->agent_id)->first();
+       
 
+        $user = Agent::where('agent_id', '=',$request->agent_id)->first();
+        
         if($user){
 
-            if($request->agent_pin == $user->agent_pin){
+            // if($request->agent_pin == $user->agent_pin){
+                if(Hash::check($request->agent_pin,$user->password)){
+                $token = $user->createToken('agent_token')->plainTextToken;
+                    return response([
+                        "message" => "successful logged in",
+                        'id' => $user->agent_id,
+                        'agent_id' => $user->agent_id,
+                        'agent_name' => $user->fullName,
+                        'token' => $token,
+                    ]);
                 // Hash::check($request->agent_pin,$user->agent_pin)
 
-                $request->session()->put('LoggedUser',$user->id);
+                // $request->session()->put('LoggedUser',$user->id);
 
-                return redirect('usercard')->middleware('isLogged');
+                // return redirect('usercard')->middleware('isLogged');
 
             }else{
-                return back()->with('error', 'Wrong Agent pin.');
+                return response([
+                    'error' =>'Wrong Agent pin.try again',
+                    'status'=> 401
+                ]);
             }
             
         }else{
