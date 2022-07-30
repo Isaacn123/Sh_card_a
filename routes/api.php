@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\AgentAuthController;
+use App\Http\Controllers\TrainingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,19 +30,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent']);
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid']);
+
 ///Prodcted API AUTH
-Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']);
+
 
 Route::resource('usercard', BeneficiaryController::class);
 // Route::post('/card/scan/agent_login', [AgentAuthController::class, 'checkagent']);
 
 // Route::group(['middleware' =>['auth:sanctum']], function () {
-
+    // Route::get('/card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
     Route::middleware('auth:sanctum')->group(function () {
     
     Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']); 
     Route::post('/card/attach_card', [BeneficiaryController::class, 'attach']);
-    Route::get('card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
+    Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']);
+    Route::get('/training/get_training/{id}', [TrainingController::class, 'trainings']);
     // cards/agent_details/ 
     // $token = $request->user()->createToken($request->token_name);
  

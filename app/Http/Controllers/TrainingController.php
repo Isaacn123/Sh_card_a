@@ -108,4 +108,18 @@ class TrainingController extends Controller
     {
         //
     }
+
+
+      /**
+     * List TRainings by ID the specified resource from storage.
+     *
+     * @param  \App\Models\Training  $training
+     * @return \Illuminate\Http\Response
+     */
+    public function trainings($training)
+    {
+        //
+        // $agent = Agent::find($training);
+        return Training::all();
+    }
 }
