@@ -162,7 +162,7 @@ class BeneficiaryController extends Controller
        $card = Attachcard::where('card_sequence', '=',$request->card_sequence)->first();
 
        if($card == null){
-        $attachCard->agent_id = $request->agent;
+        $attachCard->agent_id = intval($request->agent);
         $attachCard->card_sequence = $request->card_sequence;
         $attachCard->beneficiary_name = $beneficiary->fullName;
  
