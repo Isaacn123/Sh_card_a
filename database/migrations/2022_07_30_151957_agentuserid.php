@@ -15,7 +15,7 @@ class Agentuserid extends Migration
     {
         //
         Schema::Table('agents',function (Blueprint $table) {
-          $table->integer('user_id');
+          $table->integer('user_id')->default(0);
         });
     }
 
