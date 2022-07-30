@@ -13,6 +13,7 @@ class Agent extends Model
 
     protected $fillable = [
         'agent_id',
+        'user_id',
         'fullName',
         'age',
         'gender',

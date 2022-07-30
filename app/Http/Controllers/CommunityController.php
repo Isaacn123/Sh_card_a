@@ -45,6 +45,7 @@ class CommunityController extends Controller
 
         $agent = new Agent();
         $agent->fullName = $request->fullName;
+        $agent->user_id = auth()->user()->id;
         $agent->age = $request->age;
         $agent->gender = $request->gender;
         $agent->phoneNumber = $request->phoneNumber;
