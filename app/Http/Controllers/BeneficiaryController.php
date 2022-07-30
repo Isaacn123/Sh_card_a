@@ -144,7 +144,7 @@ class BeneficiaryController extends Controller
     public function attach(Request $request)
     {
         //
-
+        $attachCard = new Attachcard();
         // $data = Card::where('card_sequence','=',$request->card)->get();
         $data = Card::where('card_sequence','=',$request->card_sequence)->update([
             'card_is_assigned' => 'True'
@@ -157,7 +157,7 @@ class BeneficiaryController extends Controller
           ]);
        $beneficiary = Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->find(1);
 
-       $attachCard = new Attachcard();
+       
 
        $card = Attachcard::where('card_sequence', '=',$request->card_sequence)->first();
 

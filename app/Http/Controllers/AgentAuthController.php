@@ -145,7 +145,7 @@ class AgentAuthController extends Controller
 
             // if($request->agent_pin == $user->agent_pin){
                 if(Hash::check($request->agent_pin,$user->password)){
-                $token = $user->createToken('agent_token')->plainTextToken;
+                $token = $user->createToken('myagentToken')->plainTextToken;
 
                 $data = [
                     "message" => "successful logged in",
