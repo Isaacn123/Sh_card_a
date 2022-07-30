@@ -45,7 +45,7 @@
      <div class="form-group extra_padding">
          <label for="name">Beneficairy Names</label>
          <!-- {{isset($category) ? $category->name : ''}}" -->
-         <input type="text" value="{{isset($beneficial) ? $beneficial->fullName : ''}}" placeholder="Agents Names" id="name" name="fullName" class="form-control">
+         <input type="text" value="{{isset($beneficial) ? $beneficial->fullName : ''}}" placeholder="Full Names" id="name" name="fullName" class="form-control">
 
      </div>
      <div class="form-row">
@@ -125,7 +125,7 @@
         <div class="form-group col-md-6">
         <label for="certifications"> Beneficairy Certifications</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
-         <input type="text" id="certifications" value="" placeholder="Agent Certification" name="certifications" class="form-control">
+         <input type="text" id="certifications" value="" placeholder="Certification" name="certifications" class="form-control">
         </div>
 
         <div class="form-group col-md-6">
@@ -149,7 +149,7 @@
           {{isset($category) ? 'Edit E-Shop Category' : '  Add E-Shop Category'}}
      </button> -->
      <button type="submit" class="btn btn-primary">
-                                    Create Agent
+                                    Create Beneficiary
                                 </button>
     </div>
 
