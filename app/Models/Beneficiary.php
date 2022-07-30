@@ -12,6 +12,7 @@ class Beneficiary extends Model
 
    protected $fillable = [
         'fullName',
+        'user_id',
         'age',
         'gender',
         'phoneNumber',

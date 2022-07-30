@@ -54,6 +54,7 @@ class BeneficiaryController extends Controller
         
 
         $beneficiary ->fullName = $request->fullName;
+        $beneficiary ->user_id = auth()->user()->id;
         $beneficiary ->age = $request->age;
         $beneficiary ->gender = $request->gender;
         $beneficiary ->phoneNumber = $request->phoneNumber;
