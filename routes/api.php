@@ -41,7 +41,7 @@ Route::resource('usercard', BeneficiaryController::class);
     
     Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']); 
     Route::post('/card/attach_card', [BeneficiaryController::class, 'attach']);
-    // Route::get('card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
+    Route::get('card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
     // cards/agent_details/ 
     // $token = $request->user()->createToken($request->token_name);
  
