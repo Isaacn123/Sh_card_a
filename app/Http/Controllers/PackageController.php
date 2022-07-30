@@ -50,6 +50,7 @@ class PackageController extends Controller
     //    dd($request->category);
        $package->description = $request->description;
        $package->quantity = $request->quantity;
+       $package->user_id = auth()->user()->id;
        $package->category = $request->category;
        $package->slug = $slug;
        $package->start_date = $request->start_date;
