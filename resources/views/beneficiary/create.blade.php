@@ -20,7 +20,7 @@
 </div>
 
 <div class="card-body">
-{{isset($agent) ? 'Agents' : 'Create Agent'}}
+{{isset($agent) ? 'Agents' : 'Create Beneficiary'}}
 
 @if($errors->any())
 
