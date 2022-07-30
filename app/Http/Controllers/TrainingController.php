@@ -45,11 +45,11 @@ class TrainingController extends Controller
 
         // return "Hello am Training";
         // return response($request);
-        $agent = Agent::find(auth()->user()->id);
+        // $agent = Agent::find(auth()->user()->id);
     //    dd($agent->id);
         $str = "TR-{$uuid}";
         $training = new Training();
-        $training->agent_id = $agent->user_id;
+        $training->user_id = auth()->user()->id;
         $training->training_id = $str;
         $training->training_name =  $request->training_name;
         $training->training_description = $request->training_description;

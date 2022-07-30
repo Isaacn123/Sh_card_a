@@ -10,7 +10,8 @@ class Training extends Model
     use HasFactory;
 
     protected $fillable =[
-    "agent_id",
+    "user_id",
+    "user_status",
     "training_id",
     "training_name",
     "training_description",
