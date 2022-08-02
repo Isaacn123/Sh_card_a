@@ -64,9 +64,9 @@
                                         <tr role="row" class="even">
                                                 <td class="sorting_1">{{$attendance->id}}</td>
                                                 <td>{{$attendance->agent_id}}</td>
-                                                <td>{{$attendance->training_name}}</td>
+                                                <td>{{$attendance->activity_name}}</td>
                                                 <td>{{$attendance->beneficiary}}</td>
-                                                <td>{{$attendance->createAt}}</td>
+                                                <td>{{$attendance->create_at}}</td>
                                                 
                                             </tr>
 
