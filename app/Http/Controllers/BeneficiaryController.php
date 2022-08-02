@@ -154,16 +154,16 @@ class BeneficiaryController extends Controller
         // $data->card_is_assigned = 'True';
         // $data->save();
         if($data){
-         Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->update([
-                'is_assigned_card' => 'True'
-          ]);
-       $beneficiary = Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->find(1);
-
        
+       $beneficiary = Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->first();
 
-       $card = Attachcard::where('card_sequence', '=',$request->card_sequence)->first();
+       if($beneficiary){
+        Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->update([
+            'is_assigned_card' => 'True'
+      ]);
 
-       if($card == null){
+      $card = Attachcard::where('card_sequence', '=',$request->card_sequence)->first();
+      if($card == null){
         $attachCard->agent_id = intval($request->agent);
         $attachCard->card_sequence = $request->card_sequence;
         $attachCard->beneficiary_name = $beneficiary->fullName;
@@ -172,7 +172,12 @@ class BeneficiaryController extends Controller
        } else{
         return response(['message'=>'Card already attached', 'status' => 200]);
        }
+    }else{
 
+        return response([
+            'message' => 'Beneficiary uid not found',
+        ],500);
+    }
     //    return response($beneficiary_name->fullName,200); 
         }
 
