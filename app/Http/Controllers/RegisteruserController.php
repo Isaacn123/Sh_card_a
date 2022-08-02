@@ -18,6 +18,14 @@ class RegisteruserController extends Controller
 
     public function  registeruser(Request $request){
         //   dd($request->company_id);
+
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:8|confirmed',
+            ]
+            );
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
