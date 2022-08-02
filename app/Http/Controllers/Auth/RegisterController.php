@@ -67,6 +67,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+       
      
         $user = User::create([
             'name' => $data['name'],
@@ -75,16 +77,21 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+         $campany = Company::create([
+            'name' => $data['company_name'],
+            'owner_id' => $user->user_id,
+            'user_id' => $user->user_id
+        ]);
+
+        dd($user->user_id);
+
         // $user = new User();
-        // $campany = Company::create([
-        //     'name' => $data['company_name'],
-        //     'owner_id' => $user->id,
-        //     'user_id' => $user->id
-        // ]);
+
+      
         
-         return response([
-            'user' => $user->id
-         ]);
+        //  return response([
+        //     'user' => $user->id
+        //  ]);
 
         // dd($campany->company_id);
         // $profile = new Profile();
@@ -95,12 +102,17 @@ class RegisterController extends Controller
         // $profile->email = $data['email']; 
         // $profile->user_id = $user->id; 
         // $user->company_id = $campany->company_id;
-        // $profile->save();
+        
         // $user->profile_id = $profile->profile_id;
+        // $campany->owner_id = $user->user_id;
+        // $campany->user_id = $user->id;
+
+        // $profile->save();
+        // $campany->save();
         // $user->save();
         
 
-        // return $user;
+        return $user;
 
     }
 }
