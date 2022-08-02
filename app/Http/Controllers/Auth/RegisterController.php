@@ -78,7 +78,7 @@ class RegisterController extends Controller
         ]);
 
         // $data = User::where('id','=',auth());
-           $login = Auth::login($user);
+         $login = Auth::login($user);
          $campany = Company::create([
             'name' => $data['company_name'],
             'owner_id' => Auth()->user()->id,
