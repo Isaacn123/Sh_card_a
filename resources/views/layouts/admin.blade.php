@@ -282,7 +282,7 @@
       <!-- User Account: style can be found in dropdown.less -->
       <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        profile
+        
           <img src="{{$profile->photoUrl ==null ? 'https://res.cloudinary.com/padshare/image/upload/v1659459017/Profile/user_1659459015.png' : $profile->photoUrl}}" class="user-image" alt="User Image" >
           <span class="hidden-xs">{{ Auth::user()->name }}</span>
         </a>
