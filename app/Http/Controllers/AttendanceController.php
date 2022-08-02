@@ -42,7 +42,7 @@ class AttendanceController extends Controller
         $card = Attachcard::where('card_sequence', '=',$request->serial_no)->first();
 
         if($card){
-            $training = Training::where('training_id', '=',$request->training_id)->first();
+            $training = Training::where('id', '=',$request->training_id)->first();
             $attendace =  Attendance::create([
                 'training_id' => $request->training_id,
                 'agent_id' => $request->agent_id,
