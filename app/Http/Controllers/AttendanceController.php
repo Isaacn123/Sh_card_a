@@ -41,8 +41,9 @@ class AttendanceController extends Controller
         //
         $card = Attachcard::where('card_sequence', '=',$request->serial_no)->first();
 
-        if($card){
+         if($card){
             $training = Training::where('id', '=',$request->training_id)->first();
+            
             $attendace =  Attendance::create([
                 'training_id' => $request->training_id,
                 'agent_id' => $request->agent_id,
@@ -52,12 +53,12 @@ class AttendanceController extends Controller
                 ]);
 
                 return response([
-                'message' => "attendace successfully registered."
+                'message' => "attendance successfully registered."
                 ],200);
 
         }else{
       return response([
-        'message' => 'Card not Beneficiary card not found.',
+        'message' => 'Beneficiary card not found.',
       ]);
         }
    
@@ -93,6 +94,7 @@ class AttendanceController extends Controller
      * @param  \App\Models\Attendance  $attendance
      * @return \Illuminate\Http\Response
      */
+
     public function update(UpdateAttendanceRequest $request, Attendance $attendance)
     {
         //
