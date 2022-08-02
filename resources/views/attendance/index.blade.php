@@ -50,86 +50,43 @@
                                             <div class="col-sm-12">
                                                 <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <thead>
-                                            <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Attendace ID: activate to sort column descending" style="width: 73.7891px;">Attendace ID</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 54.2969px;">Agent ID</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Training: activate to sort column ascending" style="width: 158.688px;">Training</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 118.906px;">Card Scanned</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="When Attended: activate to sort column ascending" style="width: 79.4219px;">When Attended</th></tr>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Attendace ID: activate to sort column descending" style="width: 73.7891px;">Attendace ID</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 54.2969px;">Agent ID</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Training: activate to sort column ascending" style="width: 158.688px;">Training</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 118.906px;">Card Scanned</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="When Attended: activate to sort column ascending" style="width: 79.4219px;">When Attended</th></tr>
                                         </thead>
                                         <tbody>
+
+                                        @foreach ($attendances as $attendance)
+
+                                        <tr role="row" class="even">
+                                                <td class="sorting_1">{{$attendance->id}}</td>
+                                                <td>{{$attendance->agent_id}}</td>
+                                                <td>{{$attendance->training_name}}</td>
+                                                <td>{{$attendance->beneficiary}}</td>
+                                                <td>{{$attendance->createAt}}</td>
+                                                
+                                            </tr>
+
+                                        @endforeach
                                                                                         
                                         
-                                                                                       
-                                        <tr role="row" class="odd">
-                                                <td class="sorting_1">1096</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>cosy test</td>
-                                                <td>2022-05-25</td>
-                                                
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1283</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>YONAS TAKELE</td>
-                                                <td>2022-05-31</td>
-                                                
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1294</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>Nahayo Hassan</td>
-                                                <td>2022-05-25</td>
-                                                
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1308</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>David Mwamba</td>
-                                                <td>2022-06-08</td>
-                                                
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1471</td>
-                                                <td>Sandra Awiliiii</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>Mufano Mazidor</td>
-                                                <td>2022-05-25</td>
-                                                
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1557</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>Roble muhumed farah</td>
-                                                <td>2022-06-08</td>
-                                                
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1559</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>Dieumerci Kambale Kayange</td>
-                                                <td>2022-05-31</td>
-                                                
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1668</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>David sengi miracle</td>
-                                                <td>2022-06-08</td>
-                                                
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1707</td>
-                                                <td>Heshima Betty</td>
-                                                <td>Electronics &amp; Mechanics Business Training</td>
-                                                <td>David Mawa Charles</td>
-                                                <td>2022-05-31</td>
-                                                
-                                            </tr><tr role="row" class="even">
+                                       
+                                           <!-- <tr role="row" class="even">
                                                 <td class="sorting_1">1749</td>
                                                 <td>Heshima Betty</td>
                                                 <td>Electronics &amp; Mechanics Business Training</td>
                                                 <td>Engwau Emmanuel</td>
                                                 <td>2022-05-31</td>
                                                 
-                                            </tr></tbody>
-                                        <tfoot>
+                                            </tr> -->
+                                        </tbody>
+
+                                        <!-- <tfoot>
                                             <tr><th rowspan="1" colspan="1">Attendace ID</th><th rowspan="1" colspan="1">Agent ID</th><th rowspan="1" colspan="1">Training</th><th rowspan="1" colspan="1">Card Scanned</th><th rowspan="1" colspan="1">When Attended</th></tr>
-                                        </tfoot>
+                                        </tfoot> -->
                                     </table>
                                 </div>
                             </div>

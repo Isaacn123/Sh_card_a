@@ -10,6 +10,9 @@ use App\Models\Category;
 use App\Models\Profile;
 use App\Models\Company;
 use App\Models\Beneficiary;
+use App\Models\Training;
+use App\Models\Attendance;
+use App\Models\Agent;
 use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
@@ -98,6 +101,15 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('layouts.admin', function($view){
             $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
+        });
+        view()->composer('activities.index', function($view){
+            $view->with('trainings',Training::all());
+        });
+
+        view()->composer('attendance.index', function($view){
+            $attendances = Attendance::all();
+            $agents = Agent::all();
+            $view->with(compact('attendances','agents'));
         });
 
       
