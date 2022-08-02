@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Profile;
 use App\Models\Company;
+use App\Models\Beneficiary;
 use Spatie\Permission\Models\Permission;
 
 class AppServiceProvider extends ServiceProvider
@@ -37,9 +38,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('roles',Role::all());
         });
     
-        view()->composer('settings.users.index', function($view){
+        view()->composer('settings.user-info.index', function($view){
             $limit=10;
-            $view->with('users',User::all());
+            $view->with('users',Company::where('company_id','=',auth()->user()->company_id)->first());
         });
 
         view()->composer('settings.users.edit', function($view){
@@ -80,10 +81,22 @@ class AppServiceProvider extends ServiceProvider
         }); 
 
         view()->composer('settings.company.edit-company', function($view){
-            $view->with('companies',Company::find(Auth()->user()->id));
+            $view->with('companies',Company::where('company_id','=',auth()->user()->company_id)->first());
         });
 
+        view()->composer('auth.register', function($view){
+            $view->with('companies',Company::all());
+        });
 
+        view()->composer('settings.user-info.edit-user', function($view){
+            $view->with('roles',Role::all());
+        });
+
+        view()->composer('admin.admin', function($view){
+            $view->with('totalBeneficiaries',Beneficiary::count());
+        });
+
+       
         // @include('settings.company.edit-company')
     
     

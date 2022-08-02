@@ -5,7 +5,7 @@
 
 @section('content')
 
-
+    
         <!-- main-panel ends -->
        
         <div class="content-wrapper">
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-12" style="text-align:right; border-left: 1px solid rgba(0, 0, 0, 0.1);">
-                      <h3 style="color: #7571F9;">206 </h3>
+                      <h3 style="color: #7571F9;">{{$totalBeneficiaries}} </h3>
                       <small>Total Beneficiaries</small>
                       <h4> 0</h4>
                       <small>Female</small>
@@ -124,7 +124,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card card-widget">
                             <div class="card-body">
-                              <h4>206</h4>
+                              <h4>{{$totalBeneficiaries}}</h4>
                               <h3><i class="fa fa-users" style="color: #7571F9;"></i></h3>
                               <h6>Beneficiaries</h6>
                             </div>

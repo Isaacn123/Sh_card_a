@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+  
+
     /**
      * Display a listing of the resource.
      *
@@ -82,7 +86,15 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        //\
+        $user = User::where('id','=',$id)->first();
+        $company= Company::where('company_id','=',$user->company_id)->first();
+        return response([
+            'user' => $user,
+            'company' => $company->name,
+            'message' => "data available"
+        ]);
+
     }
 
     /**
@@ -122,6 +134,7 @@ class UserController extends Controller
         $profile->firstname = $request->firstname;
         $profile->lastname = $request->lastname;
         $profile->email = $request->email;
+        $profile->date_of_birth = $request->date_of_birth;;
         $user->gender = $request->gender;
         $user->date_of_birth = $request->date_of_birth;
         $user->update();
@@ -183,9 +196,54 @@ class UserController extends Controller
 
 
 
-    // public function article() {
-    //     $user = User::find(1);
-    //     $article ='Passing Data to View';
-    //     return view('settings.users.edit',compact('user','article'));
-    // }
+    public function company() {
+        $user = User::find(1);
+        $article ='Passing Data to View';
+        // compact('user','article')
+        return view('auth.newCompany.register');
+    
+    }
+
+    public function updateuser(Request $request, $id){
+       
+        $user = User::find($request->user_id_st);
+        //    dd($user->firstname);
+           $profile = Profile::where('profile_id','=',$user->profile_id);
+        //    $user->firstname = $request->first_name_st == null ? $user->firstname : $request->first_name_st;
+        //    $user->lastname = $request->last_name_st == null ?  $user->lastname : $request->last_name_st;
+        //    $profile->firstname = $request->first_name_st  == null ? $user->firstname : $request->first_name_st;
+        //    $profile->lastname = $request->last_name_st == null ?   $user->lastname : $request->last_name_st;
+
+        //    $profile->date_of_birth = $request->date_of_birth_st_st;
+        //    $user->gender = $request->gender_st_st;
+        //    $user->date_of_birth = $request->date_of_birth_st_st;
+        //    if($request->role_st != "Choose Role"){
+        //     $user->assignRole($request->role_st);
+        //     if($request->role_st == 'admin'){
+        //         $user->type = 1;
+        //     }else{
+        //         $user->type = 0; 
+        //     }
+        //    } else{
+
+        //    }
+
+        //    $user->update();
+        //    $profile->update();
+         
+         
+         
+         
+         
+         
+         return redirect('settings')->with('success','successfully updated User');
+         
+           // 'first_name_st'
+            // '#last_name_st'
+            // '#gender_st_st'
+            // '#date_of_birth_st_st'
+            // '#user_id_st'
+    }
+
 }
+

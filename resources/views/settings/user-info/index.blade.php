@@ -71,9 +71,11 @@
                                                 <td>
                                                 <!-- <a class="btn btn-success float-right" href="#">Show</a> -- -->
                                                 <!-- <button  id="showUserdata"  value="{{$user->id}}" onclick="showUser()" class="btn btn-success btn-small edit" >Show</button> oncli="showusers({{$user->id}})" -->
-                                                <button id="showUserdata" class="btn btn-success btn-small" value="{{ $user->id }}"  data-id="{{ $user->id }}" onclick="infousers({{ $user->id }})" >Show</button>
+                                                <!-- <button id="showUserdata" class="btn btn-success btn-small" value="{{ $user->id }}"  data-id="{{ $user->id }}" onclick="infousers({{ $user->id }})" >Show</button> -->
+                                                <button type="button"  class="btn btn-success btn-small" value="{{ $user->id }}" onclick="show({{ $user->id }})">Show</button>
+                                                <button type="button"  class="btn btn-primary btn-small" value="{{ $user->id }}" onclick="edit({{ $user->id }})">Edit</button>
                                                 <!-- {{ route('users.edit',$user->id) }} -->
-                                                <a class="btn btn-primary float-right" onclick="edituserModelAction()" href="#">Edit</a> 
+                                                <!-- <a class="btn btn-primary float-right" onclick="edituserModelAction()" href="#">Edit</a>  -->
                                                 <a class="btn btn-danger float-right" href="#">Delete</a>
                                               </td>
                                             </tr>
@@ -91,31 +93,20 @@
                 
            </div>
 
-           @include('settings.users.single-user')
-           @include('settings.users.edit-user')
+
+
+
+
+@include('settings.users.single-user')
+@include('settings.user-info.edit-user')
+
 
 
 
 
 @section('scripts')
+<script>
 
- 
-    <script>
-
-    // function showusers(id){
-
-
-    //  function infousers (){
-    //     console.log('Data');
-    // }
-//    }
-
-
-
-
-
-     </script>
-
+    
+</script>
 @endsection
-
-

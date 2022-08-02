@@ -67,26 +67,42 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+     
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'type' => 1,
             'password' => Hash::make($data['password']),
         ]);
 
         // $user = new User();
+        $campany = Company::create([
+            'name' => $data['company_name'],
+            'owner_id' => $user->id,
+            'user_id' => $user->id
+        ]);
+
+
+        // dd($campany->company_id);
         $profile = new Profile();
-        $campany = new Company();
-        // $user->name = $data['name'];
+        
+        // .
+        
         // $user->email = $data['email'];
         // $user->password = Hash::make($data['password']);
-        $user->assignRole('user');
+        $user->assignRole('admin');
         $profile->full_name = $data['name'];
         $profile->email = $data['email']; 
         $profile->user_id = $user->id; 
-        $profile->id = $user->id; 
-        $campany->user_id = $user->id;
+        // $profile->id = $user->id; 
+        // $campany->user_id = $user->id;
+        // $campany->owner_id = $user->id;
+        $user->company_id = $campany->id;
         $profile->save();
-        $campany->save();
+        $user->profile_id = $profile->id;
+        $user->save();
+        
+        // $campany->save();
 
         return $user;
 

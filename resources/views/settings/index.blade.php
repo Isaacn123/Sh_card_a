@@ -13,6 +13,7 @@
 
 
     <div class="card">
+    @role('admin')
         <div class="card-header" id="headingTwo2">
             <h5 class="mb-0">
             <button class="btn btn-link collapsed"  data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
@@ -28,6 +29,10 @@
 
            </div>
         </div>
+        @else
+         <div></div>
+        @endrole
+
    </div>
 
 
@@ -50,6 +55,7 @@
         </div>
 
      <div class="card">
+     @role('admin')
         <div class="card-header" id="headingThree4">
             <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
@@ -64,6 +70,11 @@
     
           </div>
          </div>
+       
+       @else
+        <div></div>
+       @endrole
+    
         </div>
 
 
@@ -77,8 +88,8 @@
         </div>
         <div id="collapseThree5" class="collapse" aria-labelledby="headingThree5" data-parent="#accordion">
             <div class="card-body">
-           @include('settings.company.edit-company')
-
+           
+            @include('settings.company.edit-company')
        
         </div>
         </div>
@@ -95,13 +106,14 @@
         <div id="collapseThree6" class="collapse" aria-labelledby="headingThree6" data-parent="#accordion">
             <div class="card-body">
 
-         @include('settings.users.edit')
+            @include('settings.users.edit')
          
          </div>
         </div>
     </div>
 
     <div class="card">
+    @role('admin')
         <div class="card-header" id="headingThree7">
             <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree7" aria-expanded="false" aria-controls="collapseThree7">
@@ -112,9 +124,12 @@
         <div id="collapseThree7" class="collapse" aria-labelledby="headingThree7" data-parent="#accordion">
             <div class="card-body">
 
-       @include('settings.users.index')
+       @include('settings.user-info.index')
          </div>
         </div>
+        @else
+        <div class="card-body"></div>
+        @endrole
     </div>
    
     

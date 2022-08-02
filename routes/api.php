@@ -6,7 +6,8 @@ use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\AgentAuthController;
 use App\Http\Controllers\TrainingController;
-
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,8 +41,10 @@ Route::resource('usercard', BeneficiaryController::class);
 // Route::group(['middleware' =>['auth:sanctum']], function () {
     // Route::get('/card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
     Route::middleware('auth:sanctum')->group(function () {
-    
-    Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']); 
+    Route::post('/card/scan', [CardController::class, 'scan']);
+    Route::get('/training/create_attendance/{agent_id}', [AttendanceController::class, 'show']);    
+    Route::get('/company/{company_id}', [CompanyController::class, 'show']);
+    Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'store']); 
     Route::post('/card/attach_card', [BeneficiaryController::class, 'attach']);
     Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'show']);
     Route::get('/training/get_training/{id}', [TrainingController::class, 'trainings']);

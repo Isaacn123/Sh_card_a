@@ -515,6 +515,7 @@
 <!-- <script src="{{asset('dist/js/demo.js')}}"></script> -->
 
 @yield('scripts')
+
 <script>
   window.addEventListener('load', ()=>{
     document.querySelector(".centered").classList.add("loader--hidden")

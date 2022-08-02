@@ -8,31 +8,21 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('registeruser') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-        
+
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Company Name') }}</label>
 
-                            <div class="col-md-4">
-                                <!-- <input id="Company_name" type="text" class="form-control @error('name') is-invalid @enderror" name="Company_name" value="{{ old('Company_name') }}" required autocomplete="Company_name" autofocus> -->
-
-                                <select id="company_id" name="company_id" class="form-control ">
-                                <option selected disabled hidden>Choose here</option>
-                                    @foreach($companies as $company)
-                                    <option  value="{{$company->company_id}}">{{$company->name}}</option>
-                                    @endforeach
-                                 </select>
+                            <div class="col-md-6">
+                                <input id="company_name" placeholder="Company name" type="text" class="form-control @error('name') is-invalid @enderror" name="company_name" value="{{ old('Company_name') }}" required autocomplete="company_name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <div class="col-md-2">
-                             <a href="{{url('addcompany')}}" style="text-decoration:none; font-size:10px;">New Campany</a>
                             </div>
                         </div>
 

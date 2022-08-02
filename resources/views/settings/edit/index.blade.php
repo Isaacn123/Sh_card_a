@@ -170,6 +170,112 @@ console.log(form);
 }
 
 
+
+// function infousers (id){
+//         console.log('Data');
+//         var userid = id;
+//         $('#showUserModal').modal('show');
+//         console.log('userid',userid);
+//         var url = "{{ route('users.show',"") }}";
+//         //  url = url.replace(':id', userid);
+//         $.ajax({type:'GET',url:url + '/' + id,
+//             data: {id: userid},
+//             success: function(data){
+//             console.log('data::',data.user['name']);
+//             $('#first_name').val(data.user['firstname']==null ? '' :data.user['firstname']);
+//             $('#last_name').val(data.user['lastname'] ==null ? '' : data.user['lastname']);
+//             $('#gender_st').val(data.user['gender'] == null ? '' : data.user['gender']);
+//             $('#date_of_birth_st').val(data.user['date_of_birth'] == null ? '' : data.user['date_of_birth']);
+//             $('#email_st').val(data.user['email']);
+//             $('#role_st').val(data.user['type']==0 ? 'user' : 'admin');
+            
+
+//         }});
+
+//     }
+
+    function edituserModelAction (){
+        
+        $('#editUserModal').modal('show');
+        console.log('Edte User');
+    }
+
+    function edit(id){
+        console.log('editing');
+        // editUserModal
+        $('#editUserModal').modal('show');
+
+        var url = "{{ route('users.show',"") }}";
+        //  url = url.replace(':id', userid);
+        $.ajax({type:'GET',url:url + '/' + id,
+            data: {id: id},
+            success: function(data){
+            console.log('data::',data.user);
+            $('#first_name_st').val(data.user['firstname']==null ? '' :data.user['firstname']);
+            $('#last_name_st').val(data.user['lastname'] ==null ? '' : data.user['lastname']);
+            $('#gender_st_st').val(data.user['gender'] == null ? '' : data.user['gender']);
+            $('#date_of_birth_st_st').val(data.user['date_of_birth'] == null ? '' : data.user['date_of_birth']);
+            $('#email_st_st').val(data.user['email']);
+            $('#company_st').val(data.company);
+            $('#user_id_st').val(data.user['id']);
+           
+            $('#role_st_st').val(data.user['type']==0 ? 'user' : 'admin');
+            
+            $(document).on("click", "#update_data", function() { 
+
+                 console.log("BTN UPDATE");
+                 var url = "{{ route('updateuserinfo','') }}";
+                 $.ajax({type:"PATCH",url + '/' + id,
+                    data:{
+                        _token:'{{ csrf_token() }}',
+                        type:0,
+                        firstname:$('#first_name_st').val(),
+                        lastname:$('#last_name_st').val(),
+                        gender:$('#gender_st_st').val(),
+                        date_of_birth: $('#date_of_birth_st_st').val(),
+
+                       
+            // 'first_name_st'
+            // '#last_name_st'
+            // '#gender_st_st'
+            // '#date_of_birth_st_st'
+            // '#user_id_st'
+
+                    }
+                    success: function(data){
+                       console.log("data Updated");
+                    }
+                })
+
+            });
+
+        }});
+    }
+
+    function show(id){
+        console.log('Data');
+        var userid = id;
+        $('#showUserModal').modal('show');
+        console.log('userid',userid);
+        var url = "{{ route('users.show',"") }}";
+        //  url = url.replace(':id', userid);
+        $.ajax({type:'GET',url:url + '/' + id,
+            data: {id: userid},
+            success: function(data){
+            console.log('data::',data.user['name']);
+            $('#first_name').val(data.user['firstname']==null ? '' :data.user['firstname']);
+            $('#last_name').val(data.user['lastname'] ==null ? '' : data.user['lastname']);
+            $('#gender_st').val(data.user['gender'] == null ? '' : data.user['gender']);
+            $('#date_of_birth_st').val(data.user['date_of_birth'] == null ? '' : data.user['date_of_birth']);
+            $('#email_st').val(data.user['email']);
+            $('#role_st').val(data.user['type']==0 ? 'user' : 'admin');
+            
+
+        }});
+
+    }
+
+
   
 </script>
 

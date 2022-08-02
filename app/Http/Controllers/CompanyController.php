@@ -46,9 +46,14 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($company)
     {
         //
+        $companys = Company::with('users')->where('company_id', '=',$company)->get();
+        return response([
+            'message' => "data returned",
+            'company' => $companys,
+        ]);
     }
 
     /**

@@ -19,6 +19,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\RegisteruserController;
+use Spatie\Permission\Models\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,12 +39,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/roled', function () {
+    // if(auth()->user()){
+    //     auth()->user()->assignRole('admin');
+    // }
+    return response([
+        'roles' =>auth()->user()->getRoleNames()
+    ]);
+});
+
 Auth::routes();
 
 Route::get('/mm', function () {
     return view('settings.users.edit', ['articleName' => 'Article 1']);
 });
-Route::get('/dd', [UserController::class,'edit']);
+Route::get('/addcompany', [UserController::class,'company']);
+Route::post('/registeruser', [RegisteruserController::class,'registeruser']);
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
     //PROTECTED ROUTES
 
@@ -96,6 +108,7 @@ Route::resource('beneficial', BeneficiaryController::class);
     Route::put('/updatepassword/{id}', [UserController::class, 'updateuserPassword'])->name('updatepassword');
     Route::get('/edit-role/{id}', [RoleController::class, 'edit'])->name('edit-role');
     Route::put('/updaterole', [RoleController::class, 'update'])->name('updaterole');
+    Route::put('/updateuserinfo/{id}', [UserController::class, 'updateuser'])->name('updateuserinfo');
     Route::delete('/deleterole/{id}', [RoleController::class, 'destroy'])->name('deleterole');
     Route::post('/createrole', [RoleController::class, 'store'])->name('createrole');
   

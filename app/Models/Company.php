@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Company extends Model
 {
@@ -12,6 +13,7 @@ class Company extends Model
     protected $fillable =[
         'name',
         'user_id',
+        'owner_id',
         'about',
         'email',
         'website',
@@ -22,4 +24,17 @@ class Company extends Model
         'company_address',
         'company_phone',
     ];
+
+
+
+    public function owner()
+{
+    return $this->belongsTo(User::class, 'owner_id' , 'id');
+}
+
+public function users(){
+
+    return $this->hasMany('App\Models\User','company_id', 'company_id');
+}
+
 }

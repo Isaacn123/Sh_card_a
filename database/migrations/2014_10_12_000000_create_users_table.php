@@ -17,6 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('isBan')->default(0);
+            $table->integer('company_id')->default(0);
+            $table->integer('profile_id')->default(0);
+            $table->tinyInteger('type')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
