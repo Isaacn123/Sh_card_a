@@ -71,10 +71,10 @@ class AppServiceProvider extends ServiceProvider
 
 
         view()->composer('profile.edit', function($view){
-            $view->with('profile',Profile::find(Auth()->user()->id));
+            $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
         }); 
         view()->composer('profile.index', function($view){
-            $view->with('profile',Profile::find(Auth()->user()->id));
+            $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
         }); 
         view()->composer('packages.create', function($view){
             $view->with('categories',Category::all());
