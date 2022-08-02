@@ -41,6 +41,10 @@ class CommunityController extends Controller
     public function store(AgentRequestController $request)
     {
         //
+        $request->validate([
+            'phoneNumber' =>'required|numeric|unique:agents',
+        ]);
+        
         @session()->flash('success', 'Success! You have successfully created Agent.');
 
         $agent = new Agent();

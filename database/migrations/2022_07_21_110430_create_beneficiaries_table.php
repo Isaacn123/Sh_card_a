@@ -19,7 +19,7 @@ class CreateBeneficiariesTable extends Migration
             $table->string('fullName');
             $table->integer('age');
             $table->string('gender');
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('address');
             $table->string('nationality');
             $table->string('village');
