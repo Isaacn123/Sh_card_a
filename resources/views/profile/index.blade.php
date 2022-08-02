@@ -9,7 +9,9 @@
       <div class="panel">
           <div class="user-heading round">
               <a href="#">
-                  <img src="{{$profile->photoUrl ==null ? asset('dist/img/avator_profile.png') : $profile->photoUrl}}" alt="">
+                <!-- asset('dist/img/avator_profile.png') -->
+              
+                  <img src="{{$profile->photoUrl ==null ? 'https://res.cloudinary.com/padshare/image/upload/v1659459017/Profile/user_1659459015.png' : $profile->photoUrl}}" alt="">
               </a>
               <h1>{{ Auth::user()->name }}</h1>
               <p>{{ Auth::user()->email }}</p>
