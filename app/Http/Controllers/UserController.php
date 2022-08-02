@@ -207,7 +207,7 @@ class UserController extends Controller
     public function updateuser(Request $request, $id){
        
         $user = User::find($request->user_id_st);
-        //    dd($user->firstname);
+           dd($request);
            $profile = Profile::where('profile_id','=',$user->profile_id);
         //    $user->firstname = $request->first_name_st == null ? $user->firstname : $request->first_name_st;
         //    $user->lastname = $request->last_name_st == null ?  $user->lastname : $request->last_name_st;

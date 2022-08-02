@@ -97,9 +97,9 @@ class RegisterController extends Controller
         // $profile->id = $user->id; 
         // $campany->user_id = $user->id;
         // $campany->owner_id = $user->id;
-        $user->company_id = $campany->id;
+        $user->company_id = $campany->company_id;
         $profile->save();
-        $user->profile_id = $profile->id;
+        $user->profile_id = $profile->profile_id;
         $user->save();
         
         // $campany->save();
