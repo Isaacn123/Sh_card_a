@@ -94,6 +94,7 @@
          <label for="phone">Phone Number</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="phone" value=""  placeholder="Phone Number" name="phoneNumber" class="form-control">
+         <span class="text-danger">@error('phoneNumber'){{$message}} @enderror</span>
      </div>
      
 

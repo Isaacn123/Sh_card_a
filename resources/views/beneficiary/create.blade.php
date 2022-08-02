@@ -68,6 +68,7 @@
          <label for="phone">Phone Number</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="phone" value=""  placeholder="Phone Number" name="phoneNumber" class="form-control">
+         <span class="text-danger">@error('phoneNumber'){{$message}} @enderror</span>
      </div>
 
      <div class="form-row">
@@ -76,7 +77,7 @@
         <div class="form-group col-md-6">
         <label for="nationality">Nationality</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
-         <input type="text" id="nationality" value="" placeholder="Nationality" name="nationality" class="form-control">
+         <input type="text" id="nationality" value="{{old('nationality')}}" placeholder="Nationality" name="nationality" class="form-control">
     
         </div>
         <div class="form-group col-md-6">
