@@ -76,35 +76,31 @@ class RegisterController extends Controller
         ]);
 
         // $user = new User();
-        $campany = Company::create([
-            'name' => $data['company_name'],
-            'owner_id' => $user->id,
-            'user_id' => $user->id
-        ]);
-
+        // $campany = Company::create([
+        //     'name' => $data['company_name'],
+        //     'owner_id' => $user->id,
+        //     'user_id' => $user->id
+        // ]);
+        
+         return response([
+            'user' => $user->id
+         ]);
 
         // dd($campany->company_id);
-        $profile = new Profile();
+        // $profile = new Profile();
         
-        // .
+    
+        // $user->assignRole('admin');
+        // $profile->full_name = $data['name'];
+        // $profile->email = $data['email']; 
+        // $profile->user_id = $user->id; 
+        // $user->company_id = $campany->company_id;
+        // $profile->save();
+        // $user->profile_id = $profile->profile_id;
+        // $user->save();
         
-        // $user->email = $data['email'];
-        // $user->password = Hash::make($data['password']);
-        $user->assignRole('admin');
-        $profile->full_name = $data['name'];
-        $profile->email = $data['email']; 
-        $profile->user_id = $user->id; 
-        // $profile->id = $user->id; 
-        // $campany->user_id = $user->id;
-        // $campany->owner_id = $user->id;
-        $user->company_id = $campany->company_id;
-        $profile->save();
-        $user->profile_id = $profile->profile_id;
-        $user->save();
-        
-        // $campany->save();
 
-        return $user;
+        // return $user;
 
     }
 }
