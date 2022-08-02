@@ -42,7 +42,7 @@ Route::resource('usercard', BeneficiaryController::class);
     // Route::get('/card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
     Route::middleware('auth:sanctum')->group(function () {
     Route::post('/card/scan', [CardController::class, 'scan']);
-    Route::get('/training/create_attendance/{agent_id}', [AttendanceController::class, 'show']);    
+    Route::get('/training/create_attendance/{agent_id}', [AttendanceController::class, 'store']);    
     Route::get('/company/{company_id}', [CompanyController::class, 'show']);
     Route::get('/card/agent_details/{id}', [AgentAuthController::class, 'store']); 
     Route::post('/card/attach_card', [BeneficiaryController::class, 'attach']);
