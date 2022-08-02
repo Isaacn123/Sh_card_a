@@ -46,7 +46,8 @@ class BeneficiaryController extends Controller
     public function store(BeneficiaryRequestController $request)
     {
         //
-        $uuid =  substr(uniqid(rand(), true), 4, 4);//str_random(10);//hexdec(random_bytes(60));
+       // $uuid =  substr(uniqid(rand(), true), 4, 4); //str_random(10);//hexdec(random_bytes(60));
+        $uuid = random_int(1000, 9999); //str_random(10);//hexdec(random_bytes(60));
         // dd($uuid);
         @session()->flash('success', 'Success! You have successfully created  a Beneficiary.');
       
