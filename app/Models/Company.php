@@ -34,7 +34,7 @@ class Company extends Model
 
 public function users(){
 
-    return $this->hasMany('App\Models\User','company_id', 'company_id');
+    return $this->hasMany('App\Models\User','company_id', 'id');
 }
 
 }
