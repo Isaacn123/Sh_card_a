@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
     
         view()->composer('settings.user-info.index', function($view){
             $limit=10;
-            $view->with('users',Company::where('company_id','=',auth()->user()->company_id)->first());
+            $view->with('users',Company::where('id','=',auth()->user()->company_id)->first());
         });
 
         view()->composer('settings.users.edit', function($view){
