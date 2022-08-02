@@ -41,7 +41,7 @@
                         </div>
             
 
-                        <!-- <div class="form-group has-feedback">
+      <!-- <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Company name" name="company_name" value="{{ old('company_name') }}"/>
         <span class="glyphicon glyphicon-globe form-control-feedback"></span>
     </div> -->

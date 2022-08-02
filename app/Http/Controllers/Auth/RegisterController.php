@@ -77,10 +77,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        // $data = User::where('id','=',auth());
+           $login = Auth::login($user);
          $campany = Company::create([
             'name' => $data['company_name'],
-            'owner_id' => $user->user_id,
-            'user_id' => $user->user_id
+            'owner_id' => Auth()->user()->id,
+            'user_id' =>  Auth()->user()->id  
         ]);
 
         dd($user->user_id);
