@@ -67,8 +67,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-       
      
         $user = User::create([
             'name' => $data['name'],
@@ -77,42 +75,34 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // $data = User::where('id','=',auth());
-         $login = Auth::login($user);
-         $campany = Company::create([
+        // $user = new User();
+        $campany = Company::create([
             'name' => $data['company_name'],
-            'owner_id' => Auth()->user()->id,
-            'user_id' =>  Auth()->user()->id  
+            'owner_id' => $user->id,
+            'user_id' => $user->id
         ]);
 
-        dd($user->user_id);
-
-        // $user = new User();
-
-      
-        
-        //  return response([
-        //     'user' => $user->id
-        //  ]);
 
         // dd($campany->company_id);
-        // $profile = new Profile();
+        $profile = new Profile();
         
-    
-        // $user->assignRole('admin');
-        // $profile->full_name = $data['name'];
-        // $profile->email = $data['email']; 
-        // $profile->user_id = $user->id; 
-        // $user->company_id = $campany->company_id;
+        // .
         
-        // $user->profile_id = $profile->profile_id;
-        // $campany->owner_id = $user->user_id;
+        // $user->email = $data['email'];
+        // $user->password = Hash::make($data['password']);
+        $user->assignRole('admin');
+        $profile->full_name = $data['name'];
+        $profile->email = $data['email']; 
+        $profile->user_id = $user->id; 
+        // $profile->id = $user->id; 
         // $campany->user_id = $user->id;
-
-        // $profile->save();
-        // $campany->save();
-        // $user->save();
+        // $campany->owner_id = $user->id;
+        $user->company_id = $campany->id;
+        $profile->save();
+        $user->profile_id = $profile->id;
+        $user->save();
         
+        // $campany->save();
 
         return $user;
 
