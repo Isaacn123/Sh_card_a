@@ -96,7 +96,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('totalBeneficiaries',Beneficiary::count());
         });
 
-       
+        view()->composer('layouts.admin', function($view){
+            $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
+        });
+
+      
         // @include('settings.company.edit-company')
     
     
