@@ -86,13 +86,17 @@ class Agentprofile extends Controller
 
 
         $agent->profile_pic = $request->profile_pic;
-        $agent->update();
         
-        return response()->json([
-            'success' => true, 
-            'message' => 'Profile updated successfully.',
-       
-     ],200);
+        if($agent->update()){
+            return response()->json([
+                'success' => true,
+                'agent' =>$agent,
+                'message' => 'Profile updated successfully.',
+           
+         ],200);
+        }
+        
+     
     }
 
     /**
