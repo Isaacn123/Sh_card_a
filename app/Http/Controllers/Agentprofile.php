@@ -85,16 +85,19 @@ class Agentprofile extends Controller
         // }
 
 
-        $agent->profile_pic = $request->profile_pic;
-        
+        $agent->profile_pic = $request->profile_pic; 
+        // ?_method=PATCH
         if($agent->update()){
             return response()->json([
                 'success' => true,
-                'agent' =>$agent,
+                '0' => $request->profile_pic,
+                // 'agent' =>$agent,
                 'message' => 'Profile updated successfully.',
            
          ],200);
         }
+
+        return $request;
         
      
     }
