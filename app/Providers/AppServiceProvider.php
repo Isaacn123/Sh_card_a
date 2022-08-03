@@ -96,11 +96,16 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('admin.admin', function($view){
-            $view->with('totalBeneficiaries',Beneficiary::count());
+            $attendance = Attendance::count();
+            $totalBeneficiaries = Beneficiary::count();
+            $activities = Training::count();
+            $view->with(compact('attendance','totalBeneficiaries','activities'));
         });
 
         view()->composer('layouts.admin', function($view){
-            $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
+            
+             $profile = Profile::findOrFail(auth()->user()->profile_id);
+            $view->with(compact('profile'));
         });
         view()->composer('activities.index', function($view){
             $view->with('trainings',Training::all());

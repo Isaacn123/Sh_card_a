@@ -133,7 +133,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card card-widget">
                             <div class="card-body">
-                              <h4>10</h4>
+                              <h4>{{$activities}}</h4>
                               <h3><i class="fa fa-map-marker" style="color: #F29D56;"></i></h3>
                               <h6>Activities</h6>
                             </div>
@@ -142,7 +142,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card card-widget">
                             <div class="card-body">
-                              <h4>79</h4>
+                              <h4>{{$attendance}}</h4>
                               <h3><i class="fa fa-user" style="color: #6FD96F;"></i></h3>
                               <h6>Attendace</h6>
                             </div>
