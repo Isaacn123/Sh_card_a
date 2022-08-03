@@ -15,6 +15,7 @@ class Agent extends Model
         'agent_id',
         'user_id',
         'fullName',
+        'company_id',
         'age',
         'gender',
         'phoneNumber',

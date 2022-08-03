@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTrainingRequest;
 use App\Http\Requests\UpdateTrainingRequest;
 use App\Models\Training;
 use App\Models\Agent;
+use App\Models\Company;
 
 class TrainingController extends Controller
 {
@@ -18,7 +19,9 @@ class TrainingController extends Controller
     {
         //
         $limit = 25;
-        return view('training.index')->with('training',Training::orderBy('id','desc')->paginate($limit));
+        // Training::orderBy('id','desc')->paginate($limit)
+        $trainings = Company::find(1)->trainings()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        return view('training.index')->with('training',$trainings );
     }
 
     /**
@@ -51,6 +54,7 @@ class TrainingController extends Controller
         $training = new Training();
         $training->user_id = auth()->user()->id;
         $training->training_id = $str;
+        $training->company_id = auth()->user()->company_id;
         $training->training_name =  $request->training_name;
         $training->training_description = $request->training_description;
         $training->no_of_beneficiaries = $request->beneficiary;

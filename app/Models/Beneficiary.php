@@ -15,6 +15,7 @@ class Beneficiary extends Model
         'user_id',
         'age',
         'gender',
+        'company_id',
         'phoneNumber',
         'address',
         'nationality',

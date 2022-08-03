@@ -16,6 +16,7 @@ class CreateAttendancesTable extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->integer('agent_id');
+            $table->integer('company_id');
             $table->integer('training_id');
             $table->string('serial_no');
             $table->string('beneficiary');

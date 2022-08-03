@@ -66,6 +66,7 @@ class CardController extends Controller
                         $csv_data = new Card();
                         $csv_data->card_sequence = $data [0];
                         $csv_data->card_is_assigned = $data [1];
+                        $csv_data->company_id = auth()->user()->company_id;
                         $csv_data->save ();
                     }else{
                         $found = $card['card_sequence'];

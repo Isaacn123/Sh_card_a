@@ -6,6 +6,7 @@ use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
 use App\Models\Package;
 use App\Models\Category;
+use App\Models\Company;
 use Illuminate\Support\Str;
 
 class PackageController extends Controller
@@ -18,8 +19,8 @@ class PackageController extends Controller
     public function index()
     {
         //
-        $packages = Package::all();
-        
+        // $packages = Package::all();
+        $packages = Company::find(1)->packages()->where('company_id','=',auth()->user()->company_id)->get();
         return view('packages.index',compact('packages'));
     }
 
@@ -49,6 +50,7 @@ class PackageController extends Controller
        $slug = Str::slug($request->name);
     //    dd($request->category);
        $package->description = $request->description;
+       $package->company_id = auth()->user()->company_id;
        $package->quantity = $request->quantity;
        $package->user_id = auth()->user()->id;
        $package->category = $request->category;

@@ -12,6 +12,7 @@ class Cardsdistributed extends Model
     protected $fillable = [
      'agent_id',
      'beneficiary',
+     'company_id',
      'card_scanned',
      'delivery_status',
     ];

@@ -96,6 +96,7 @@ class AgentAuthController extends Controller
   $agent = new Argent();
   $agent->agent_id = $request->agent_id;
   $agent-> agentName = $request->agentName;
+//   $agent->company_id = auth()->user()->company_id;
   $agent->agent_pin = $request->agent_pin;
 //$agent->agent_pin = Hash::make($request->agent_pin);
 

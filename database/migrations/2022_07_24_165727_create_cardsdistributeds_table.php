@@ -15,6 +15,7 @@ class CreateCardsdistributedsTable extends Migration
     {
         Schema::create('cardsdistributeds', function (Blueprint $table) {
             $table->increments('distribution_id');
+            $table->integer('company_id');
             $table->integer('agent_id');
             $table->string('beneficiary');
             $table->string('card_scanned');

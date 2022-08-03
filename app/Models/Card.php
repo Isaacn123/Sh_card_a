@@ -11,6 +11,7 @@ class Card extends Model
 
     protected $fillable =[
          'card_sequence',
+         'company_id',
          'card_is_assigned',
     ];
 

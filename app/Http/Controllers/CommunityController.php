@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AgentRequestController;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Agent;
+use App\Models\Company;
 
 class CommunityController extends Controller
 {
@@ -18,7 +19,9 @@ class CommunityController extends Controller
     {
         //
         $limit =25;
-        return view('community.index')->with('agents', Agent::orderBy('id', 'desc')->paginate($limit));
+        // Agent::orderBy('id', 'desc')->paginate($limit)
+        $agents = Company::find(1)->agents()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        return view('community.index')->with('agents', $agents);
     }
 
     /**
@@ -50,6 +53,7 @@ class CommunityController extends Controller
         $agent = new Agent();
         $agent->fullName = $request->fullName;
         $agent->user_id = auth()->user()->id;
+        $agent->company_id =  auth()->user()->company_id;
         $agent->age = $request->age;
         $agent->gender = $request->gender;
         $agent->phoneNumber = $request->phoneNumber;

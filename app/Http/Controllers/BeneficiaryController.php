@@ -11,6 +11,7 @@ use App\Models\Card;
 use App\Models\Attachcard;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
+use App\Models\Company;
 class BeneficiaryController extends Controller
 {
     /**
@@ -22,7 +23,9 @@ class BeneficiaryController extends Controller
     {
         //
         $limit = 25;
-        return view('beneficiary.index')->with('beneficial', Beneficiary::orderBy('id', 'desc')->paginate($limit));
+        // Beneficiary::orderBy('id', 'desc')->paginate($limit)
+        $beneficiary = Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        return view('beneficiary.index')->with('beneficial', $beneficiary);
     }
 
     /**
@@ -57,6 +60,7 @@ class BeneficiaryController extends Controller
         $beneficiary ->fullName = $request->fullName;
         $beneficiary ->user_id = auth()->user()->id;
         $beneficiary ->age = $request->age;
+        $beneficiary ->company_id = auth()->user()->company_id;
         $beneficiary ->gender = $request->gender;
         $beneficiary ->phoneNumber = $request->phoneNumber;
         $beneficiary ->address = $request->address;
@@ -166,6 +170,7 @@ class BeneficiaryController extends Controller
       if($card == null){
         $attachCard->agent_id = intval($request->agent);
         $attachCard->card_sequence = $request->card_sequence;
+        $attachCard->company_id = auth()->user()->company_id;
         $attachCard->beneficiary_name = $beneficiary->fullName;
  
         $attachCard->save();

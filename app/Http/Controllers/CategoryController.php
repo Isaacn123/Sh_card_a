@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use App\Models\Company;
 
 class CategoryController extends Controller
 {
@@ -17,7 +18,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $category = Category::all();
+        // $category = Category::all();
+        $limit = 15;
+        $category = Company::find(1)->categories()->where('company_id','=',auth()->user()->company_id)->get();
         return view('packages.categories.index')->with('categories',$category);
     }
 
@@ -43,6 +46,7 @@ class CategoryController extends Controller
         //
         $category = new Category();
         $category->name = $request->name;
+        $category->company_id = auth()->user()->company_id;
         $slug = Str::slug($request->name);
         $category->featured_image = $request->featured_image;
         $category->slug = $slug;

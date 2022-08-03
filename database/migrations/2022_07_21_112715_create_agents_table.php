@@ -18,6 +18,7 @@ class CreateAgentsTable extends Migration
             $table->string('fullName');
             $table->integer('user_id');
             $table->integer('agent_id');
+            $table->integer('company_id');
             $table->integer('age');
             $table->integer('agent_pin');
             $table->string('password');

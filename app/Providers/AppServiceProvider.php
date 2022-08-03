@@ -80,7 +80,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('profile',Profile::findOrFail(auth()->user()->profile_id));
         }); 
         view()->composer('packages.create', function($view){
-            $view->with('categories',Category::all());
+            // 'company_id',
+            // Category::where('id','=',auth()->user()->company_id)->first()
+            
+            $view->with('categories',Company::find(1)->categories()->where('company_id','=',auth()->user()->company_id)->get());
         }); 
 
         view()->composer('settings.company.edit-company', function($view){
@@ -96,9 +99,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('admin.admin', function($view){
-            $attendance = Attendance::count();
-            $totalBeneficiaries = Beneficiary::count();
-            $activities = Training::count();
+            // where('id','=',auth()->user()->company_id)->first()->count();
+            // where('id','=',auth()->user()->company_id)->first()
+            $attendance = Company::find(1)->attendances()->where('company_id','=',auth()->user()->company_id)->count();
+            $totalBeneficiaries = Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->count();
+            $activities = Company::find(1)->trainings()->where('company_id','=',auth()->user()->company_id)->count();
             $view->with(compact('attendance','totalBeneficiaries','activities'));
         });
 
@@ -108,11 +113,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with(compact('profile'));
         });
         view()->composer('activities.index', function($view){
-            $view->with('trainings',Training::all());
+            // where('company_id','=',auth()->user()->company_id)->first(
+            // whereRelation('company_id')
+
+            $view->with('trainings',Company::find(1)->trainings()->where('company_id','=',auth()->user()->company_id)->get());
         });
 
         view()->composer('attendance.index', function($view){
-            $attendances = Attendance::all();
+            $attendances = Company::find(1)->attendaces()->where('company_id','=',auth()->user()->company_id);
             $agents = Agent::all();
             $view->with(compact('attendances','agents'));
         });

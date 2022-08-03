@@ -15,7 +15,8 @@ class CreateAttachcardsTable extends Migration
     {
         Schema::create('attachcards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('agent_id');
+            $table->integer('user_id');
+            $table->integer('company_id');
             $table->string('card_sequence');
             $table->string('beneficiary_name');
             $table->timestamps();

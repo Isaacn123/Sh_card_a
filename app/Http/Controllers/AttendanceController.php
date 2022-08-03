@@ -47,6 +47,7 @@ class AttendanceController extends Controller
             $attendace =  Attendance::create([
                 'training_id' => $request->training_id,
                 'agent_id' => $request->agent_id,
+                'company_id' => auth()->user()->company_id,
                 'serial_no' => $request->serial_no,
                 'beneficiary' => $card->beneficiary_name,
                 'activity_name' => $training->training_name

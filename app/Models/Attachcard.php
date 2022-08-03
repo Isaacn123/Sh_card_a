@@ -12,6 +12,7 @@ class Attachcard extends Model
     protected $fillable =[
         'agent_id',
         'card_sequence',
+        'company_id',
         'beneficiary_name'
     ];
 }

@@ -11,6 +11,7 @@ class Training extends Model
 
     protected $fillable =[
     "user_id",
+    "company_id",
     "user_status",
     "training_id",
     "training_name",
