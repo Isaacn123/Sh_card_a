@@ -120,7 +120,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('attendance.index', function($view){
-            $attendances = Company::find(1)->attendaces()->where('company_id','=',auth()->user()->company_id);
+            $attendances = Company::find(1)->attendances()->where('company_id','=',auth()->user()->company_id);
             $agents = Agent::all();
             $view->with(compact('attendances','agents'));
         });
