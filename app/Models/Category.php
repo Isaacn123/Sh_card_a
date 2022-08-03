@@ -15,4 +15,9 @@ class Category extends Model
      'featured_image',
      'slug'
     ];
+
+    public function company()
+{
+  return $this->belongsTo('App\Models\Company');
+}
 }

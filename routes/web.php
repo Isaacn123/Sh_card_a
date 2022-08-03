@@ -21,6 +21,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\RegisteruserController;
 use Spatie\Permission\Models\Role;
+use App\Models\Company;
+use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,9 +45,10 @@ Route::get('/roled', function () {
     // if(auth()->user()){
     //     auth()->user()->assignRole('admin');
     // }
-    return response([
-        'roles' =>auth()->user()->getRoleNames()
-    ]);
+    // return response([
+    //     'roles' =>auth()->user()->getRoleNames()
+    // ]);
+    return response([Category::where('company_id','=', auth()->user()->company_id)->first()]);
 });
 
 Auth::routes();

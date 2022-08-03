@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Category;
 
 class Company extends Model
 {
@@ -31,6 +32,10 @@ class Company extends Model
 {
     return $this->belongsTo(User::class, 'owner_id' , 'id');
 }
+public function category(){
+    // ,'company_id', 'id'
+    return $this->hasMany('App\Models\Category','company_id', 'id');
+}
 
 public function users(){
 
@@ -42,10 +47,8 @@ public function beneficiaries(){
     return $this->hasMany('App\Models\Beneficiary','company_id', 'id');
 }
 
-public function categories(){
 
-    return $this->hasMany('App\Models\Category','company_id', 'id');
-}
+
 public function attendances(){
 
     return $this->hasMany('App\Models\Attendance','company_id', 'id');

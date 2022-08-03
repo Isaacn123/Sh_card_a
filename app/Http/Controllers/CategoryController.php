@@ -18,9 +18,14 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        // $category = Category::all();
+        $category = Category::where('company_id','=', auth()->user()->company_id)->get();
+        // $category   =Company::find(1)->categories;
+
+        // dd($category);
         $limit = 15;
-        $category = Company::find(1)->categories()->where('company_id','=',auth()->user()->company_id)->get();
+        // $category = Company::find(1)->categories()->where('company_id',auth()->user()->company_id)->first();
+        //    $category =  Company::find(1);
+        // ->first();
         return view('packages.categories.index')->with('categories',$category);
     }
 
