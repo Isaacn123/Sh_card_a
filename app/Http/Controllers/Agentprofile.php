@@ -71,21 +71,21 @@ class Agentprofile extends Controller
     {
         //
         
-        // Agent::find($id)->update(['fullName' => "DATA SITE"]);
         $agent = Agent::where('agent_id',$id)->first();
-          if(isset($request->profile_pic)){
-            $path = $request->file('profile_pic');
-            $nameF = "user_" . time();
+        //   if(isset($request->profile_pic)){
+        //     $path = $request->file('profile_pic');
+        //     $nameF = "user_" . time();
             
-            $result = $path->storeOnCloudinaryAs('Profile', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-            $paths = $result->getSecurePath();
-            // dd($paths);
-            $agent->profile_pic = $paths;
-        }
+        //     $result = $path->storeOnCloudinaryAs('Profile', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+        //     $paths = $result->getSecurePath();
+            
+        //     $agent->profile_pic = $paths;
+        // }
 
-        // $agent->fullName = "DATA SITE";
+
+        $agent->profile_pic = $request->profile_pic;
         $agent->update();
         
         return response()->json([
