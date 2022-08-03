@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\Agent;
 use Illuminate\Support\Str;
 
 class ProfileController extends Controller
@@ -92,7 +94,9 @@ class ProfileController extends Controller
    
          $profile->update($request->all());
 
-        return back()->with('success','Profile updated successfully.');
+        // return back()->with('success','Profile updated successfully.');
+
+        return response()->json(['success' => true, 'message' => 'Profile updated successfully.'],200);
        
     }
 
@@ -114,4 +118,25 @@ class ProfileController extends Controller
             'message'=> 'Data profile'
         ]);
     }
+
+
+
+  /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateProfileRequest  $request
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\Response
+     */
+    public function updateagent(Request $request, $profile)
+    {
+    
+        // return back()->with('success','Profile updated successfully.');
+
+        return response()->json(['success' => true, 'message' => 'Profile updated successfully.',
+       'response' => $profile
+    ],200);
+       
+    }
+
 }

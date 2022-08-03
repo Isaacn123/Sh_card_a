@@ -117,6 +117,8 @@ class CommunityController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Agent::update(['fullName' => "DATA SITE"])->where('id',$profile)->find(1);
+        
     }
 
     /**
@@ -128,5 +130,7 @@ class CommunityController extends Controller
     public function destroy($id)
     {
         //
+       
+
     }
 }

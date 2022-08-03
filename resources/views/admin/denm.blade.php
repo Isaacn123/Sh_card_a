@@ -1,24 +1,4 @@
-@extends('layouts.admin')
-
-@section('content')
-
-    
-        <!-- main-panel ends -->
-       
-        <div class="content-wrapper">
-        <div class="container">
-  <section class="content-header">
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-   
-    </section>
-
-<!-- Main content -->
-<!-- <section class="content"> -->
-  <!-- Info boxes -->
-  <div class="row">
+<div class="row">
     <div class="col-md-12">
       <div class="box">
         <div class="box-header">
@@ -219,62 +199,3 @@
     </div>
     <!-- /.col -->
   </div>
-  <!-- /.row -->
-
-  <!-- Main row -->
-  <div class="row">
-    <!-- Left col -->
-    <div class="col-lg-12">
-      <div class="card">
-          <div class="card-body">
-              <h4 class="card-title">Beneficiaries</h4>
-              <div class="table-responsive">
-                  <table class="table header-border">
-                      <thead>
-                          <tr>
-                              <th scope="col">Reciever</th>
-                              <th scope="col">Activity Name</th>
-                              <th scope="col">Date</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Frank Mpangu</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Nahayo Hassan</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Mulumeoderwa Fabrice</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Francois Madudu</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Alpha Fatika</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                            </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-      </div>
-    <!-- /.col -->
-  </div>
-  <!-- /.row -->
-<!-- </section> -->
-        </div>
-         </div>
-
-
-@endsection

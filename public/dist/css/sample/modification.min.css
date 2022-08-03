@@ -117,4 +117,38 @@
         .card-widget__icon i, .card-widget__icon span {
           font-size: 35px;
           color: #fff; }
+
+
+          @media (min-width: 960px ) and (max-width: 1140px) {
+            .container {
+              width: 900px !important;
+          }
+            }
+            @media (min-width: 1140px ) and (max-width: 1300px) {
+              .container {
+                width: 1000px !important;
+            }
+              }
+
+            @media (max-width: 1240px) {
+              .container {
+                width: 900px !important;
+            }
+              }
+
+@media (min-width: 960px ) and (max-width: 1140px) {
+       
+
+          }
   
+          @media (min-width: 1300px){
+/* .container {
+    width: 900px !important;
+} */
+          }
+
+          /* .table{
+            display: block !important;
+            overflow-x: auto !important;
+            width: 100% !important;
+          } */

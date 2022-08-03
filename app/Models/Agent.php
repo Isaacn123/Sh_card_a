@@ -16,6 +16,7 @@ class Agent extends Model
         'user_id',
         'fullName',
         'company_id',
+        'profile_pic',
         'age',
         'gender',
         'phoneNumber',

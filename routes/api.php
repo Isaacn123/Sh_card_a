@@ -8,6 +8,8 @@ use App\Http\Controllers\AgentAuthController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Agentprofile;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,7 +42,10 @@ Route::resource('usercard', BeneficiaryController::class);
 
 // Route::group(['middleware' =>['auth:sanctum']], function () {
     // Route::get('/card/agent_details/{agent}', [AgentAuthController::class, 'index'])->name('index');
+    https://padshareapp.com/api/card/update_agent/
+
     Route::middleware('auth:sanctum')->group(function () {
+    Route::patch('/card/update_agent/{agent_id}', [Agentprofile::class, 'update']);
     Route::post('/card/scan', [CardController::class, 'scan']);
     Route::post('/training/create_attendance/{agent_id}', [AttendanceController::class, 'store']); 
     Route::get('/company/{company_id}', [CompanyController::class, 'show']);
