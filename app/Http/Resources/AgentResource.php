@@ -23,7 +23,7 @@ class AgentResource extends JsonResource
             'agent_name' => $this->fullName,
             'agent_contact' => $this->phoneNumber,
             'agent_address' => $this->address,
-            'profile_pic' => $this->agent_profileUrl,
+            'profile_pic' => $this->profile_pic,
         ];
     }
 }

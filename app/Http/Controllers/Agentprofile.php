@@ -90,7 +90,6 @@ class Agentprofile extends Controller
         if($agent->update()){
             return response()->json([
                 'success' => true,
-                '0' => $request->profile_pic,
                 // 'agent' =>$agent,
                 'message' => 'Profile updated successfully.',
            
