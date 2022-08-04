@@ -72,7 +72,7 @@ class CommunityController extends Controller
          $nameF = "agent_" . time();
          $result = $path->storeOnCloudinaryAs('Agents',$nameF);
          $url = $result->getSecurePath();
-         $agent->agent_profileUrl = $url;
+         $agent->profile_pic = $url;
         }
 
         $agent->save();
