@@ -12,6 +12,7 @@ class Distribution extends Model
     protected $fillable = [
         'agent_id',
         'package_name',
+        'company_id',
         'beneficiary_name',
         'card_sequence',
         'status',

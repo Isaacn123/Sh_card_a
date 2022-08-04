@@ -47,6 +47,10 @@ public function beneficiaries(){
     return $this->hasMany('App\Models\Beneficiary','company_id', 'id');
 }
 
+public function distribution(){
+    return $this->hasMany('App\Models\Distribution','company_id', 'id');   
+}
+
 
 
 public function attendances(){

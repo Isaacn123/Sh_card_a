@@ -69,11 +69,11 @@
                          
                                         @foreach($distribution as $distributions)                                               
                                         <tr role="row" class="odd">
-                                                <td class="sorting_1">{{$distributions->distribution_id}}</td>
+                                                <td class="sorting_1">{{$distributions->id}}</td>
                                                 <td>{{$distributions->agent_id}}</td>
-                                                <td>{{$distributions->beneficiary}}</td>
-                                                <td>{{$distributions->card_scanned}}</td>
-                                                <td>{{$distributions->delivery_status == 'True' ? 'Delivered' : 'True'}}</td>
+                                                <td>{{$distributions->beneficiary_name}}</td>
+                                                <td>{{$distributions->card_sequence}}</td>
+                                                <td>{$distributions->status == '0' ? False : True}}</td>
                                                 <td>{{$distributions->created_at}}</td>
                                                 <td> 
                                             <a class="btn btn-warning" href="impactmap.html">View</a>

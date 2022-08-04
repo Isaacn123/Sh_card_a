@@ -179,6 +179,7 @@ class PackageController extends Controller
                    $distribution = new Distribution();
                     // $beneficiary = Beneficiary::where('id','=',$request->)
                    $distribution->agent_id = $request->agent_id;
+                   $distribution->company_id = $packages->company_id;
                    $distribution->package_name = $packages->name;
                    $distribution->beneficiary_name = $attached->beneficiary_name;
                    $distribution->card_sequence = $request->serial_no;

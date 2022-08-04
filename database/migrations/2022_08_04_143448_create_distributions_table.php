@@ -16,6 +16,7 @@ class CreateDistributionsTable extends Migration
         Schema::create('distributions', function (Blueprint $table) {
             $table->id();
             $table->integer('agent_id');
+            $table->integer('company_id');
             $table->string('package_name');
             $table->string('beneficiary_name');
             $table->string('card_sequence');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cardsdistributed;
+use App\Models\Company;
 class DistributionController extends Controller
 {
     /**
@@ -15,7 +16,11 @@ class DistributionController extends Controller
     {
         //
         $limit = 25;
-        return view('pkg_Distributed.index')->with('distribution',Cardsdistributed::orderBy('distribution_id','desc')->paginate($limit));
+        // Cardsdistributed::orderBy('distribution_id','desc')->paginate($limit)
+        $distribution = Company::find(1)->distribution()->where('company_id','=',auth()->user()->company_id)->get();
+
+        // return $distribution;
+        return view('pkg_Distributed.index')->with('distribution',$distribution);
     }
 
     /**

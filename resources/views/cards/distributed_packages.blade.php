@@ -11,7 +11,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Attached Cards</h4>
+                                <h4 class="card-title">Packages Distributed</h4>
                                 <!--<a class="btn btn-primary float-right" href="#">+ Create Agent</a>-->
                                 <div class="table-responsive">
                                 
@@ -66,13 +66,14 @@
                                         <tbody>
                                                                                         
                          
-                                        @foreach($distribution as $distributions)                                               
+                                        @foreach($distribution as $distributions) 
+                                                                             
                                         <tr role="row" class="odd">
-                                                <td class="sorting_1">{{$distributions->distribution_id}}</td>
+                                                <td class="sorting_1">{{$distributions->id}}</td>
                                                 <td>{{$distributions->agent_id}}</td>
-                                                <td>{{$distributions->beneficiary}}</td>
-                                                <td>{{$distributions->card_scanned}}</td>
-                                                <td>{{$distributions->delivery_status}}</td>
+                                                <td>{{$distributions->beneficiary_name}}</td>
+                                                <td>{{$distributions->card_sequence}}</td>
+                                                <td>{{$distributions->status == '0' ? False : True}}</td>
                                                 <td>{{$distributions->created_at}}</td>
                                                 <td> 
                                             <a class="btn btn-warning" href="impactmap.html">View</a>
