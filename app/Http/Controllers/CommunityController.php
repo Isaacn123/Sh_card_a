@@ -67,8 +67,8 @@ class CommunityController extends Controller
         $agent->agent_pin = $request->agent_pin;
         $agent->agent_id = $request->agent_id;
 
-        if(isset($request->profile_file)){
-         $path = $request->file('profile_file');
+        if(isset($request->profile_pic)){
+         $path = $request->file('profile_pic');
          $nameF = "agent_" . time();
          $result = $path->storeOnCloudinaryAs('Agents',$nameF);
          $url = $result->getSecurePath();

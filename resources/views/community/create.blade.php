@@ -150,8 +150,8 @@
 
      <div class="form-group extra_padding">
          <label for="">Agent Profile (Optinal)</label>
-      <label class="input-group-addon"  for="profile_file">PROFILE PICTURE</label>
-     <input type="file" name="profile_file" class="form-control" id="profile_file">
+      <label class="input-group-addon"  for="profile_pic">PROFILE PICTURE</label>
+     <input type="file" name="profile_pic" class="form-control" id="profile_pic">
      </div>
     
 
