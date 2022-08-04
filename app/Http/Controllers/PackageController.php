@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
+use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Agent;
+use App\Models\Attachcard;
 use App\Models\Category;
+use App\Models\Distribution;
 use App\Http\Resources\Packageapi;
 use App\Models\Company;
 use Illuminate\Support\Str;
@@ -54,6 +57,7 @@ class PackageController extends Controller
        $package->description = $request->description;
        $package->company_id = auth()->user()->company_id;
        $package->quantity = $request->quantity;
+       $package->available_packages = $request->quantity;
        $package->user_id = auth()->user()->id;
        $package->category = $request->category;
        $package->slug = $slug;
@@ -145,6 +149,62 @@ class PackageController extends Controller
             'packages' =>  Packageapi::collection($packages)->resolve(),
             'message' => "Packages successfully retrieved."
         ]);
+
+        // return $packages;
+    }
+
+
+    public function distribution(Request $request, $agent_id)
+    {
+        //
+        // $packages = Package::all();
+        $agent = Agent::where('agent_id',$agent_id)->first();
+        // return $agent;
+        // $packages = Company::find(1)->packages()->where('company_id','=',$agent->company_id)->get();
+        // ['id', '=',$request->package_id];
+        $packages = Company::find(1)->packages()->where(
+            'company_id','=',$agent->company_id, 
+            )->where('id', '=',$request->package_id)->first();
+         
+         if($packages){
+
+            $attached = Attachcard::where('card_sequence',"=",$request->serial_no)->first();
+            if($attached){
+                $count = 0;
+
+                   $packages->increment('pkg_Distributed',1);
+                   $packages->decrement('available_packages',1);
+                   $packages->update();
+
+                   $distribution = new Distribution();
+                    // $beneficiary = Beneficiary::where('id','=',$request->)
+                   $distribution->agent_id = $request->agent_id;
+                   $distribution->package_name = $packages->name;
+                   $distribution->beneficiary_name = $attached->beneficiary_name;
+                   $distribution->card_sequence = $request->serial_no;
+                   $distribution->status = True;
+
+
+                $distribution->save();
+                
+
+
+              
+            }else{
+                return response()->json(['error' => "Invalid beneficiary card."],400);
+        
+            }
+        //  return $request->serial_no;
+         }else{
+        
+            return response()->json(['error' => "no package found."],401);
+          
+        }  
+       
+        return response([
+            'success' => 200,
+            'message' => "Packages successfully retrieved."
+        ],200);
 
         // return $packages;
     }

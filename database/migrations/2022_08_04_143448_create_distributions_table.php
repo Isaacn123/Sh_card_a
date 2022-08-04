@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttachcardsTable extends Migration
+class CreateDistributionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateAttachcardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attachcards', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('distributions', function (Blueprint $table) {
+            $table->id();
             $table->integer('agent_id');
-            $table->integer('company_id');
-            $table->string('card_sequence');
+            $table->string('package_name');
             $table->string('beneficiary_name');
+            $table->string('card_sequence');
+            $table->string('status')->default(False);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateAttachcardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attachcards');
+        Schema::dropIfExists('distributions');
     }
 }

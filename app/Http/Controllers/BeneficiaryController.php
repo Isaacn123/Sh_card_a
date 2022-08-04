@@ -150,6 +150,7 @@ class BeneficiaryController extends Controller
     public function attach(Request $request)
     {
         //
+        // return $request;
         $attachCard = new Attachcard();
         // $data = Card::where('card_sequence','=',$request->card)->get();
         $data = Card::where('card_sequence','=',$request->card_sequence)->update([

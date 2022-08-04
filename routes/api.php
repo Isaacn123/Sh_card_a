@@ -37,6 +37,7 @@ Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent']);
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid']);
 Route::get('/card/get_packages/{id}', [PackageController::class, 'apiPackages']);
+Route::post('/card/package_distribution/{id}', [PackageController::class, 'distribution']);
 
 ///Prodcted API AUTH
 
