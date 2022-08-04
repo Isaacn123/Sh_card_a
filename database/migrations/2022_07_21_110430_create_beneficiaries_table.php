@@ -18,19 +18,21 @@ class CreateBeneficiariesTable extends Migration
             $table->integer('beneficiary_uid')->defaults(0);
             $table->integer('company_id');
             $table->string('fullName');
+            $table->integer('agent_id')->default(0);
+            $table->integer('user_id')->default(0);
             $table->integer('age');
             $table->string('gender');
             $table->string('phoneNumber');
             $table->string('address');
             $table->string('nationality');
             $table->string('village');
-            $table->string('acres');
-            $table->string('ownership');
-            $table->string('memberships');
-            $table->string('family_size');
+            $table->string('acres')->nullable();
+            $table->string('ownership')->nullable();
+            $table->string('memberships')->nullable();
+            $table->string('family_size')->nullable();
             $table->string('is_assigned_card')->default(False);
             $table->string('assigned_Inspectors')->nullable();
-            $table->string('certifications');
+            $table->string('certifications')->nullable();
 
             $table->timestamps();
         });

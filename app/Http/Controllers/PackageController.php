@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
 use App\Models\Package;
+use App\Models\Agent;
 use App\Models\Category;
+use App\Http\Resources\Packageapi;
 use App\Models\Company;
 use Illuminate\Support\Str;
 
@@ -124,4 +126,27 @@ class PackageController extends Controller
     {
         //
     }
+
+
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function apiPackages($agent_id)
+    {
+        //
+        // $packages = Package::all();
+        $agent = Agent::where('agent_id',$agent_id)->first();
+        $packages = Company::find(1)->packages()->where('company_id','=',$agent->company_id)->get();
+       
+        return response([
+            'packages' =>  Packageapi::collection($packages)->resolve(),
+            'message' => "Packages successfully retrieved."
+        ]);
+
+        // return $packages;
+    }
+
 }

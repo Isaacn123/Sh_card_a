@@ -10,6 +10,9 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Agentprofile;
+use App\Http\Controllers\AgentBeneficiary;
+use App\Http\Controllers\PackageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +36,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent']);
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid']);
+Route::get('/card/get_packages/{id}', [PackageController::class, 'apiPackages']);
 
 ///Prodcted API AUTH
 
@@ -45,7 +49,9 @@ Route::resource('usercard', BeneficiaryController::class);
     https://padshareapp.com/api/card/update_agent/
 
     Route::middleware('auth:sanctum')->group(function () {
+        
     Route::patch('/card/update_agent/{agent_id}', [Agentprofile::class, 'update']);
+    Route::post('/card/create_beneficiary/{agent_id}', [AgentBeneficiary::class, 'store']);
     Route::post('/card/scan', [CardController::class, 'scan']);
     Route::post('/training/create_attendance/{agent_id}', [AttendanceController::class, 'store']); 
     Route::get('/company/{company_id}', [CompanyController::class, 'show']);

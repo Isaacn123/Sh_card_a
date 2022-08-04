@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
             // 'company_id',
             // Category::where('id','=',auth()->user()->company_id)->first()
             
-            $view->with('categories',Company::find(1)->categories()->where('company_id','=',auth()->user()->company_id)->get());
+            $view->with('categories',Company::find(1)->category()->where('company_id','=',auth()->user()->company_id)->get());
         }); 
 
         view()->composer('settings.company.edit-company', function($view){
