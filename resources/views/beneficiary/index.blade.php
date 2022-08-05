@@ -64,7 +64,7 @@
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Acres: activate to sort column ascending" style="width: 332.078px;">Acres</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ownershipr: activate to sort column ascending" style="width: 97.3828px;">Ownership</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Memberships: activate to sort column ascending" style="width: 97.3828px;">Memberships</th> -->
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Family Size: activate to sort column ascending" style="width: 252.328px;">Family Size</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Family Size: activate to sort column ascending" style="width: 252.328px;">Family Size</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Inspectors: activate to sort column ascending" style="width: 42.9375px;">Assigned Inspectors</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 140.602px;">Certifications</th>
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created at: activate to sort column ascending" style="width: 94.6328px;">Created at</th> -->
@@ -87,7 +87,7 @@
                                         <!-- <td>{{$beneficiaries->village}}</td> -->
                                         <!-- <td>{{$beneficiaries->acres}}</td> -->
                                         <!-- <td>{{$beneficiaries->ownership}}</td> -->
-                                        <td>{{$beneficiaries->family_size}}</td>
+                                        <!-- <td>{{$beneficiaries->family_size}}</td> -->
                                         <td>{{$beneficiaries->assigned_Inspectors}}</td>
                                         <td>{{$beneficiaries->certifications}}</td>
 
