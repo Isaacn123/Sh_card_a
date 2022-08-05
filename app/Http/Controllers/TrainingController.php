@@ -20,7 +20,8 @@ class TrainingController extends Controller
         //
         $limit = 25;
         // Training::orderBy('id','desc')->paginate($limit)
-        $trainings = Company::find(1)->trainings()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        // $trainings = Company::find(1)->trainings()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        $trainings = Training::where('company_id','=',auth()->user()->company_id)->paginate($limit);
         return view('training.index')->with('training',$trainings );
     }
 
