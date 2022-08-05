@@ -80,9 +80,9 @@
 <!-- Logo -->
 <a href="/admin" class="logo">
   <!-- mini logo for sidebar mini 50x50 pixels -->
-  <span class="logo-mini"><img height="50" width="50" src="{{$company->company_log == null ? asset('dist/img/sh_logo.png') : $company->company_log}}" alt="ShareCard"></span>
+  <span class="logo-mini"><img height="50" width="50" src="{{$company->company_log == null ? asset('dist/img/shareCardLogo.png') : $company->company_log}}" alt="ShareCard"></span>
   <!-- logo for regular state and mobile devices -->
-  <span class="logo-lg"><img  height="60" width="60" src="{{$company->company_log == null ? asset('dist/img/sh_logo.png') : $company->company_log}}" alt="ShareCard"></span>
+  <span class="logo-lg"><img  height="60" width="60" src="{{$company->company_log == null ? asset('dist/img/shareCardLogo.png') : $company->company_log}}" alt="ShareCard"></span>
   <!-- <span class="logo-lg"><b>Admin</b>LTE</span> -->
 </a> 
 

@@ -52,7 +52,7 @@
                                                 <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 74.7891px;">Card ID</th>
+                                                <!-- <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Distribution ID: activate to sort column descending" style="width: 74.7891px;">Card ID</th> -->
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent ID: activate to sort column ascending" style="width: 38.8672px;">Card Sequence</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Beneficiary: activate to sort column ascending" style="width: 81.8672px;">Is Assigned</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Card Scanned: activate to sort column ascending" style="width: 133.625px;">Created At</th>
@@ -62,7 +62,7 @@
                                                                                         
                                       @foreach($card  as $cards)
                                              <tr role="row" class="odd">
-                                                <td class="sorting_1">{{$cards->id}}</td>
+                                                <!-- <td class="sorting_1">{{$cards->id}}</td> -->
                                                 <td>{{$cards->card_sequence}}</td>
                                                 <td>{{$cards->card_is_assigned}}</td>
                                                 <td>{{$cards->created_at}}</td>
