@@ -19,7 +19,8 @@ class DistributionController extends Controller
         //
         $limit = 25;
         // Cardsdistributed::orderBy('distribution_id','desc')->paginate($limit)
-        $distribution = Company::find(1)->distribution()->where('company_id','=',auth()->user()->company_id)->get();
+        // Company::find(1)->distribution()->where('company_id','=',auth()->user()->company_id)->get();
+        $distribution = Distribution::where('company_id','=',auth()->user()->company_id)->get();
 
         // return $distribution;
         return view('pkg_Distributed.index')->with('distribution',$distribution);
