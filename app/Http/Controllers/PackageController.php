@@ -25,7 +25,8 @@ class PackageController extends Controller
     {
         //
         // $packages = Package::all();
-        $packages = Company::find(1)->packages()->where('company_id','=',auth()->user()->company_id)->get();
+        // $packages = Company::find(1)->packages()->where('company_id','=',auth()->user()->company_id)->get();
+        $packages = Package::where('company_id','=',auth()->user()->company_id)->get();
         return view('packages.index',compact('packages'));
     }
 
