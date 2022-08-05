@@ -164,7 +164,12 @@ class PackageController extends Controller
         // return $agent;
         // $packages = Company::find(1)->packages()->where('company_id','=',$agent->company_id)->get();
         // ['id', '=',$request->package_id];
-        $packages = Company::find(1)->packages()->where(
+
+        // $packages = Company::find(1)->packages()->where(
+        //     'company_id','=',$agent->company_id, 
+        //     )->where('id', '=',$request->package_id)->first();
+
+        $packages = Package::where(
             'company_id','=',$agent->company_id, 
             )->where('id', '=',$request->package_id)->first();
          
