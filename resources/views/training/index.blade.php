@@ -68,7 +68,7 @@
                                         <tr role="row" class="even">
                                                 <td class="sorting_1">{{$trainings->id}}</td>
                                                 <td class="sorting_1">{{$trainings->training_id}}</td>
-                                                <td><a href="#">{{$trainings->training_description}}</a></td>
+                                                <td><a href="#">{{$trainings->training_name}}</a></td>
                                                 <td>{{$trainings->training_start_date}}</td>
                                                 <td>{{$trainings->training_end_date}}</td>
                                                 <td><a class="btn btn-primary" href="beneficiary_details.php?beneficiary_uid=1526">View</a></td>
