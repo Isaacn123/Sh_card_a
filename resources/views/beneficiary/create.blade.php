@@ -59,7 +59,13 @@
             <div class="form-group col-md-6">
 
          <label for="gender">Gender</label>
-         <input type="text" id="gender"  placeholder="Gender" value="" name="gender" class="form-control">
+         <!-- <input type="text" id="gender"  placeholder="Gender" value="" name="gender" class="form-control"> -->
+
+         <select name="gender" class="form-control">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
      
             </div>
         </div>

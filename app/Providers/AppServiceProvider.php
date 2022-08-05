@@ -87,7 +87,7 @@ class AppServiceProvider extends ServiceProvider
         }); 
 
         view()->composer('settings.company.edit-company', function($view){
-            $companies = Company::where('id','=',auth()->user()->company_id)->get();
+            $companies = Company::where('id','=',auth()->user()->company_id)->first();
             // Company::where('id','=',auth()->user()->company_id)->get()
             $view->with('companies',$companies);
         });
