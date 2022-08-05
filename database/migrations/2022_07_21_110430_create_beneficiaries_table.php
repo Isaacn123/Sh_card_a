@@ -26,6 +26,7 @@ class CreateBeneficiariesTable extends Migration
             $table->string('address');
             $table->string('nationality');
             $table->string('village');
+            $table->string('profile_pic')->nullable();
             $table->string('acres')->nullable();
             $table->string('ownership')->nullable();
             $table->string('memberships')->nullable();

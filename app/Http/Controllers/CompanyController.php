@@ -80,6 +80,17 @@ class CompanyController extends Controller
 
         // dd($request->name);
         $comp = Company::find($company);
+        //  return $request->file('company_logo');
+        if(isset($request->company_logo)){
+            $path = $request->file('company_logo');
+             $FileName = "company_" . time();
+            $result = $path->storeOnCloudinaryAs('Company',$FileName);
+            $url = $result->getSecurePath();
+
+            $comp->company_log = $url;
+
+        }
+
         $comp->update($request->all());
 
         return back()->with('success','Company updated successfully.');

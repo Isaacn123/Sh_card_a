@@ -67,10 +67,10 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 101.344px;">Mobile</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 132.078px;">Address</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nationality: activate to sort column ascending" style="width: 132.078px;">Nationality</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 142.078px;">Village</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Assets: activate to sort column ascending" style="width: 332.078px;">Assigned Assets</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 142.078px;">Village</th> -->
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Assets: activate to sort column ascending" style="width: 332.078px;">Assigned Assets</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Farmer: activate to sort column ascending" style="width: 97.3828px;">Assigned Farmer</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 97.3828px;">Certifications</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 97.3828px;">Certifications</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 81.6562px;">Start date</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="End date: activate to sort column ascending" style="width: 72.6172px;">End date</th></tr>
                                         </thead>
@@ -87,10 +87,10 @@
                                         <td>{{$agent->phoneNumber}}</td>
                                         <td>{{$agent->address}}</td>
                                         <td>{{$agent->nationality}}</td>
-                                        <td>{{$agent->village}}</td>
+                                        <!-- <td>{{$agent->village}}</td> -->
                                         <td>{{$agent->assigned_assets}}</td>
-                                        <td>{{$agent->assigned_farmer}}</td>
-                                        <td>{{$agent->certifications}}</td>
+                                        <!-- <td>{{$agent->assigned_farmer}}</td> -->
+                                        <!-- <td>{{$agent->certifications}}</td> -->
                                        </tr>
 
 

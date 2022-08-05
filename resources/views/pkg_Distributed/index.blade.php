@@ -73,7 +73,7 @@
                                                 <td>{{$distributions->agent_id}}</td>
                                                 <td>{{$distributions->beneficiary_name}}</td>
                                                 <td>{{$distributions->card_sequence}}</td>
-                                                <td>{$distributions->status == '0' ? False : True}}</td>
+                                                <td>{{$distributions->status == 0 ? 'False' : 'True'}}</td>
                                                 <td>{{$distributions->created_at}}</td>
                                                 <td> 
                                             <a class="btn btn-warning" href="impactmap.html">View</a>
@@ -88,70 +88,7 @@
                                                 <td>Delivered
                                                     </td>
                                                 <td>2021-11-17</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1073</td>
-                                                <td>2560</td>
-                                                <td>NABWIRE MORAN</td>
-                                                <td>84624798299692359342</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1097</td>
-                                                <td>1507</td>
-                                                <td>NAMULINDWA SERINA</td>
-                                                <td>34572392383275372237</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1196</td>
-                                                <td>2423</td>
-                                                <td>AMUGE MARY</td>
-                                                <td>27284296979997857949</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-09-08</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1239</td>
-                                                <td>1507</td>
-                                                <td>NAKINTU ZAINABU</td>
-                                                <td>22338384954878947833</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-10-15</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1245</td>
-                                                <td>2423</td>
-                                                <td>Victoria Kagere</td>
-                                                <td>66343325788554688546</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-02-13</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1249</td>
-                                                <td>2423</td>
-                                                <td>Mary Ndagire</td>
-                                                <td>67247349497646546488</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2022-03-27</td>
-                                            </tr><tr role="row" class="odd">
-                                                <td class="sorting_1">1303</td>
-                                                <td>2423</td>
-                                                <td>Edith Ninsima</td>
-                                                <td>69869727537375778243</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-11-04</td>
-                                            </tr><tr role="row" class="even">
-                                                <td class="sorting_1">1311</td>
-                                                <td>2423</td>
-                                                <td>NABANJA BRIDGET</td>
-                                                <td>85996562625338742226</td>
-                                                <td>Delivered
-                                                    </td>
-                                                <td>2021-09-08</td>
+                                            </tr>
                                             </tr> -->
                                         
                                         

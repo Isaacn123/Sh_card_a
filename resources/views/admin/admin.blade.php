@@ -90,9 +90,9 @@
                     <div class="col-lg-4 col-md-12" style="text-align:right; border-left: 1px solid rgba(0, 0, 0, 0.1);">
                       <h3 style="color: #7571F9;">{{$totalBeneficiaries}} </h3>
                       <small>Total Beneficiaries</small>
-                      <h4> 0</h4>
+                      <h4> {{$totalFemales}}</h4>
                       <small>Female</small>
-                      <h4> 0</h4>
+                      <h4>{{$totalMales}}</h4>
                       <small>Male</small>
                       <br><br><br>
                       <h3><i class="fa fa-download" style="color: #7571F9;"></i></h3>
@@ -238,31 +238,14 @@
                           </tr>
                       </thead>
                       <tbody>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Frank Mpangu</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
+
+                      @foreach($attendances as $attendent)
+
+               <td><i class="fa fa-user-circle" aria-hidden="true"></i>&amp;{{$attendent->beneficiary}}</td>
+                              <td>{{$attendent->activity_name}}</td>
+                              <td>{{$attendent->created_at}}</td>
                           </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Nahayo Hassan</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Mulumeoderwa Fabrice</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Francois Madudu</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
-                                                                                <tr>
-                              <td><i class="fa fa-user-circle" aria-hidden="true"></i>Alpha Fatika</td>
-                              <td>Electronics &amp; Mechanics Business Training</td>
-                              <td>2022-05-31</td>
-                          </tr>
+                        @endforeach
                                                                             </tbody>
                   </table>
               </div>

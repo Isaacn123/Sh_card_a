@@ -24,8 +24,12 @@ class BeneficiaryController extends Controller
         //
         $limit = 25;
         // Beneficiary::orderBy('id', 'desc')->paginate($limit)
-        $beneficiary = Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        // paginate($limit)
+        // $beneficiary = Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->where('user_id','=',auth()->user()->id)->get();
+        $beneficiary  =  Beneficiary::where('company_id','=',auth()->user()->company_id)->get();
+        // return Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->get();
         return view('beneficiary.index')->with('beneficial', $beneficiary);
+        // return ;
     }
 
     /**
@@ -73,6 +77,15 @@ class BeneficiaryController extends Controller
         $beneficiary ->assigned_Inspectors = $request -> assigned_Inspectors;
         $beneficiary ->certifications = $request -> certifications;
         $beneficiary ->beneficiary_uid = $uuid;
+
+        if(isset($request->profile_pic)){
+            $path = $request->file('profile_pic');
+            $FileName = "beneficiary_" . time();
+            $result = $path->storeOnCloudinaryAs('Beneficiary',$FileName);
+            $url = $result->getSecurePath();
+
+            $beneficiary->profile_pic = $url;
+        }
         $beneficiary -> save();
 
         return redirect() -> route('beneficiary');

@@ -31,8 +31,6 @@
   <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
   <link rel="stylesheet" href="{{asset('dist/css/sample/modification.min.css')}}">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-
     <!-- Fonts -->
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
@@ -82,9 +80,9 @@
 <!-- Logo -->
 <a href="/admin" class="logo">
   <!-- mini logo for sidebar mini 50x50 pixels -->
-  <span class="logo-mini"><img height="50" width="50" src="{{asset('dist/img/sh_logo.png')}}" alt="ShareCard"></span>
+  <span class="logo-mini"><img height="50" width="50" src="{{$company->company_log == null ? asset('dist/img/sh_logo.png') : $company->company_log}}" alt="ShareCard"></span>
   <!-- logo for regular state and mobile devices -->
-  <span class="logo-lg"><img  height="80" width="80" src="{{asset('dist/img/sh_logo.png')}}" alt="ShareCard"></span>
+  <span class="logo-lg"><img  height="60" width="60" src="{{$company->company_log == null ? asset('dist/img/sh_logo.png') : $company->company_log}}" alt="ShareCard"></span>
   <!-- <span class="logo-lg"><b>Admin</b>LTE</span> -->
 </a> 
 

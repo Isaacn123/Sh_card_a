@@ -137,11 +137,19 @@
 
         </div></div>
 
+
+
         
         <div class="form-group extra_padding">
          <label for="family">Family Size</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
          <input type="text" id="family" value="" placeholder="Family Size" name="family_size" class="form-control">
+     </div>
+
+     <div class="form-group extra_padding">
+         <label for="">add Profile PIC (Optinal)</label>
+      <label class="input-group-addon"  for="profile_pic">CHANGE PROFILE</label>
+     <input type="file" name="profile_pic" class="form-control" id="profile_pic">
      </div>
 
     <div class="form-group mt-2">

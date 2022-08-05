@@ -52,18 +52,18 @@
                               <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                         <thead>
                                             <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 27.7344px;">ID</th>
-                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">UUID</th>
+                                        <!-- <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column descending" style="width: 27.7344px;">ID</th> -->
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">UID</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Full Name: activate to sort column descending" style="width: 92.625px;">Full Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent Age: activate to sort column ascending" style="width: 101.344px;">Agent Age</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent Age: activate to sort column ascending" style="width: 101.344px;">Age</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 101.344px;">Gender</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 101.344px;">Mobile</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 332.078px;">Address</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nationality: activate to sort column ascending" style="width: 332.078px;">Nationality</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 332.078px;">Village</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Acres: activate to sort column ascending" style="width: 332.078px;">Acres</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ownershipr: activate to sort column ascending" style="width: 97.3828px;">Ownership</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Memberships: activate to sort column ascending" style="width: 97.3828px;">Memberships</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ownershipr: activate to sort column ascending" style="width: 97.3828px;">Ownership</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Memberships: activate to sort column ascending" style="width: 97.3828px;">Memberships</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Family Size: activate to sort column ascending" style="width: 252.328px;">Family Size</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Inspectors: activate to sort column ascending" style="width: 42.9375px;">Assigned Inspectors</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 140.602px;">Certifications</th>
@@ -76,7 +76,7 @@
                                           @foreach($beneficial as $beneficiaries)   
 
                                              <tr role="row" class="odd">
-                                        <td class="sorting_1">{{$beneficiaries->id}}</td>
+                                        <!-- <td class="sorting_1">{{$beneficiaries->id}}</td> -->
                                         <td class="sorting_1">{{$beneficiaries->beneficiary_uid}}</td>
                                         <td class="sorting_1">{{$beneficiaries->fullName}}</td>
                                         <td>{{$beneficiaries->age}}</td>
@@ -86,7 +86,7 @@
                                         <td>{{$beneficiaries->nationality}}</td>
                                         <td>{{$beneficiaries->village}}</td>
                                         <td>{{$beneficiaries->acres}}</td>
-                                        <td>{{$beneficiaries->ownership}}</td>
+                                        <!-- <td>{{$beneficiaries->ownership}}</td> -->
                                         <td>{{$beneficiaries->family_size}}</td>
                                         <td>{{$beneficiaries->assigned_Inspectors}}</td>
                                         <td>{{$beneficiaries->certifications}}</td>

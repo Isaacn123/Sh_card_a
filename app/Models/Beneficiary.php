@@ -25,6 +25,7 @@ class Beneficiary extends Model
         'ownership',
         'memberships',
         'family_size',
+        'profile_pic',
         'assigned_Inspectors',
         'certifications',
         'is_assigned_card'

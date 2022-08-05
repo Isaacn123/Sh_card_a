@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Agentprofile;
 use App\Http\Controllers\AgentBeneficiary;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\DistributionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::resource('usercard', BeneficiaryController::class);
 
     Route::middleware('auth:sanctum')->group(function () {
         
+    Route::get('/card/distribution_metrics/{agent_id}', [DistributionController::class, 'distribution']);
+    Route::get('/card/scan_summary/{agent_id}', [DistributionController::class, 'scan_summary']);
     Route::patch('/card/update_agent/{agent_id}', [Agentprofile::class, 'update']);
     Route::post('/card/create_beneficiary/{agent_id}', [AgentBeneficiary::class, 'store']);
     Route::post('/card/scan', [CardController::class, 'scan']);

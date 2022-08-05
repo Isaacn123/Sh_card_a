@@ -25,7 +25,7 @@ class UpdateCompanyRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|string|unique:companies'
+            // 'name' => 'required|string|unique:companies'
         ];
     }
 }

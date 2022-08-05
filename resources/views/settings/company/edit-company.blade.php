@@ -1,7 +1,7 @@
 
 
-
- <form action=""  method="post" enctype="multipart/form-data">
+  
+ <form action="{{route('company.update',$companies->id)}}"  method="post" enctype="multipart/form-data">
     @csrf 
 
     @method('PUT')
@@ -64,15 +64,23 @@
                    
                 </div>
 
+                <div class="form-group extra_padding">
+     <label for="">Company Logo (Optinal)</label>
+      <label class="input-group-addon"  for="profile_pic">COMPANY LOGO</label>
+     <input type="file" name="company_logo" class="form-control" id="profile_pic">
+     </div>
+
+                
+
 
                 <div class="form-row extra_padding">
                 <div class="form-group">
                     @role('user')
-                    <button- type="submit" class="btn btn-primary" disabled=="disabled" hidden>Save Change</button>
+                    <button type="submit" class="btn btn-primary" disabled=="disabled" hidden>Save Change</button>
                     @else
-                    <button- type="submit" class="btn btn-primary">Save Change</button>
+                    <button type="submit" class="btn btn-primary">Save Change</button>
                     @endrole
-               
+
                 </div>
 
 </div>

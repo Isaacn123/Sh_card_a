@@ -20,7 +20,8 @@ class CommunityController extends Controller
         //
         $limit =25;
         // Agent::orderBy('id', 'desc')->paginate($limit)
-        $agents = Company::find(1)->agents()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        // $agents = Company::find(1)->agents()->where('company_id','=',auth()->user()->company_id)->paginate($limit);
+        $agents  =  Agent::where('company_id','=',auth()->user()->company_id)->get();
         return view('community.index')->with('agents', $agents);
     }
 

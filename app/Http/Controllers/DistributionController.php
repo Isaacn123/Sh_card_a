@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cardsdistributed;
 use App\Models\Company;
+use App\Models\Distribution;
+use App\Http\Resources\DistributionMetrics;
 class DistributionController extends Controller
 {
     /**
@@ -87,5 +89,36 @@ class DistributionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * Get all Distributed Cards the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function distribution($id)
+    {
+        //
+        $distribution = Distribution::where('company_id','=',auth()->user()->company_id)->count('id');
+
+        // return DistributionMetrics::collection($distribution)->resolve();
+        return response()->json(['packages_distributed' => $distribution],200);
+
+    }
+
+
+
+   /**
+     * Get all Distributed Cards the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function scan_summary(){
+        $distribution = Distribution::where('company_id','=',auth()->user()->company_id)->get();
+        
+        return DistributionMetrics::collection($distribution)->resolve();
     }
 }

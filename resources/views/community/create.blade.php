@@ -117,9 +117,9 @@
             </div>
    
         <div class="form-group extra_padding">
-         <label for="village">Village</label>
+         <label for="membership">Membership</label>
          <!-- {{isset($category) ? $category->slug : ''}} -->
-         <input type="text" id="village" value="" placeholder="Agent Village" name="village" class="form-control">
+         <input type="text" id="membership" value="" placeholder="Membership" name="membership" class="form-control">
      </div>
 
 
