@@ -174,6 +174,34 @@ console.log('create category..' + id);
     console.log(form);
  }
 
+ 
+  // $(function (){
+  
+  //   //Date picker
+  //   $('#package_start').datepicker({
+  //     autoclose: true
+  //   });
+   
+  // });
+
+
+  $(function () {
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+   
+  });
+
+  $(function () {
+    //Date picker
+    $('#package_end').datepicker({
+      autoclose: true
+    });
+   
+  });
+
+
 </script>
 
 

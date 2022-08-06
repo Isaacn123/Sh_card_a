@@ -103,7 +103,6 @@ class DistributionController extends Controller
     {
         //
         $distribution = Distribution::where('company_id','=',auth()->user()->company_id)->count('id');
-
         // return DistributionMetrics::collection($distribution)->resolve();
         return response()->json(['packages_distributed' => $distribution],200);
 

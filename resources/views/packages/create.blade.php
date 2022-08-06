@@ -60,14 +60,31 @@
 
           <div class="form-group">
             <label for="package_start" class="">Start Date</label>
-            <input type="text" id="package_start" name="start_date" value="{{old('start_date')}}" placeholder=" Start Date" class="form-control">
+
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" id="datepicker" name="start_date" value="{{old('start_date')}}" class="form-control pull-right" placeholder=" Start Date">
+                </div>
+
+
+            <!-- <input type="text" id="package_start" name="start_date" value="{{old('start_date')}}" placeholder=" Start Date" class="form-control"> -->
             <span class="text-danger">@error('start_date') {{$message}} @enderror</span>
           
         </div>
 
           <div class="form-group">
             <label for="package_end" class="">End Date</label>
-            <input type="text" id="package_end" name="end_date" value="{{old('end_date')}}" placeholder=" End Date" class="form-control">
+
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" id="package_end" name="end_date" value="{{old('end_date')}}" class="form-control pull-right" placeholder=" End Date">
+                </div>
+
+            <!-- <input type="text" id="package_end" name="end_date" value="{{old('end_date')}}" placeholder=" End Date" class="form-control"> -->
             <span class="text-danger">@error('end_date'){{$message}} @enderror</span>
           </div>
 
@@ -84,3 +101,6 @@
 </div>
 
 </form>
+
+
+

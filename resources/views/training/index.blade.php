@@ -143,7 +143,7 @@
             <input type="text"  aria-describedby="sizing-addon1" id="training_desc" value="{{old('training_description')}}" name="training_description" placeholder=" Training Description" class="form-control input-lg">
             <span class="text-danger">@error('training_description') {{$message}} @enderror</span>
           </div>
-
+      
           <div class="form-group">
             <label for="benficiary" class="">Beneficiaries</label>
             <input type="number"  aria-describedby="sizing-addon1" id="beneficiary" value="{{old('beneficiary')}}" name="beneficiary" placeholder="no of Beneficiaries" class="form-control input-lg">
@@ -152,14 +152,27 @@
 
           <div class="form-group">
             <label for="training_start" class="">Start Date</label>
-            <input type="text" id="training_start" name="training_start_date" value="{{old('training_start_date')}}" placeholder=" Start Date" class="form-control">
+
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" name="training_start_date" value="{{old('training_start_date')}}" class="form-control pull-right" placeholder=" Start Date" id="datepicker">
+                </div>
+            <!-- <input type="text" id="training_start" name="training_start_date" value="{{old('training_start_date')}}" placeholder=" Start Date" class="form-control"> -->
             <span class="text-danger">@error('training_start_date') {{$message}} @enderror</span>
           
         </div>
 
           <div class="form-group">
             <label for="training_end" class="">End Date</label>
-            <input type="text" id="training_end" name="training_end_date" value="{{old('training_end_date')}}" placeholder=" End Date" class="form-control">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" name="training_end_date" name="training_start_date"  value="{{old('training_end_date')}}" class="form-control pull-right" placeholder=" End Date" id="datepicker2">
+                </div>
+            <!-- <input type="text" id="training_end" name="training_end_date" value="{{old('training_end_date')}}" placeholder=" End Date" class="form-control"> -->
             <span class="text-danger">@error('training_start_date'){{$message}} @enderror</span>
           </div>
 
@@ -199,6 +212,30 @@
     form.action = '/addtraining'; // + id; addcard
      console.log(form);
     }
+
+
+   
+  $(function () {
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+   
+  });
+
+
+  $(function () {
+    //Date picker
+    $('#datepicker2').datepicker({
+      autoclose: true
+    });
+   
+  })
+
+
+
+  
+
 </script>
 
 
