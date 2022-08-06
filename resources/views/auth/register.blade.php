@@ -21,7 +21,7 @@
                                 <select id="company_id" name="company_id" class="form-control ">
                                 <option selected disabled hidden>Choose here</option>
                                     @foreach($companies as $company)
-                                    <option  value="{{$company->company_id}}">{{$company->name}}</option>
+                                    <option  value="{{$company->id}}">{{$company->name}}</option>
                                     @endforeach
                                  </select>
 
