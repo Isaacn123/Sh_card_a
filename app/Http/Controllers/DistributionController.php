@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cardsdistributed;
 use App\Models\Company;
+use App\Models\Agent;
 use App\Models\Distribution;
 use App\Http\Resources\DistributionMetrics;
 class DistributionController extends Controller
@@ -116,8 +117,10 @@ class DistributionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function scan_summary(){
-        $distribution = Distribution::where('company_id','=',auth()->user()->company_id)->get();
+    public function scan_summary($id){
+          $agent = Agent::where('agent_id','=',$id)->first();
+        //   return $agent;
+        $distribution = Distribution::where('company_id','=',$agent->company_id)->where('agent_id','=',$id)->get();
         
         return DistributionMetrics::collection($distribution)->resolve();
     }
