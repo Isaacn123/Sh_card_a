@@ -66,7 +66,7 @@
                                                 <td>{{$attendance->agent_id}}</td>
                                                 <td>{{$attendance->activity_name}}</td>
                                                 <td>{{$attendance->beneficiary}}</td>
-                                                <td>{{$attendance->create_at}}</td>
+                                                <td>{{$attendance->created_at}}</td>
                                                 
                                             </tr>
 
