@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Agent;
 use App\Models\Beneficiary;
+use App\Http\Resources\Beneficiaryagent;
 
 class AgentBeneficiary extends Controller
 {
@@ -67,6 +68,7 @@ class AgentBeneficiary extends Controller
 
         return response()->json([
             'success'=>true,
+            'data' => new Beneficiaryagent($beneficiary),
             'message'=>"Beneficiary successfully created."
         ],200);
     }
