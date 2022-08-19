@@ -132,7 +132,7 @@ class TrainingController extends Controller
         // return $training;
         $agent = Agent::where('agent_id','=',$training)->first();
        
-        $trainings = Training::with('form_list')->where('company_id','=',$agent->company_id)->get();
+        $trainings = Training::with('form')->where('company_id','=',$agent->company_id)->get();
       
         return $trainings;
     }

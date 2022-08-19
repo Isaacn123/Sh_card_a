@@ -20,7 +20,7 @@ class Training extends Model
     "training_end_date"
     ];
 
-    public function form_list(){
+    public function form(){
 
         return $this->hasMany('App\Models\Form_list');
     }
