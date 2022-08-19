@@ -20,6 +20,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\RegisteruserController;
+use App\Http\Controllers\FormController;
 use Spatie\Permission\Models\Role;
 use App\Models\Company;
 use App\Models\Category;
@@ -48,7 +49,7 @@ Route::get('/roled', function () {
     // return response([
     //     'roles' =>auth()->user()->getRoleNames()
     // ]);
-    return response([Category::where('company_id','=', auth()->user()->company_id)->first()]);
+return response([Category::where('company_id','=', auth()->user()->company_id)->first()]);
 });
 
 Auth::routes();
@@ -61,15 +62,23 @@ Route::post('/registeruser', [RegisteruserController::class,'registeruser']);
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
     //PROTECTED ROUTES
 
-
+Route::post('createform', [FormController::class, 'store'])->name('createform');
 
 
 
     Route::resource('profiles', ProfileController::class);
 
+    Route::get('/manage', function () {
+        return view('manange_forms.index');
+    });
+
     Route::group(['middleware' => ['auth']], function() {
     Route::get('/userprofile/{id}', [ProfileControlle::class, 'getprofile'])->name('userprofile');
-
+    Route::get('/calls/viewCall/{id}', 'CallsController@viewCall');
+    Route::get('assessment/viewform/{id}', [FormController::class, 'viewform']);  
+    Route::get('assessment/response_form/{id}', [FormController::class, 'response_form']);
+    Route::get('assessment/view_responses/{id}', [FormController::class, 'response']);
+Route::resource('assessment', FormController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('package', PackageController::class);
 Route::resource('users', UserController::class);
@@ -79,9 +88,9 @@ Route::resource('company', CompanyController::class);
 // package.update
 Route::put('/packageupdate', [PackageController::class, 'update'])->name('packageupdate');
 Route::get('/companyupdate/{id}', [CompanyController::class, 'show'])->name('show');
-Route::get('/showcat/{id}', [CategoryController::class, 'show'])->name('show');
+Route::get('/showcategory/{id}', [CategoryController::class, 'show'])->name('showcategory');
 Route::get('/showpackage/{id}', [PackageController::class, 'show'])->name('showpackage');
-Route::put('/categoryupdate', [CategoryController::class, 'update'])->name('show');
+Route::put('/categoryupdates', [CategoryController::class, 'update'])->name('categoryupdates');
 Route::delete('/deletecategory/{id}', [CategoryController::class, 'destroy'])->name('deletecategory');
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/beneficiary', [BeneficiaryController::class, 'index'])->name('beneficiary');
@@ -92,7 +101,7 @@ Route::get('/packages', [DistributionController::class, 'index'])->name('package
 Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/usercard', [CardController::class, 'index'])->name('usercard');
+Route::get('/usercards', [CardController::class, 'index'])->name('usercards');
 Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
 Route::get('/distribution', [DistributedCards::class, 'index'])->name('distribution');
 Route::post('/addcard', [CardController::class, 'store'])->name('addcard');

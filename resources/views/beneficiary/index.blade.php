@@ -58,15 +58,15 @@
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Agent Age: activate to sort column ascending" style="width: 101.344px;">Age</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending" style="width: 101.344px;">Gender</th>
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 101.344px;">Mobile</th> -->
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 332.078px;">Address</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending" style="width: 132.078px;">Address</th>
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nationality: activate to sort column ascending" style="width: 332.078px;">Nationality</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Village: activate to sort column ascending" style="width: 332.078px;">Village</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Acres: activate to sort column ascending" style="width: 332.078px;">Acres</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Ownershipr: activate to sort column ascending" style="width: 97.3828px;">Ownership</th>
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Memberships: activate to sort column ascending" style="width: 97.3828px;">Memberships</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Family Size: activate to sort column ascending" style="width: 252.328px;">Family Size</th> -->
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Inspectors: activate to sort column ascending" style="width: 42.9375px;">Assigned Inspectors</th>
-                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 140.602px;">Certifications</th>
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Assigned Inspectors: activate to sort column ascending" style="width: 42.9375px;">Assigned Inspectors</th> -->
+                                        <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Certifications: activate to sort column ascending" style="width: 140.602px;">Certifications</th> -->
                                         <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created at: activate to sort column ascending" style="width: 94.6328px;">Created at</th> -->
                                         <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 67.9922px;">Action</th>
                                         </tr>
@@ -88,8 +88,8 @@
                                         <!-- <td>{{$beneficiaries->acres}}</td> -->
                                         <!-- <td>{{$beneficiaries->ownership}}</td> -->
                                         <!-- <td>{{$beneficiaries->family_size}}</td> -->
-                                        <td>{{$beneficiaries->assigned_Inspectors}}</td>
-                                        <td>{{$beneficiaries->certifications}}</td>
+                                        <!-- <td>{{$beneficiaries->assigned_Inspectors}}</td> -->
+                                        <!-- <td>{{$beneficiaries->certifications}}</td> -->
 
 
 

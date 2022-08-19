@@ -10,8 +10,10 @@
           <div class="user-heading round">
               <a href="#">
                 <!-- asset('dist/img/avator_profile.png') -->
-              
-                  <img src="{{$profile->photoUrl ==null ? 'https://res.cloudinary.com/padshare/image/upload/v1659459017/Profile/user_1659459015.png' : $profile->photoUrl}}" alt="">
+                  <!-- profile.jpeg -->
+                
+                 <img width="100%"  height="80px" class="img-fluid" src="{{asset('dist/img/profile.jpeg')}}"/>
+                  <!-- <img class="img-fluid" src="{{$profile->photoUrl ==null ? 'https://res.cloudinary.com/padshare/image/upload/v1659459017/Profile/user_1659459015.png' : $profile->photoUrl}}" alt=""> -->
               </a>
               <h1>{{ Auth::user()->name }}</h1>
               <p>{{ Auth::user()->email }}</p>
@@ -127,5 +129,11 @@ $.ajax({
 })
 
 }
+
+$(function(){
+    $('#datepicker').datepicker({
+        autoclose: true
+    })
+})
 </script>
 @endsection

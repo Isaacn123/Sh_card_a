@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTrainingRequest;
 use App\Http\Requests\UpdateTrainingRequest;
 use App\Models\Training;
+use App\Models\Form_list;
 use App\Models\Agent;
 use App\Models\Company;
 
@@ -128,7 +129,11 @@ class TrainingController extends Controller
     public function trainings($training)
     {
         //
-        // $agent = Agent::find($training);
-        return Training::all();
+        // return $training;
+        $agent = Agent::where('agent_id','=',$training)->first();
+       
+        $trainings = Training::with('form_list')->where('company_id','=',$agent->company_id)->get();
+      
+        return $trainings;
     }
 }

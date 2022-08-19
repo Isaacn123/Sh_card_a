@@ -135,6 +135,12 @@ class AppServiceProvider extends ServiceProvider
             $view->with(compact('attendances','agents'));
         });
 
+        view()->composer('manange_forms.index', function($view){
+            $trainings = Training::where('company_id', '=', auth()->user()->company_id)->get();
+            $view->with('trainings', $trainings);
+
+        });
+       
       
         // @include('settings.company.edit-company')
     

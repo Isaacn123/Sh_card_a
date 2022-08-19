@@ -113,7 +113,7 @@ console.log('create category..' + id);
    $id = id; 
  $.ajax({
     type: 'GET',
-    url: "{{url('showcat')}}"  +'/'+ id,
+    url: "{{url('showcategory')}}"  +'/'+ id,
     success: function(data){
  console.log('category: ', data);
        $('#catname').val(data.data.name);
@@ -133,7 +133,7 @@ console.log('create category..' + id);
    $id = id; 
  $.ajax({
     type: 'GET',
-    url: "{{url('showcat')}}"  +'/'+ id,
+    url: "{{url('showcategory')}}"  +'/'+ id,
     success: function(data){
  console.log('category: ', data);
        $('#catname1').val(data.data.name);

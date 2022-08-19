@@ -10,7 +10,7 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="deleteModalLabel">Update User Profile</h5>
+      <h5 class="modal-title" id="deleteModalLabel">Create Response</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -60,7 +60,14 @@
 
      <div class="form-group extra_padding">
      <label for="date_of_birth">Birthday</label>
-         <input  name="date_of_birth" value="{{$profile->date_of_birth ==null ? '' : $profile->date_of_birth}}" placeholder="{{$profile->date_of_birth ==null ? 'Enter Date of Birth' : ''}}" class="form-control" id="date_of_birth">
+     <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <!-- <input type="text" name="training_start_date" value="{{old('training_start_date')}}" class="form-control pull-right" placeholder=" Start Date" id="datepicker"> -->
+                  <input id="datepicker"  name="date_of_birth" value="{{$profile->date_of_birth ==null ? '' : $profile->date_of_birth}}" placeholder="{{$profile->date_of_birth ==null ? 'Enter Date of Birth' : ''}}" class="form-control" id="date_of_birth">
+                </div>
+      
      </div>
 
      <div class="form-group extra_padding">
@@ -84,6 +91,7 @@
       <button type="submit" class="btn btn-primary">update</button>
     </div>
   </div>
+
 </div>
 
 

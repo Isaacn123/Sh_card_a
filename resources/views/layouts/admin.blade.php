@@ -7,29 +7,15 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Dashboard') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
       <!-- Tell the browser to be responsive to screen width -->
 
   <!-- Bootstrap 3.3.7 -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="{{asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('bower_components/Ionicons/css/ionicons.min.css')}}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
 
-  <link rel="stylesheet" href="{{asset('dist/css/ShareCard.min.css')}}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
-  <link rel="stylesheet" href="{{asset('dist/css/sample/modification.min.css')}}">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">     -->
   <!-- Theme style -->
 
@@ -43,21 +29,9 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
   <style>
-    .col-md-6 {
-    position: relative;
-    min-height: 1px;
-    /* padding-right: 30px !important;
-    padding-left: 0px !important; */
-}
-.extra_padding{
-  margin:10px 15px;
-}
-.container-alert{
-  width: 60%;
-  margin:0 auto;
-
-}
+  
   </style>
+  @include('header.index')
   </head>
   <!-- oncontextmenu="return false" -->
 <body class="hold-transition skin-blue sidebar-mini" >
@@ -424,14 +398,14 @@
         </span>
       </a>
     <ul class="treeview-menu">
-    <li class="{{ (request()->is('usercard')) ? 'active' : '' }}"><a href="{{route('usercard')}}"><i class="fa fa-circle-o"></i>Card Managment</a></li>
-    <li class="{{ (request()->is('attached')) ? 'active' : '' }}"><a href="{{route('attached')}}"><i class="fa fa-circle-o"></i>Attached Cards</a></li>
+    <li class="{{ (request()->is('usercard')) ?     'active' : '' }}"><a href="{{route('usercard')}}"><i class="fa fa-circle-o"></i>Card Managment</a></li>
+    <li class="{{ (request()->is('attached')) ?     'active' : '' }}"><a href="{{route('attached')}}"><i class="fa fa-circle-o"></i>Attached Cards</a></li>
     <li class="{{ (request()->is('distribution')) ? 'active' : '' }}"><a href="{{route('distribution')}}"><i class="fa fa-circle-o"></i>Packages Distributed</a></li>
     </ul>
     </li>
   
-    <li class="{{ (request()->is('activities')) ? 'active' : '' }}">
-      <a href="{{route('activities')}}">
+    <li class="{{ (request()->is('assessment')) ? 'active' : '' }}">
+      <a href="{{route('assessment.index')}}">
         <i class="fa fa-tasks"></i> <span>Activities</span>
         <span class="pull-right-container">
           <small class="label pull-right bg-red">3</small>
@@ -495,34 +469,16 @@
     <!-- jQuery 3 -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
    
-<script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!-- Bootstrap 3.3.7 -->
-<script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap  -->
-<script src="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{asset('bower_components/chart.js/Chart.js')}}"></script>
-<script src="{{asset('dist/date_picker/daterangepicker/3.0.5/daterangepicker.min.js')}}"></script>
-<script src="{{asset('dist/date_picker/daterangepicker/3.0.5/bootstrap-datepicker.min.js')}}"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script> -->
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="{{asset('dist/js/demo.js')}}"></script> -->
-
+@include('footer.index')
 @yield('scripts')
 
 <script>
+
   window.addEventListener('load', ()=>{
     document.querySelector(".centered").classList.add("loader--hidden")
   });
@@ -534,6 +490,12 @@ function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which =
 if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) {  return false; } }
 
 document.onmousedown = rtclickcheck;
+
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 </script>
 </body>
 
