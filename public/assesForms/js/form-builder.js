@@ -174,6 +174,7 @@ $(function() {
         inp.attr({
             "class": "form-check-input",
             "name": "q[" + _field + "][]",
+            "id": "checkbox-input",
             "type": "checkbox",
             "value": _text
         })
@@ -181,6 +182,7 @@ $(function() {
         label.attr({
             "class": "form-check-label",
             "contenteditable": true,
+            "id": "checkbox-label",
             "title": "Enter option here"
         })
         label.text(_text)
@@ -213,6 +215,7 @@ $(function() {
         el.append(label)
         return el
     }
+
     _initilize()
 
 
@@ -228,9 +231,9 @@ $(function() {
         var e = document.getElementById("mySelectBox");
          var value = e.value;
          var description = $('#form-description').text()
-         form_el.find("[name='form_code']").remove()
+          form_el.find("[name='form_code']").remove()
          new_el.append(form_el)
-         console.log("FIELDS::",form_el);
+           console.log("FIELDS::",form_el);
 
  
         //  start_loader()
@@ -238,6 +241,11 @@ $(function() {
             alert("please choose a Training for this Form");
          }else{
             // alert("Proceed");
+            // const form = document.getElementById('checkbox-input').value;
+            // const form2 = document.getElementById('checkbox-label').title;
+            
+            // console.log("checkBox:" , form);
+            // console.log("checkBox-Lable:" , form2);
             $.ajax({
                 url: "createform" + "?a=save_form",
                 method: 'POST',
@@ -269,7 +277,7 @@ $(function() {
         save_form()
         console.log("sss");
         // window.location.href = "/assessment";
-             const form = document.getElementById('form-data');
+        const form = document.getElementById('form-data');
          form.addEventListener('submit', handleSubmit);
 
     })

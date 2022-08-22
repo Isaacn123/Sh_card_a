@@ -11,6 +11,7 @@ use App\Models\Card;
 use App\Models\Attachcard;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Company;
 class BeneficiaryController extends Controller
 {
@@ -26,7 +27,7 @@ class BeneficiaryController extends Controller
         // Beneficiary::orderBy('id', 'desc')->paginate($limit)
         // paginate($limit)
         // $beneficiary = Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->where('user_id','=',auth()->user()->id)->get();
-        $beneficiary  =  Beneficiary::where('company_id','=',auth()->user()->company_id)->get();
+        $beneficiary  =  Beneficiary::where('company_id','=',Auth::user()->company_id)->get();
         // return Company::find(1)->beneficiaries()->where('company_id','=',auth()->user()->company_id)->get();
         return view('beneficiary.index')->with('beneficial', $beneficiary);
         // return ;

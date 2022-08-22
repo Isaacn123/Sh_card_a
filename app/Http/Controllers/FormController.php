@@ -62,6 +62,10 @@ class FormController extends Controller
         $fname = $code.".html";
         // public_path()
         $create_form = file_put_contents(public_path("forms/".$fname),$form_data);
+        // $create_form_cludinary = storeOnCloudinaryAs('Profile', $nameF);
+        // $imagename = $result->getFileName();
+        // $extension = $result->getExtension();
+        // $paths = $result->getSecurePath();
 
         if(!$create_form){
             // $resp['status'] = 'failed';

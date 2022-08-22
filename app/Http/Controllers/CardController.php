@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Card;
 use App\Models\Cardsdistributed;
 use App\Models\Attachcard;
@@ -22,7 +23,7 @@ class CardController extends Controller
         $limit = 25;
         
         // Card::orderBy('id','desc')->paginate($limit)
-        return view('cards.index')->with('card', Card::where('company_id','=', auth()->user()->company_id)->get());
+        return view('cards.index')->with('card', Card::where('company_id','=', Auth::user()->company_id)->get());
     }
 
     /**

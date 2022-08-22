@@ -4,9 +4,6 @@
 
 <div class="content-wrapper">
   <div class="container">
-
-
-
 <div class="row">
     <div class="col-lg-12">
     <div class="card bg-primary text-white">
@@ -25,7 +22,7 @@
                 <div class="card-body">
                     <h3 contenteditable="true" title="Enter Title" class="text-center" id="form-title">Enter Title Here</h3>
                     <hr class="border-primary">
-                    <p contenteditable="true"  id="form-description" title="Enter Description" class="form-description text-center">Enter Description Here</p>
+                    <p contenteditable="true"  id="form-description" title="Enter Description" class="form-description text-center" data-placeholder="Enter Description Here">Enter Description Here</p>
                 </div>
                 
             </div>
@@ -60,7 +57,7 @@
                             <div class="form-check">
                                 <input class="form-check-input req-item"  type="checkbox" value="" >
                                 <label class="form-check-label req-chk" for="">
-                                    * Requiruired
+                                    * Required
                                 </label>
                             </div>
                             <button class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
@@ -126,7 +123,7 @@
             <div class="form-check">
                 <input class="form-check-input req-item" type="checkbox" value="" >
                 <label class="form-check-label req-chk" for="">
-                    * Requiruired
+                    * Required
                 </label>
             </div>
             <button class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
@@ -134,9 +131,6 @@
     </div>
 </div>
 </div>
-
-
-
 </div>
 </div>
 
@@ -147,8 +141,6 @@
 
 
 <script>
-
-
 
 
 </script>
