@@ -101,7 +101,7 @@ Route::get('/packages', [DistributionController::class, 'index'])->name('package
 Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/usercards', [CardController::class, 'index'])->name('usercards');
+Route::get('/cards', [CardController::class, 'index'])->name('cards');
 Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
 Route::get('/distribution', [DistributedCards::class, 'index'])->name('distribution');
 Route::post('/addcard', [CardController::class, 'store'])->name('addcard');

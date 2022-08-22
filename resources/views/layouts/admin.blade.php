@@ -398,7 +398,7 @@
         </span>
       </a>
     <ul class="treeview-menu">
-    <li class="{{ (request()->is('usercard')) ?     'active' : '' }}"><a href="{{route('usercard')}}"><i class="fa fa-circle-o"></i>Card Managment</a></li>
+    <li class="{{ (request()->is('cards')) ?     'active' : '' }}"><a href="{{route('cards')}}"><i class="fa fa-circle-o"></i>Card Managment</a></li>
     <li class="{{ (request()->is('attached')) ?     'active' : '' }}"><a href="{{route('attached')}}"><i class="fa fa-circle-o"></i>Attached Cards</a></li>
     <li class="{{ (request()->is('distribution')) ? 'active' : '' }}"><a href="{{route('distribution')}}"><i class="fa fa-circle-o"></i>Packages Distributed</a></li>
     </ul>

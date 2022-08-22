@@ -15,7 +15,7 @@ class CreateChoiceGroupsTable extends Migration
     {
         Schema::create('choice_groups', function (Blueprint $table) {
             $table->id();
-            $table->enum('choices');
+            $table->enum('choices',['yes','no'])->default('no');
             $table->timestamps();
         });
     }
