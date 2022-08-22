@@ -41,7 +41,7 @@ $(function() {
         })
         $('.question-item .req-chk').click(function() {
             if ($(this).siblings('input[type="checkbox"]').is(":checked") == true) {
-                $(this).siblings('input[type="checkbox"]').prop("checked", false).trigger("change")
+                $(this).siblings('input[type="checkbox"]').prop("checked", true).trigger("change") //false
             } else {
                 $(this).siblings('input[type="checkbox"]').prop("checked", true).trigger("change")
             }
@@ -52,8 +52,8 @@ $(function() {
         $('.req-item').change(function() {
             var _parent = $(this).closest('.question-item')
             if ($(this).is(":checked") == true) {
-                _parent.find("input").first().attr('required', true)
-                _parent.find("textarea").first().attr('required', true)
+                _parent.find("input").first().attr('required', false) //true
+                _parent.find("textarea").first().attr('required', false) //true
                 $(this).attr('checked', true)
             } else {
                 _parent.find("input").first().attr('required', false)
@@ -79,8 +79,9 @@ $(function() {
                 for (var i = 0; i < 3; i++) {
                     radio_field($(this), _field, "Enter Option")
                 }
-            } else if (choice == "file") {
-                file_field($(this), _field)
+            } 
+            else if (choice == "file") {
+                // file_field($(this), _field)
             }
             $(this).closest('.question-item').find('.req-item').trigger('change')
         })
@@ -114,7 +115,7 @@ $(function() {
         _this.closest('.question-item').find('.choice-field').html(el)
     }
 
-    function file_field(_this, _field) {
+    function file_fieldf(_this, _field) {
         var el = $('<input>')
         el.attr({
             "type": "file",
@@ -277,6 +278,8 @@ $(function() {
         save_form()
         console.log("sss");
         // window.location.href = "/assessment";
+        alert("Data submitted successfully!.");
+        window.location.href = "/assessment";
         const form = document.getElementById('form-data');
          form.addEventListener('submit', handleSubmit);
 

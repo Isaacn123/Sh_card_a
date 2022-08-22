@@ -45,7 +45,7 @@
                                                 <td>{{$form->fname}}</td>
                                                 <td>
                                                 <!-- <a href="?p=view_form&code={{$form->form_code}}" class="btn btn-default border">View</a> -->
-                                             <a class="btn btn-warning" href="{{url('assessment/viewform',$form->id)}}">View</a>
+                                             <a class="btn btn-warning" href="{{route('viewform',$form->id)}}">View</a>
                                              <a href="{{url('assessment/view_responses',$form->id)}}" class="btn btn-default border">Responses</a>
                                                 </td>
                                             </tr>

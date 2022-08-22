@@ -75,7 +75,7 @@ Route::post('createform', [FormController::class, 'store'])->name('createform');
     Route::group(['middleware' => ['auth']], function() {
     Route::get('/userprofile/{id}', [ProfileControlle::class, 'getprofile'])->name('userprofile');
     Route::get('/calls/viewCall/{id}', 'CallsController@viewCall');
-    Route::get('assessment/viewform/{id}', [FormController::class, 'viewform']);  
+    Route::get('viewform/{id}', [FormController::class, 'viewform'])->name('viewform');  
     Route::get('assessment/response_form/{id}', [FormController::class, 'response_form']);
     Route::get('assessment/view_responses/{id}', [FormController::class, 'response']);
 Route::resource('assessment', FormController::class);

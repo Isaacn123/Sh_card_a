@@ -143,8 +143,9 @@ class FormController extends Controller
     public function viewform($id)
     {
         //
-        $form = Form_list::find($id);
-        return view('viewform.index',compact('forms'));
+        $form = Form_list::where('id','=',$id)->first();
+       
+        return view('viewform.index')->with('form',$form);
     }
 
     /**

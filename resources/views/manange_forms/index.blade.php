@@ -28,7 +28,7 @@
             </div>
         </div>
         <div>
-            <div id="question-field" class='row ml-2 mr-2'>
+            <div id="question-field" class="row ml-2 mr-2">
                 <div class="card mt-3 mb-3 col-md-12 question-item ui-state-default" data-item="0">
                     <span class="item-move"><i class="fa fa-braille"></i></span>
                     <div class="card-body">
@@ -41,7 +41,7 @@
                                     <option value="p">paragraph</option>
                                     <option value="checkbox">Mupliple choice (multiple answer)</option>
                                     <option value="radio">Mupliple choice (single answer)</option>
-                                    <option value="file">File upload</option>
+                                    <!-- <option value="file">File upload</option> -->
                                 </select>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                             <div class="form-check">
                                 <input class="form-check-input req-item"  type="checkbox" value="" >
                                 <label class="form-check-label req-chk" for="">
-                                    * Required
+                                    * Requuiired
                                 </label>
                             </div>
                             <button class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
@@ -107,7 +107,7 @@
                     <option value="p">paragraph</option>
                     <option value="checkbox">Mupliple choice (multiple answer)</option>
                     <option value="radio">Mupliple choice (single answer)</option>
-                    <option value="file">File upload</option>
+                    <!-- <option value="file">File upload</option> -->
                 </select>
             </div>
         </div>
@@ -123,7 +123,7 @@
             <div class="form-check">
                 <input class="form-check-input req-item" type="checkbox" value="" >
                 <label class="form-check-label req-chk" for="">
-                    * Required
+                    * Requutired
                 </label>
             </div>
             <button class="btn btn-default border rem-q-item" type="button"><i class="fa fa-trash"></i></button>
