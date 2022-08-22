@@ -3,6 +3,7 @@ This Simple Form Builder was Developed by
 Carlo Montero
 Posted/Published in: www.sourcecodester.com
 */
+
 $(function() {
 
     $('#add_q-item').click(function(e) {
@@ -73,17 +74,19 @@ $(function() {
                 for (var i = 0; i < 3; i++) {
                     checkbox_field($(this), _field, "Enter Option")
                 }
+
             } else if (choice == "radio") {
                 $(this).closest('.question-item').find('.choice-field').html('<button type="button" class="add_radio btn btn-sm btn-default border"><i class="fa fa-plus"></i> Add option</button>')
                 add_radio()
                 for (var i = 0; i < 3; i++) {
                     radio_field($(this), _field, "Enter Option")
-                }
+                }            
             } 
             else if (choice == "file") {
-                // file_field($(this), _field)
-            }
-            $(this).closest('.question-item').find('.req-item').trigger('change')
+          // file_field($(this), _field)
+            } 
+     $(this).closest('.question-item').find('.req-item').trigger('change') 
+
         })
     }
 
@@ -230,10 +233,10 @@ $(function() {
         var form_code = $("[name='form_code']").length > 0 ? $("[name='form_code']").val() : "";
         var title = $('#form-title').text()
         var e = document.getElementById("mySelectBox");
-         var value = e.value;
-         var description = $('#form-description').text()
-          form_el.find("[name='form_code']").remove()
-         new_el.append(form_el)
+        var value = e.value;
+        var description = $('#form-description').text()
+           form_el.find("[name='form_code']").remove()
+           new_el.append(form_el)
            console.log("FIELDS::",form_el);
 
  
@@ -247,6 +250,7 @@ $(function() {
             
             // console.log("checkBox:" , form);
             // console.log("checkBox-Lable:" , form2);
+
             $.ajax({
                 url: "createform" + "?a=save_form",
                 method: 'POST',
@@ -274,21 +278,20 @@ $(function() {
         // var training_id = $('#mySelectBox').text();
    
     }
+    
     $('#save_form').click(function() {
         save_form()
         console.log("sss");
-        // window.location.href = "/assessment";
         alert("Data submitted successfully!.");
         window.location.href = "/assessment";
-        const form = document.getElementById('form-data');
-         form.addEventListener('submit', handleSubmit);
+        // const form = document.getElementById('form-data');
+        //  form.addEventListener('submit', handleSubmit);
 
     })
 
 
     function handleSubmit(event) {
         event.preventDefault();
-      
         const myFormData = new FormData(event.target);
         //  const formDataObj = {};
          const formDataObj = Object.fromEntries(myFormData.entries());

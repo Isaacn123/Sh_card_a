@@ -1,8 +1,6 @@
 
 @extends('layouts.admin')
 
-
-
 @section('content')
 <!-- <p class="text-center">
     Hello
@@ -154,18 +152,19 @@
 
      <div class="form-group extra_padding">
          <label for="">add Profile PIC (Optinal)</label>
-      <label class="input-group-addon"  for="profile_pic">CHANGE PROFILE</label>
+         <label class="input-group-addon"  for="profile_pic">CHANGE PROFILE</label>
      <input type="file" name="profile_pic" class="form-control" id="profile_pic">
      </div>
 
     <div class="form-group mt-2">
      <!-- <button  class="btn btn-success" >
-       
           {{isset($category) ? 'Edit E-Shop Category' : '  Add E-Shop Category'}}
      </button> -->
-     <button type="submit" class="btn btn-primary">
-                                    Create Beneficiary
-                                </button>
+
+         <button type="submit" class="btn btn-primary">
+            Create Beneficiary
+         </button>
+         
     </div>
 
    </form>
