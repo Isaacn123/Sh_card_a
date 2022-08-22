@@ -157,7 +157,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="training_start_date" value="{{old('training_start_date')}}" class="form-control pull-right" placeholder=" Start Date" id="datepicker">
+                  <input autocomplete="off" type="text" name="training_start_date" value="{{old('training_start_date')}}" class="form-control pull-right" placeholder=" Start Date" id="datepicker">
                 </div>
             <!-- <input type="text" id="training_start" name="training_start_date" value="{{old('training_start_date')}}" placeholder=" Start Date" class="form-control"> -->
             <span class="text-danger">@error('training_start_date') {{$message}} @enderror</span>
@@ -170,7 +170,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" name="training_end_date" name="training_start_date"  value="{{old('training_end_date')}}" class="form-control pull-right" placeholder=" End Date" id="datepicker2">
+                  <input type="text" autocomplete="off" name="training_end_date" name="training_start_date"  value="{{old('training_end_date')}}" class="form-control pull-right" placeholder=" End Date" id="datepicker2">
                 </div>
             <!-- <input type="text" id="training_end" name="training_end_date" value="{{old('training_end_date')}}" placeholder=" End Date" class="form-control"> -->
             <span class="text-danger">@error('training_start_date'){{$message}} @enderror</span>

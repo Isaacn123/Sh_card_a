@@ -65,7 +65,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" id="datepicker" name="start_date" value="{{old('start_date')}}" class="form-control pull-right" placeholder=" Start Date">
+                  <input type="text" autocomplete="off" id="datepicker" name="start_date" value="{{old('start_date')}}" class="form-control pull-right" placeholder=" Start Date">
                 </div>
 
 
@@ -81,7 +81,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" id="package_end" name="end_date" value="{{old('end_date')}}" class="form-control pull-right" placeholder=" End Date">
+                  <input type="text" autocomplete="off" id="package_end" name="end_date" value="{{old('end_date')}}" class="form-control pull-right" placeholder=" End Date">
                 </div>
 
             <!-- <input type="text" id="package_end" name="end_date" value="{{old('end_date')}}" placeholder=" End Date" class="form-control"> -->

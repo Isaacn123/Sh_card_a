@@ -38,7 +38,7 @@
 
 @endif
 
-   <form action="{{route('beneficial.store')}}" method="POST" enctype="multipart/form-data" >
+   <form  action="{{route('beneficial.store')}}" method="POST" enctype="multipart/form-data" >
    <!-- @csrf -->
    @csrf
 
