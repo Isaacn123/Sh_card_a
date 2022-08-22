@@ -23,7 +23,9 @@ class CardController extends Controller
         $limit = 25;
         
         // Card::orderBy('id','desc')->paginate($limit)
-        return view('cards.index')->with('card', Card::where('company_id','=', Auth::user()->company_id)->get());
+        // return view('cards.index')->with('card', Card::where('company_id','=', Auth::user()->company_id)->get());
+
+        return "Store";
     }
 
     /**
