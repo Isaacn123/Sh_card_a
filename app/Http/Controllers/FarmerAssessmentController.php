@@ -63,6 +63,7 @@ class FarmerAssessmentController extends Controller
 
               Answer::create([
                 'agent_id' => $id,
+                'user_id' =>0,
                 'question_option_id' => $qn->id,
                 'user_id' => $request->beneficiary_id,
                 'answer_text' => $val["assessment_user_response_answer"],
