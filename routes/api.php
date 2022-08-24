@@ -59,6 +59,7 @@ Route::resource('usercard', BeneficiaryController::class);
     Route::patch('/card/update_agent/{agent_id}', [Agentprofile::class, 'update']);
     Route::post('/card/create_beneficiary/{agent_id}', [AgentBeneficiary::class, 'store']);
     Route::post('/agent/create_assessment/{agent_id}', [AssessmentController::class, 'create']);
+    Route::post('/agent/create_farmer_assessment/{agent_id}', [FarmerAssessmentController::class, 'create']);
     Route::post('/card/scan', [CardController::class, 'scan']);
     Route::post('/training/create_attendance/{agent_id}', [AttendanceController::class, 'store']); 
     Route::get('/company/{company_id}', [CompanyController::class, 'show']);

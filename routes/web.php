@@ -22,6 +22,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\RegisteruserController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\FarmerAssessmentController;
 use Spatie\Permission\Models\Role;
 use App\Models\Company;
 use App\Models\Category;
@@ -103,6 +104,7 @@ Route::get('/activities', [ActivitiesController::class, 'index'])->name('activit
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/assessmentforms', [AssessmentController::class, 'index'])->name('assessmentforms');
+Route::get('/assessmentfarmers', [FarmerAssessmentController::class, 'index'])->name('assessmentfarmers');
 Route::get('/cards', [CardController::class, 'index'])->name('cards');
 Route::get('/attached', [AttachedCards::class, 'index'])->name('attached');
 Route::get('/distribution', [DistributedCards::class, 'index'])->name('distribution');

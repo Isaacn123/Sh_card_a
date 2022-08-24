@@ -413,7 +413,7 @@
       </a>
     <ul class="treeview-menu">
     <li class="{{ (request()->is('assessmentforms')) ?     'active' : '' }}"><a href="{{route('assessmentforms')}}"><i class="fa fa-circle-o"></i>Assessment Form 1</a></li>
-    <li class="{{ (request()->is('assessmentforms')) ?     'active' : '' }}"><a href="{{route('assessmentforms')}}"><i class="fa fa-circle-o"></i>Assessment Form 2</a></li>
+    <li class="{{ (request()->is('assessmentfarmers')) ?     'active' : '' }}"><a href="{{route('assessmentfarmers')}}"><i class="fa fa-circle-o"></i>Assessment Form 2</a></li>
     </ul>
     </li>
   

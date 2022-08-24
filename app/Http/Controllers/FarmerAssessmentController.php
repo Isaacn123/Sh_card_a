@@ -3,61 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Assessment;
-use App\Models\AssessmentGroup;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Agent;
+use App\Models\FarmerAssessment;
 use App\Models\InputType;
 use App\Models\Answer;
-use Illuminate\Support\Collection;
-class AssessmentController extends Controller
+use App\Models\AssessmentGroup;
+
+class FarmerAssessmentController extends Controller
 {
     //
 
+
     public function index(){
 
-        $assessments = Assessment::with('questions')->get();
+        $assessments = FarmerAssessment::with('questions')->get();
         // $assessment = Assessment::with('questions')->get();
-        $assessment = Assessment::with('questions')->find(1);
+        $assessment = FarmerAssessment::with('questions')->find(1);
         $qns = AssessmentGroup::with('questions')->get();
-        //  $questions = $assessment->questions;
-        // foreach($qns as $q ){
-        //   if($qns->last() == $q){
-        //     $qn = Question::where('id','=',$val['question_id'])->get();
-        //     array_push($questions,$qn);
-        //   }
-         
-        // }
-       
-        // $newassess = collect($assessments);
-        // $qm = $newassess->all();
-      //  return $qm->questions;
-      
-        // return  $questions->where('id', $assessment)->where('answer_text','=','yes')->count();
-        return view('assessments.form_one')->with(compact('assessments'));
+    
+        return view('assessments.farmer_assessment')->with(compact('assessments'));
     }
+
 
     public function create(Request $request,$id){
 
-        // Assessment
-        // AssessmentGroup
-        // Question
-        // QuestionOption
-    // 'user_id',
-    // 'company_id',
-    // 'assessment_name',
-    // 'assessment_description',
-    //  return $request->beneficiary_id;
-       $uuid = random_int(1010, 9999);
+
        $agent = Agent::where('agent_id','=',$id)->first();
-       $asses =  Assessment::create([
-         'user_id' => $request->beneficiary_id,
+       $uuid = random_int(1010, 9999);
+       $asses =  FarmerAssessment::create([
+         'agent_id' => $request->agent_id,
          'beneficiary_id' => $request->beneficiary_id,
          'company_id' => $agent->company_id,
-         'assessment_id' => $uuid,
+         'farmer_assessment_id' => $uuid,
+         'assessment_farm_id' => $request->farm_assessment_id,
          'assessment_name' => $request->assessment_name,
-         'assessment_description' => 'assessment'
+         'assessment_description' => $request->assessment_subtitle
         ]);
 
         if($asses ){
@@ -74,7 +56,7 @@ class AssessmentController extends Controller
                   'answer_text' => $val['assessment_user_response_answer'],
                   'question_required' => $val["answer_required"] == "yes" ? true : false,
                   'answer_required' => $val["answer_required"]== "yes" ? true : false,
-                  'question_assessment_id' => $asses->id
+                  'question_farmer_assessment_id' => $asses->id
               ]);
 
               Answer::create([
@@ -104,10 +86,4 @@ class AssessmentController extends Controller
 
     //  return $qn;
     }
-
-  public function fetchid(){
-    $asses_id = Assessment::pluck('assessment_id');
-
-    return response($asses_id,200);
-  }
 }

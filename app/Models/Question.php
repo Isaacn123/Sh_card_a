@@ -19,6 +19,7 @@ class Question extends Model
         'answer_text',
         'answer_boolean',
         'question_assessment_id',
+        'question_farmer_assessment_id',
         'allow_mutiple_option_answers_yn',
 
 

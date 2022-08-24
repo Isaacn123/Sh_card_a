@@ -23,7 +23,8 @@ class CreateQuestionsTable extends Migration
             $table->string('answer_text')->nullable();
             $table->boolean('answer_boolean')->default(false);
             $table->unsignedBigInteger('option_group_id');
-            $table->unsignedBigInteger('question_assessment_id');
+            $table->unsignedBigInteger('question_assessment_id')->default(0);
+            $table->unsignedBigInteger('question_farmer_assessment_id')->default(0);
             $table->boolean('allow_mutiple_option_answers_yn')->default(0);
             $table->timestamps();
         });

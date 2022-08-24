@@ -5,7 +5,7 @@
 
 <div class="content-wrapper">
     <div class="container">
-    <h1>Assessment form 1</h1>
+    <h1>Farmer Assessments</h1>
 
     <div class="row">
                     <div class="col-12">
@@ -25,6 +25,7 @@
                                                 <th style="width: 21.344px;"># Assessment ID</th>
                                                 <th style="width: 31.344px;">DateTime</th>
                                                 <th style="width: 51.344px;">Assessment Name</th>
+                                                <th style="width: 51.344px;">Farm Assessment ID</th>
                                                 <th style="width: 51.344px;">Beneficiary</th>
                                                 <th style="width: 41.344px;">Percentage</th>
                                                 <th style="width: 111.344px;">Action</th>
@@ -40,6 +41,7 @@
                                                 <!-- M d,Y h:i A -->
                                                 <td>{{date("M d,Y",strtotime($assessment->created_at))}}</td>
                                                 <td>{{$assessment->assessment_name}}</td>
+                                                <td>{{$assessment->assessment_farm_id}}</td>
                                                 <td>{{$assessment->beneficiary_id}}</td>
                                                 <td>100%</td>
                                                 <td>
