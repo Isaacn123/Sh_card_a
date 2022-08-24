@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Agent;
+use App\Models\Assessment;
 use App\Models\FarmerAssessment;
 use App\Models\InputType;
 use App\Models\Answer;
@@ -32,9 +33,10 @@ class FarmerAssessmentController extends Controller
 
        $agent = Agent::where('agent_id','=',$id)->first();
        $uuid = random_int(1010, 9999);
+       $farm = Assessment::where('assessment_id','=',$request->farm_assessment_id)->first();
        $asses =  FarmerAssessment::create([
          'agent_id' => $request->agent_id,
-         'beneficiary_id' => $request->beneficiary_id,
+         'beneficiary_id' => $farm->beneficiary_id,
          'company_id' => $agent->company_id,
          'farmer_assessment_id' => $uuid,
          'assessment_farm_id' => $request->farm_assessment_id,
