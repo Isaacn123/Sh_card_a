@@ -21,7 +21,7 @@ class AssessmentController extends Controller
         // $assessment = Assessment::with('questions')->get();
         $assessment = Assessment::with('questions')->find(1);
         $qns = AssessmentGroup::with('questions')->get();
-         $questions = $assessment->questions;
+        //  $questions = $assessment->questions;
         // foreach($qns as $q ){
         //   if($qns->last() == $q){
         //     $qn = Question::where('id','=',$val['question_id'])->get();
