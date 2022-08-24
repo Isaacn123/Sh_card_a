@@ -91,6 +91,7 @@ class RegisterController extends Controller
         // $user->email = $data['email'];
         // $user->password = Hash::make($data['password']);
         $user->assignRole('admin');
+        $user->role = 'admin';
         $profile->full_name = $data['name'];
         $profile->email = $data['email']; 
         $profile->user_id = $user->id; 

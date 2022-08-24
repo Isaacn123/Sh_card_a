@@ -282,8 +282,9 @@ $(function() {
     $('#save_form').click(function() {
         save_form()
         console.log("sss");
-        alert("Data submitted successfully!.");
+        alert("Form created successfully!");
         window.location.href = "/assessment";
+        // window.location.assign('/assessment');
         // const form = document.getElementById('form-data');
         //  form.addEventListener('submit', handleSubmit);
 
@@ -293,13 +294,13 @@ $(function() {
     function handleSubmit(event) {
         event.preventDefault();
         const myFormData = new FormData(event.target);
-        //  const formDataObj = {};
-         const formDataObj = Object.fromEntries(myFormData.entries());
-         formDataObj.favorite_pet = myFormData.getAll('q[0]');
+    //  const formDataObj = {};
+        const formDataObj = Object.fromEntries(myFormData.entries());
+        formDataObj.favorite_pet = myFormData.getAll('q[0]');
            for(let key of myFormData.keys()){
             console.log(key,myFormData.get(key));
-           }
+            }
     //    var rd=  document.querySelector('input[type="checkbox"]')[0]
-         console.log("FIELD11::",formDataObj);
+        console.log("FIELD11::",formDataObj);
       }
 })

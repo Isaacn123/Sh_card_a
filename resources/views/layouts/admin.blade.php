@@ -403,6 +403,19 @@
     <li class="{{ (request()->is('distribution')) ? 'active' : '' }}"><a href="{{route('distribution')}}"><i class="fa fa-circle-o"></i>Packages Distributed</a></li>
     </ul>
     </li>
+
+    <li   class="treeview ">
+      <a href="{{route('assessmentforms')}}">
+        <i class="fa fa-id-card"></i> <span>Assessments</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+    <ul class="treeview-menu">
+    <li class="{{ (request()->is('assessmentforms')) ?     'active' : '' }}"><a href="{{route('assessmentforms')}}"><i class="fa fa-circle-o"></i>Assessment Form 1</a></li>
+    <li class="{{ (request()->is('assessmentforms')) ?     'active' : '' }}"><a href="{{route('assessmentforms')}}"><i class="fa fa-circle-o"></i>Assessment Form 2</a></li>
+    </ul>
+    </li>
   
     <li class="{{ (request()->is('assessment')) ? 'active' : '' }}">
       <a href="{{route('assessment.index')}}">

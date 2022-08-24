@@ -15,9 +15,18 @@ class Question extends Model
         'question_required',
         'answer_required',
         'option_group_id',
+        'answer_numeric',
+        'answer_text',
+        'answer_boolean',
         'question_assessment_id',
         'allow_mutiple_option_answers_yn',
 
 
     ];
+
+    public function answer(){
+     
+   return $this->belongTo('App\Models\Answer');
+    
+    }
 }

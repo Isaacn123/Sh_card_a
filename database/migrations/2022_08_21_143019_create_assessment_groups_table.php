@@ -16,6 +16,7 @@ class CreateAssessmentGroupsTable extends Migration
         Schema::create('assessment_groups', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('beneficiary_id');
             $table->timestamps();
         });
     }

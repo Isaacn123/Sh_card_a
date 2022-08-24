@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Agentprofile;
 use App\Http\Controllers\AgentBeneficiary;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DistributionController;
 
 /*
@@ -37,6 +38,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent']);
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid']);
+Route::get('/form/get_assessment_id', [AssessmentController::class, 'fetchid']);
 Route::get('/card/get_packages/{id}', [PackageController::class, 'apiPackages']);
 Route::post('/card/package_distribution/{id}', [PackageController::class, 'distribution']);
 
@@ -56,6 +58,7 @@ Route::resource('usercard', BeneficiaryController::class);
     Route::get('/card/scan_summary/{agent_id}', [DistributionController::class, 'scan_summary']);
     Route::patch('/card/update_agent/{agent_id}', [Agentprofile::class, 'update']);
     Route::post('/card/create_beneficiary/{agent_id}', [AgentBeneficiary::class, 'store']);
+    Route::post('/agent/create_assessment/{agent_id}', [AssessmentController::class, 'create']);
     Route::post('/card/scan', [CardController::class, 'scan']);
     Route::post('/training/create_attendance/{agent_id}', [AttendanceController::class, 'store']); 
     Route::get('/company/{company_id}', [CompanyController::class, 'show']);
