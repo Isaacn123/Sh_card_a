@@ -84,7 +84,7 @@ class FarmerAssessmentController extends Controller
              }
      
            
-             return response()->json(['success' => 'Assessment completed successfully. ', 'id' => $asses->assessment_id],200);
+             return response()->json(['success' => 'Assessment completed successfully. ', 'id' => $asses->farmer_assessment_id],200);
 
     //  return $qn;
     }
