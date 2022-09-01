@@ -37,7 +37,7 @@
                                            @foreach($assessments as $assessment) 
                                              <tr>
                                                 
-                                                <td>{{$assessment->assessment_id}}</td>
+                                                <td>{{$assessment->farmer_assessment_id}}</td>
                                                 <!-- M d,Y h:i A -->
                                                 <td>{{date("M d,Y",strtotime($assessment->created_at))}}</td>
                                                 <td>{{$assessment->assessment_name}}</td>

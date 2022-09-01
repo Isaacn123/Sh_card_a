@@ -17,6 +17,8 @@ class Question extends Model
         'option_group_id',
         'answer_numeric',
         'answer_text',
+        'answer_score',
+        'answer_response_score',
         'answer_boolean',
         'question_assessment_id',
         'question_farmer_assessment_id',

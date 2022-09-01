@@ -21,6 +21,8 @@ class CreateQuestionsTable extends Migration
             $table->boolean('answer_required')->default(0);
             $table->tinyInteger('answer_numeric')->default(0);
             $table->string('answer_text')->nullable();
+            $table->tinyInteger('answer_score')->default(0);
+            $table->string('answer_response_score')->nullable();
             $table->boolean('answer_boolean')->default(false);
             $table->unsignedBigInteger('option_group_id');
             $table->unsignedBigInteger('question_assessment_id')->default(0);
