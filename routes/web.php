@@ -88,6 +88,7 @@ Route::resource('roles', RoleController::class);
 Route::resource('agent', CommunityController::class);
 Route::resource('company', CompanyController::class);
 // package.update
+Route::post('/approve/{id}', [FarmerAssessmentController::class, 'approve'])->name('approve');
 Route::put('/packageupdate', [PackageController::class, 'update'])->name('packageupdate');
 Route::get('/companyupdate/{id}', [CompanyController::class, 'show'])->name('show');
 Route::get('/showcategory/{id}', [CategoryController::class, 'show'])->name('showcategory');

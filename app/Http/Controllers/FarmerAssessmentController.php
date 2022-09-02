@@ -8,6 +8,7 @@ use App\Models\QuestionOption;
 use App\Models\Agent;
 use App\Models\Assessment;
 use App\Models\FarmerAssessment;
+use App\Models\Beneficiary;
 use App\Models\InputType;
 use App\Models\Answer;
 use App\Models\AssessmentGroup;
@@ -23,7 +24,20 @@ class FarmerAssessmentController extends Controller
         // $assessment = Assessment::with('questions')->get();
         $assessment = FarmerAssessment::with('questions')->find(1);
         $qns = AssessmentGroup::with('questions')->get();
-    
+
+        // dd($assessments);
+        // $assessments[1]->questions[0]->count('answer_score');
+
+        $d =  $assessments->map(function ($item, $key) {
+       
+          return $key;
+       
+           });
+
+          //  for($d as $key){
+          //   $count =  $assessments[$val]->questions->sum('answer_score');
+          //  }
+
         return view('assessments.farmer_assessment')->with(compact('assessments'));
     }
 
@@ -337,5 +351,15 @@ class FarmerAssessmentController extends Controller
              return response()->json(['success' => 'Assessment completed successfully. ', 'id' => $asses->farmer_assessment_id],200);
 
     //  return $qn;
+    }
+
+    public function approve(Request $request, $id){
+      $assessment = FarmerAssessment::find($id);
+      $assessment->update(['status'=>true]);
+       $beneficiary = Beneficiary::where('beneficiary_uid','=',$assessment->beneficiary_id)->first();
+       $beneficiary->update(['assessment_status' => true]);
+       @session()->flash('success', 'Approved successfully');
+      
+      return response()->json(['success' => 'Approved successfully.']);
     }
 }

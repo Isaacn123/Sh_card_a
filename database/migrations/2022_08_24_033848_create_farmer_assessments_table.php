@@ -18,6 +18,7 @@ class CreateFarmerAssessmentsTable extends Migration
             $table->unsignedBigInteger('agent_id')->default(0);
             $table->unsignedBigInteger('beneficiary_id')->default(0);
             $table->unsignedBigInteger('assessment_farm_id');
+            $table->boolean('status')->default(false);
             $table->unsignedBigInteger('company_id');
             $table->unsignedBigInteger('farmer_assessment_id')->default(0);
             $table->string('assessment_name');

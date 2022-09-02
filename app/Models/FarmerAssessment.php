@@ -15,6 +15,7 @@ class FarmerAssessment extends Model
         'assessment_farm_id',
         'farmer_assessment_id',
         'company_id',
+        'status',
         'assessment_name',
         'assessment_description',
     ];

@@ -16,6 +16,7 @@ class Beneficiary extends Model
         'agent_id',
         'age',
         'gender',
+        'assessment_status',
         'company_id',
         'phoneNumber',
         'address',
