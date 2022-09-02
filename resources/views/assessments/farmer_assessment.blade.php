@@ -48,7 +48,7 @@
                                                 <td>{{$assessment->questions->sum('answer_score')}}</td>
 
                                                 <td>
-                                                @if($assessment->questions->sum('answer_score') <> 7)
+                                                @if($assessment->questions->sum('answer_score') <> 24)
                                                 <div style="color:red; font-size:18px; font-weight:500"> Faild</div>
                                                 @else
                                              <div style="color:green;font-size:18px; font-weight:500"> Passed</div>
@@ -60,7 +60,7 @@
                                              <a class="btn btn-warning" href="">View</a>
                                              @if($assessment->status == true)
                                              <a id="button" class="btn float-right" style="background:#535c63; color:#fff;" href="#" onclick="">Approve</a>
-                                             @elseif($assessment->questions->sum('answer_score') <> 7)
+                                             @elseif($assessment->questions->sum('answer_score') <> 24)
                                              <a id="button" class="btn btn-danger float-right" href="#" onclick="">DISABLED</a>
                                              @elseif($assessment->status == true)
                                              <a id="button" class="btn float-right" style="background:#535c63; color:#fff;" href="#" onclick="">Approve</a>
