@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use  App\Models\Agent;
+use  App\Models\Beneficiary;
 use App\Http\Resources\AgentResource;
 
 class AgentAuthController extends Controller
@@ -208,11 +209,22 @@ class AgentAuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function search($name)
+    public function search($name,$id)
     {
         //
+        $agents = Agent::with('beneficiary')->where('agent_id','=',$id)->first();
+        $benf = new Beneficiary;
+    //  return $agents->beneficiary->where('fullName','like', "%{$name}%");
+    //  return Beneficiary::hydrate($agents->beneficiary->toArray())->where('fullName','like', "%".$name."%")->all(); //Agent::where('fullName','like', "%".$name."%")->get();
+// return $name;
+     $agent = Agent::with(['beneficiary' => function($query) use ($name){
+        $query->where('fullName', 'like', '%'.$name.'%')->with('farm');
+    }])->get();
+
+     return collect($agent->toArray());
+
         // return Argent::where('agentName','like',$name)->get();
-        return Agent::where('agentName','like','%'.$name.'%')->get(); //searching foro the name with starting  letters 
+        // return Agent::where('agentName','like','%'.$name.'%')->get(); //searching foro the name with starting  letters 
     }
 
 

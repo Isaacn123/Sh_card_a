@@ -37,4 +37,10 @@ class Agent extends Model
     ];
 
 
+    public function beneficiary(){
+
+        return $this->hasMany('App\Models\Beneficiary','agent_id', 'agent_id');
+    }
+
+
 }

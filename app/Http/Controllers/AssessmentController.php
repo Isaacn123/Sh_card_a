@@ -10,6 +10,7 @@ use App\Models\QuestionOption;
 use App\Models\Agent;
 use App\Models\InputType;
 use App\Models\Answer;
+use App\Models\Beneficiary;
 use Illuminate\Support\Collection;
 class AssessmentController extends Controller
 {
@@ -51,53 +52,56 @@ class AssessmentController extends Controller
     //  return $request->beneficiary_id;
        $uuid = random_int(1010, 9999);
        $agent = Agent::where('agent_id','=',$id)->first();
-       $asses =  Assessment::create([
-         'user_id' => $request->beneficiary_id,
-         'beneficiary_id' => $request->beneficiary_id,
-         'company_id' => $agent->company_id,
-         'assessment_id' => $uuid,
-         'assessment_name' => $request->assessment_name,
-         'assessment_description' => 'assessment'
-        ]);
+       $search = Assessment::where('beneficiary_id','=',$request->beneficiary_id)->first();
+     
+       if(isset($search)){
+        return response()->json(['error' => "Beneficiary already taken Farm Assessment"],400);
+       }else{
+        $asses =  Assessment::create([
+          'user_id' => $request->beneficiary_id,
+          'beneficiary_id' => $request->beneficiary_id,
+          'company_id' => $agent->company_id,
+          'assessment_id' => $uuid,
+          'assessment_name' => $request->assessment_name,
+          'assessment_description' => 'assessment'
+         ]);
 
         if($asses ){
-            $data = $request->data;
-            foreach( $data as $key => $val){
-              // $res = $val;
-             $input =  InputType::create([
-                'input_type_name' =>  $val['type']
-                ]);
-             $qn = Question::create([
-                  'input_type_id' => $input->id,
-                  'option_group_id' => 0,
-                  'question_name' =>$val['assessemt_question'] ,
-                  'answer_text' => $val['assessment_user_response_answer'],
-                  'question_required' => $val["answer_required"] == "yes" ? true : false,
-                  'answer_required' => $val["answer_required"]== "yes" ? true : false,
-                  'question_assessment_id' => $asses->id
-              ]);
+          Beneficiary::where('beneficiary_uid','=',$request->beneficiary_id)->update(['farm_assessment_id' =>$asses->assessment_id]);
+         $data = $request->data;
+         foreach( $data as $key => $val){
+           // $res = $val;
+          $input =  InputType::create([
+             'input_type_name' =>  $val['type']
+             ]);
+          $qn = Question::create([
+               'input_type_id' => $input->id,
+               'option_group_id' => 0,
+               'question_name' =>$val['assessemt_question'] ,
+               'answer_text' => $val['assessment_user_response_answer'],
+               'question_required' => $val["answer_required"] == "yes" ? true : false,
+               'answer_required' => $val["answer_required"]== "yes" ? true : false,
+               'question_assessment_id' => $asses->id
+           ]);
 
-              Answer::create([
-                'agent_id' => $id,
-                'question_option_id' => $qn->id,
-                'user_id' => $request->beneficiary_id,
-                'answer_text' => $val["assessment_user_response_answer"],
-              ]);
+           Answer::create([
+             'agent_id' => $id,
+             'question_option_id' => $qn->id,
+             'user_id' => $request->beneficiary_id,
+             'answer_text' => $val["assessment_user_response_answer"],
+           ]);
 
-              AssessmentGroup::create([
-                'question_id' => $qn->id,
-                'beneficiary_id' => $request->beneficiary_id
-              ]);
+           AssessmentGroup::create([
+             'question_id' => $qn->id,
+             'beneficiary_id' => $request->beneficiary_id
+           ]);
+            
+            }
+          }
+       }
+
+
       
-   
-      
-              if($qn){
-               
-               
-                }
-               
-               }
-             }
      
            
              return response()->json(['success' => 'Assessment completed successfully. ', 'id' => $asses->assessment_id],200);

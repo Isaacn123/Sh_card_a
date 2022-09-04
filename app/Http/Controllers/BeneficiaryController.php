@@ -216,4 +216,14 @@ class BeneficiaryController extends Controller
         // $result= $res->send();
        
     }
+
+    public function checkid($id){
+        $beneficiary_id = Beneficiary::where('beneficiary_uid','=',$id)->first(); 
+         
+        if($beneficiary_id->assessment_status == true){
+        return response()->json(['success' => "Approved for Distribution"],200);
+        }else{
+            return response()->json(['error' => "Beneficiary Not Approved"],400);  
+        }
+    }
 }

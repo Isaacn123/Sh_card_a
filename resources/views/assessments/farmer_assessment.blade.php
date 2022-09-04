@@ -51,7 +51,7 @@
                                                 @if($assessment->questions->sum('answer_score') <> 24)
                                                 <div style="color:red; font-size:18px; font-weight:500"> Faild</div>
                                                 @else
-                                             <div style="color:green;font-size:18px; font-weight:500"> Passed</div>
+                                               <div style="color:green;font-size:18px; font-weight:500"> Passed</div>
                                                  @endif
                                                 </td>
                                                

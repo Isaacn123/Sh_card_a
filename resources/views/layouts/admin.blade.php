@@ -466,7 +466,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2020-2023 <a href="#">FlitsDesigns</a>.</strong> All rights
+    <strong>Copyright &copy; 2020-2023 <a href="#">Padshare</a>.</strong> All rights
     reserved.
 
 

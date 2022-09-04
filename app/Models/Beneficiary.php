@@ -32,4 +32,9 @@ class Beneficiary extends Model
         'is_assigned_card'
         
     ];
+
+    public function farm(){
+
+        return $this->hasMany('App\Models\Assessment','assessment_id', 'farm_assessment_id');
+    }
 }
