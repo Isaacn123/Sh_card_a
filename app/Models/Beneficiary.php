@@ -28,6 +28,7 @@ class Beneficiary extends Model
         'family_size',
         'profile_pic',
         'assigned_Inspectors',
+        'farm_assessment_id',
         'certifications',
         'is_assigned_card'
         

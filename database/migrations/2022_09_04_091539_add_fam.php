@@ -15,7 +15,7 @@ class AddFam extends Migration
     {
         //
         Schema::table('beneficiaries', function ($table){
-            $table->unsignedBigInteger('farm_assessment_id');
+            $table->unsignedBigInteger('farm_assessment_id')->default(0);
         });
     }
 

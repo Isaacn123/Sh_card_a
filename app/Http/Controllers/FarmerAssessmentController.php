@@ -50,15 +50,21 @@ class FarmerAssessmentController extends Controller
        $agent = Agent::where('agent_id','=',$id)->first();
        $uuid = random_int(1010, 9999);
        $farm = Assessment::where('assessment_id','=',$request->farm_assessment_id)->first();
-       $asses =  FarmerAssessment::create([
-         'agent_id' => $request->agent_id,
-         'beneficiary_id' => $farm->beneficiary_id,
-         'company_id' => $agent->company_id,
-         'farmer_assessment_id' => $uuid,
-         'assessment_farm_id' => $request->farm_assessment_id,
-         'assessment_name' => $request->assessment_name,
-         'assessment_description' => $request->assessment_subtitle
-        ]);
+     
+       $farmer = FarmerAssessment::where('assessment_id','=',$request->farm_assessment_id)->first();
+
+       if(isset($farmer)){
+       return response()->json(['error'=> 'Beneficiary Already taken Assessment.Thank you'],400);
+       }else{
+        $asses =  FarmerAssessment::create([
+          'agent_id' => $request->agent_id,
+          'beneficiary_id' => $farm->beneficiary_id,
+          'company_id' => $agent->company_id,
+          'farmer_assessment_id' => $uuid,
+          'assessment_farm_id' => $request->farm_assessment_id,
+          'assessment_name' => $request->assessment_name,
+          'assessment_description' => $request->assessment_subtitle
+         ]);
 
         if($asses ){
           foreach( $data as $key => $val){
@@ -310,6 +316,11 @@ class FarmerAssessmentController extends Controller
 
           }
         }
+       }
+
+      
+
+       
 
       //   if($asses ){
       //       $data = $request->data;
