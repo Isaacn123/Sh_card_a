@@ -177,8 +177,8 @@
           <div class="row">
             <div class="col-sm-3 col-xs-6">
               <div class="description-block border-right">
-                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                <h5 class="description-header">854</h5>
+                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 0%</span>
+                <h5 class="description-header">0</h5>
                 <span class="description-text">FARMER ENGAGEMENT</span>
               </div>
               <!-- /.description-block -->
@@ -187,7 +187,7 @@
             <div class="col-sm-3 col-xs-6">
               <div class="description-block border-right">
                 <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                <h5 class="description-header">4590</h5>
+                <h5 class="description-header">0</h5>
                 <span class="description-text">SEEDING DISTRIBUTION</span>
               </div>
               <!-- /.description-block -->
@@ -195,8 +195,8 @@
             <!-- /.col -->
             <div class="col-sm-3 col-xs-6">
               <div class="description-block border-right">
-                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                <h5 class="description-header">2813.53</h5>
+                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 0%</span>
+                <h5 class="description-header">0</h5>
                 <span class="description-text">SEEDING SURVIVAL</span>
               </div>
               <!-- /.description-block -->
@@ -204,8 +204,8 @@
             <!-- /.col -->
             <div class="col-sm-3 col-xs-6">
               <div class="description-block">
-                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                <h5 class="description-header">1200</h5>
+                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 0%</span>
+                <h5 class="description-header">0</h5>
                 <span class="description-text">ACREAGE COVERED</span>
               </div>
               <!-- /.description-block -->
