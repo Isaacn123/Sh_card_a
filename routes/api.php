@@ -39,11 +39,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::patch('/usercard', [CardController::class, 'update'])->name('usercard');
 Route::post('/card/agent_login', [AgentAuthController::class, 'checkagent']);
 Route::get('/card/get_id', [BeneficiaryController::class, 'fetchid']);
-Route::get('/card/check_uid', [BeneficiaryController::class, 'checkid']);
+Route::get('/card/check_id', [BeneficiaryController::class, 'checkid']);
 Route::get('/form/get_assessment_id', [AssessmentController::class, 'fetchid']);
 Route::get('/card/get_packages/{id}', [PackageController::class, 'apiPackages']);
 Route::post('/card/package_distribution/{id}', [PackageController::class, 'distribution']);
 Route::get('/card/search/{name}/{agent_id}', [AgentAuthController::class, 'search']);
+Route::get('/card/check_id/{id}', [BeneficiaryController::class, 'checkid']);
 
 ///Prodcted API AUTH
 
